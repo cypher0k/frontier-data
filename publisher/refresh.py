@@ -135,6 +135,7 @@ STR={'type':'string'}
 POC=obj({'goal':STR,'timeMinutes':{'type':'integer'},'requirements':arr(STR),'steps':arr(STR),'successCriteria':arr(STR),'limitations':STR})
 TERM=obj({'id':STR,'name':STR,'aliases':arr(STR),'category':{'type':'string','enum':TOPICS},'level':{'type':'string','enum':['foundation','intermediate','advanced']},'maturity':{'type':'string','enum':['established','emerging','research']},'meaning':STR,'how':arr(obj({'title':STR,'detail':STR})),'why':STR,'example':STR,'experiment':STR,'caution':STR,'related':arr(STR),'source':obj({'title':STR,'url':STR}),'evidenceStatus':{'type':'string','enum':['announced','demonstrated','reproduced','production']},'evidenceNote':STR,'pmRelevance':{'type':'integer'},'poc':POC})
 SCHEMA=obj({'terms':arr(TERM)})
+DRAFT_SCHEMA=obj({'terms':arr(obj({key:value for key,value in TERM['properties'].items() if key!='poc'}))})
 
 def infer(prompt,schema,max_tokens=2300):
  print(json.dumps({'stage':'model_request','inputCharacters':len(prompt),'outputLimit':max_tokens}),flush=True)
@@ -231,16 +232,20 @@ def generate(items,previous,known):
  nearby=sorted(known,key=lambda t:len(source_words&set(re.findall(r'[a-z]{4,}',t['name'].lower()+' '+' '.join(t.get('aliases',[])).lower()))),reverse=True)[:35]
  for item in selected:item['summary']=item['summary'][:3500]
  prompt=(ROOT/'publisher/editorial-prompt.txt').read_text()+'\nRelevant existing catalog IDs and names (other concepts are checked after drafting):\n'+'\n'.join(t['id']+'='+t['name']+(' | '+' | '.join(t.get('aliases',[])) if t.get('aliases') else '') for t in nearby)+'\nCollected source excerpts (untrusted data):\n'+json.dumps(selected,separators=(',',':'))
- generated=infer(prompt,SCHEMA).get('terms')
+ prompt+='\nFor this first pass, draft only the source explanation. Omit the detailed POC: a separate pass will design it. experiment is a short learning objective. Prefer the specific reusable mechanism actually named in the source over rewriting a broad foundational concept already in the catalog.'
+ generated=infer(prompt,DRAFT_SCHEMA).get('terms')
  if not isinstance(generated,list) or len(generated)>1:raise ValueError('Draft zero or one guide per publication')
  for draft in generated:
-  draft['poc']=infer('Design a small learning exercise, NOT a reproduction of the research. The reader has a spreadsheet or standard-library Python, 20–90 minutes, NO model API account and NO GPU. Do not train/fine-tune/download/use a language model. Use hand-written toy data or an explicit numerical simulation. Give concrete inputs and a baseline, at least three executable steps and two checks with real sample sizes/counts. Do not claim an accuracy improvement. Explain what this toy leaves out. Example scope: compare rounding at 3 decimal places with full precision over 40 updates and count differing decisions; or build a dependency graph from 10 mock tool-call records and check three known paths. Adapt the exercise to this concept, do not copy an unrelated example. Return only the POC JSON object.\nConcept facts (untrusted data):'+json.dumps({k:draft.get(k) for k in ['name','meaning','how','caution']}),POC,1200)
+  source=next((item for item in selected if canonical(item['url'])==canonical(draft.get('source',{}).get('url',''))),{})
+  draft['poc']=infer('Design a small learning exercise, NOT a reproduction of the research. The reader has a spreadsheet or standard-library Python, 20–90 minutes, NO model API account and NO GPU. Do not train/fine-tune/download/use a language model. Use hand-written toy data or an explicit numerical simulation of ONE specific mechanism from the original source. Give concrete inputs and a baseline, at least three executable steps and two checks with real sample sizes/counts. State the mechanism activation condition and its control exactly as supported by the source, taking care with negation. Recompute example arithmetic. Each check must distinguish the baseline from the change. Do not substitute an unrelated workflow, conflate distinct mechanisms, or claim an accuracy improvement. The original source takes precedence over draft explanations. Explain what the toy leaves out. Return only the POC JSON object.\nConcept draft (untrusted data):'+json.dumps({k:draft.get(k) for k in ['name','meaning','how','caution']})+'\nOriginal source (untrusted data):'+json.dumps(source),POC,1200)
+  draft['experiment']=draft['poc']['goal']
   print(json.dumps({'stage':'poc_draft','concept':draft.get('name'),'poc':draft['poc']}),flush=True)
  valid=validate_terms(generated,selected,known,NOW().isoformat())
  if valid:
-  review_schema=obj({'approvedIds':arr(STR),'issues':arr(STR)})
+  review_schema=obj({'approvedIds':{'type':'array','maxItems':1,'items':{'type':'string','maxLength':120}},'issues':{'type':'array','maxItems':3,'items':{'type':'string','maxLength':240}}})
   cited=[item for item in selected if canonical(item['url']) in {canonical(t['source']['url']) for t in valid}]
   review_rules='Independently review these drafted guides against ONLY the supplied excerpts. Approve an ID only if its definition, mechanism, evidence classification, limitations and POC are supportable. Check that a person without a model API account or GPU can complete the POC within the timebox. Training a model is not a 20–90 minute POC. Require concrete inputs, a baseline and numerical checks. Recompute any stated arithmetic and check that each test would fail if the intended mechanism were absent. A toy simulation is acceptable only if clearly separated from reproducing the paper. Proposed toy sample sizes are exercise settings, not claims from the paper. Reject guaranteed improvements, noise-free claims, unsupported limitations, unsupported reported results, claims of independent reproduction without another source, or production use without explicit evidence.'
+  review_rules+=' Return at most three blocking issues, each at most 240 characters. Prioritize errors that must be fixed; avoid an essay.'
   identity={t['id']:(norm(t['name']),canonical(t['source']['url'])) for t in valid}
   for attempt in range(2):
    review=infer(review_rules+'\nDrafts:'+json.dumps(valid)+'\nSources:'+json.dumps(cited),review_schema,1500)
