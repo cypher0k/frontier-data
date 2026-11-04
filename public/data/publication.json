@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-04T14:24:00.524942+00:00",
+  "generatedAt": "2026-11-04T14:41:56.887312+00:00",
   "terms": [
     {
       "aliases": [],
@@ -190,9 +190,197 @@
       "verifiedAt": "2026-11-04T13:11:07.504958+00:00",
       "addedAt": "2026-11-04T13:05:10.965576+00:00",
       "generatedBy": "AI-written · source and POC checked · suggested exercise"
+    },
+    {
+      "id": "in-context-learning",
+      "name": "In-context learning | ICL",
+      "aliases": [
+        "Few-shot learning",
+        "Prompt-based adaptation"
+      ],
+      "category": "foundations",
+      "level": "intermediate",
+      "maturity": "research",
+      "meaning": "In-context learning (ICL) allows a pretrained language model to perform a task by providing demonstrations within the prompt, without updating model parameters. Recent research identifies a specific internal circuit where middle-layer attention heads write class information into a key-value memory structure, while upper-layer heads match the query against these stored keys to retrieve labels. This mechanism functions as a gated associative lookup, where an early-layer signal determines if label repetition occurs, and separate heads suppress the most recently seen label to prevent overfitting to the immediate context.",
+      "how": [
+        {
+          "title": "Demonstration Encoding",
+          "detail": "The model encodes the identity of each label token in the residual stream of the middle layers. Attention heads in these layers write the class of the preceding demonstration into this memory."
+        },
+        {
+          "title": "Query Matching",
+          "detail": "Upper-layer attention heads match the query's class against the stored keys in the memory and copy out the matching labels during the forward pass."
+        },
+        {
+          "title": "Gated Readout",
+          "detail": "An early-layer signal encodes whether any label has repeated. In its absence, readers attend to the start of the prompt. A separate set of heads suppresses the most recently seen label to ensure diversity."
+        }
+      ],
+      "why": "ICL enables agents to adapt to new tasks or domains instantly by providing few examples, avoiding the latency and cost of fine-tuning. Understanding the internal circuit helps builders design better prompts that leverage these specific attention mechanisms rather than generic instructions.",
+      "example": "A model classifies sentences into arbitrary labels (e.g., 'urgent', 'routine', 'error') by presenting three labeled examples in the prompt. Internally, the model uses the demonstrated labels as keys to retrieve the correct classification for a new query without changing its weights.",
+      "experiment": "Verify the 'Gated Associative Lookup' mechanism for few-shot sentence classification using a toy transformer without training.",
+      "caution": "This mechanism is specific to sentence classification with arbitrary labels in 3-4B parameter transformers. Evidence is from causal activation patching and head ablation, not production deployment.",
+      "related": [
+        "rlaif",
+        "golden-answer"
+      ],
+      "source": {
+        "title": "A Circuit for In-Context Learning",
+        "url": "https://arxiv.org/abs/2611.05344"
+      },
+      "evidenceStatus": "demonstrated",
+      "evidenceNote": "The source authors report experiments using activation patching and head ablation against random-head baselines to trace the causal components of the ICL circuit.",
+      "pmRelevance": 4,
+      "poc": {
+        "goal": "Verify the 'Gated Associative Lookup' mechanism for few-shot sentence classification using a toy transformer without training.",
+        "timeMinutes": 45,
+        "requirements": [
+          "No model API, no GPU, no training.",
+          "Use standard library (e.g., numpy) to implement a 2-layer transformer.",
+          "Implement exactly ONE mechanism: the Gated Readout logic.",
+          "Use hand-written toy data."
+        ],
+        "steps": [
+          "Construct a minimal dataset of 3 samples (2 positive, 1 negative) with 2 demonstrations and 1 query.",
+          "Implement the 'Key Write' logic: For each demonstration, compute the attention weight between the demonstration's residual stream and the preceding context to 'write' the class ID into a Key Memory vector.",
+          "Implement the 'Query Match' logic: Compute attention between the query's residual stream and the Key Memory. If the dot product exceeds a threshold, copy the stored class ID to the output.",
+          "Implement the 'Gated Readout' logic: Check if any label has repeated in the prompt. If true, set a gate value of 0.0 (suppress readout). If false, set gate to 1.0 (allow readout).",
+          "Compute the final output by multiplying the Query Match scores by the Gate value."
+        ],
+        "successCriteria": [
+          "Baseline (No Gate): When no label repeats, the model correctly outputs the class of the query based on the stored keys.",
+          "Change (Gate Active): When a label repeats in the prompt, the gate forces the output to 0.0, overriding the stored keys.",
+          "SampleSizesAndCountsCheck1: 2 samples with unique labels -> Output count matches stored keys (2/2 correct).",
+          "SampleSizesAndCountsCheck2: 1 sample with repeated label -> Output count is 0 (0/1 correct suppression)."
+        ],
+        "limitations": "This toy implementation omits the full residual stream dynamics, positional encoding, and the specific causal ablation methods used in the original research. It only simulates the mathematical operation of the gated lookup without the full transformer architecture context."
+      },
+      "publishedAt": "2026-11-03T18:44:34+00:00",
+      "verifiedAt": "2026-11-04T14:40:35.850403+00:00",
+      "addedAt": "2026-11-03",
+      "generatedBy": "AI-written · separate source-check pass · suggested POC"
     }
   ],
   "items": [
+    {
+      "id": "pub-cbe960cd173088dff9",
+      "title": "Twenty Percent of all 'ok' web responses AI gets are not okay",
+      "url": "https://www.unite.ai/20-percent-of-all-ok-web-responses-ai-gets-are-not-okay",
+      "publishedAt": "2026-11-04T14:32:20+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50366053"
+    },
+    {
+      "id": "pub-8aeac03212a4f4a94b",
+      "title": "Read from the Bottom",
+      "url": "https://sk500.online/tech/read-from-the-bottom",
+      "publishedAt": "2026-11-04T14:22:24+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365928"
+    },
+    {
+      "id": "pub-0c4641534e7a504a50",
+      "title": "Financial Nonsense",
+      "url": "https://2ndbreakfast.audreywatters.com/financial-nonsense",
+      "publishedAt": "2026-11-04T14:19:42+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 2,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365895"
+    },
+    {
+      "id": "pub-d84acfb8545364c4b8",
+      "title": "Show HN: SpaceApp – Self-hosted workspace running AI coding CLIs in parallel",
+      "url": "https://github.com/oll4com/spaceapp",
+      "publishedAt": "2026-11-04T14:19:00+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 2,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365885"
+    },
+    {
+      "id": "pub-3c72c5c3cd7d070770",
+      "title": "Nvidia Study: AI Agents Rarely Need Long Context Windows",
+      "url": "https://i10x.ai/news/nvidia-long-context-compaction-agents-study",
+      "publishedAt": "2026-11-04T14:17:09+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365865"
+    },
+    {
+      "id": "pub-2c774b5425d01a59d1",
+      "title": "Show HN: Pacibook – read any book in 22 Indian languages with an AI reader",
+      "url": "https://www.pacibook.com",
+      "publishedAt": "2026-11-04T14:13:53+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365816"
+    },
+    {
+      "id": "pub-34beab957f96878287",
+      "title": "Tencent Hy4",
+      "url": "https://hy.tencent.ai/research/hy4",
+      "publishedAt": "2026-11-04T14:11:26+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 2,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365780"
+    },
     {
       "id": "pub-13fe6fe70be3a3b23b",
       "title": "Jaron Lanier on parallels between AI and social media",
@@ -206,7 +394,7 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 1,
+      "points": 6,
       "comments": 0,
       "discussionUrl": "https://news.ycombinator.com/item?id=50365760"
     },
@@ -223,8 +411,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 1,
-      "comments": 0,
+      "points": 2,
+      "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50365750"
     },
     {
@@ -257,8 +445,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 1,
-      "comments": 0,
+      "points": 3,
+      "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50365692"
     },
     {
@@ -275,7 +463,7 @@
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
       "points": 1,
-      "comments": 0,
+      "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50365644"
     },
     {
@@ -325,8 +513,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 4,
-      "comments": 0,
+      "points": 5,
+      "comments": 2,
       "discussionUrl": "https://news.ycombinator.com/item?id=50365513"
     },
     {
@@ -398,9 +586,9 @@
       "discussionUrl": "https://news.ycombinator.com/item?id=50365322"
     },
     {
-      "id": "pub-8aafee69264b43377a",
-      "title": "Deterministic Agents with Aigenos Engine",
-      "url": "https://github.com/aigenos/flow",
+      "id": "pub-cb7a143d1f46b11080",
+      "title": "Aigenos flow: AI with prediction",
+      "url": "https://aigenos.io",
       "publishedAt": "2026-11-04T13:27:27+00:00",
       "source": "Hacker News",
       "sourceId": "hn",
@@ -665,8 +853,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 283,
-      "comments": 170,
+      "points": 326,
+      "comments": 212,
       "discussionUrl": "https://news.ycombinator.com/item?id=50364336"
     },
     {
@@ -682,8 +870,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 7,
-      "comments": 1,
+      "points": 8,
+      "comments": 2,
       "discussionUrl": "https://news.ycombinator.com/item?id=50364330"
     },
     {
@@ -903,8 +1091,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 170,
-      "comments": 118,
+      "points": 198,
+      "comments": 147,
       "discussionUrl": "https://news.ycombinator.com/item?id=50363554"
     },
     {
@@ -937,8 +1125,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 221,
-      "comments": 59,
+      "points": 269,
+      "comments": 64,
       "discussionUrl": "https://news.ycombinator.com/item?id=50363461"
     },
     {
@@ -954,7 +1142,7 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 3,
+      "points": 4,
       "comments": 0,
       "discussionUrl": "https://news.ycombinator.com/item?id=50363383"
     },
@@ -1073,8 +1261,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 251,
-      "comments": 138,
+      "points": 283,
+      "comments": 144,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362905"
     },
     {
@@ -1093,125 +1281,6 @@
       "points": 2,
       "comments": 0,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362831"
-    },
-    {
-      "id": "pub-a83dd46ed9c42f687c",
-      "title": "Learnings from Auditing Public Evaluations",
-      "url": "https://www.primeintellect.ai/blog/auditing-public-evaluations",
-      "publishedAt": "2026-11-04T08:31:44+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 2,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362815"
-    },
-    {
-      "id": "pub-2b9942233eea649d14",
-      "title": "Show HN: Plugin to Create Product Videos",
-      "url": "https://github.com/Flux-AI-Agent/fluxcut-plugin",
-      "publishedAt": "2026-11-04T08:21:20+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 3,
-      "comments": 1,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362730"
-    },
-    {
-      "id": "pub-64137b2e365603a067",
-      "title": "Ask HN: Impact of US Elections on AI?",
-      "url": "https://news.ycombinator.com/item?id=50362700",
-      "publishedAt": "2026-11-04T08:16:44+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 6,
-      "comments": 7,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362700"
-    },
-    {
-      "id": "pub-f28f2e9429838e3296",
-      "title": "Ask HN: How to Keep the Edge as an Engineer?",
-      "url": "https://news.ycombinator.com/item?id=50362698",
-      "publishedAt": "2026-11-04T08:16:29+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 6,
-      "comments": 3,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362698"
-    },
-    {
-      "id": "pub-8f14aa2ef12a4c33ea",
-      "title": "Show HN: Meteosource MCP server, weather data for AI assistants",
-      "url": "https://mcp.meteosource.com",
-      "publishedAt": "2026-11-04T08:02:25+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 3,
-      "comments": 1,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362615"
-    },
-    {
-      "id": "pub-d893a09dd9702d8164",
-      "title": "You'll need nerves of steel to work with AI agents",
-      "url": "https://orchidfiles.com/youll-need-nerves-of-steel-to-work-with-ai-agents",
-      "publishedAt": "2026-11-04T07:58:08+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 8,
-      "comments": 1,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362588"
-    },
-    {
-      "id": "pub-85d05ebd0f005f430f",
-      "title": "Dopplertrack: Acoustic geolocation from the Doppler curves of propeller aircraft",
-      "url": "https://github.com/mjshiggins/dopplertrack",
-      "publishedAt": "2026-11-04T07:36:53+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 4,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362464"
     },
     {
       "id": "pub-797aba84ba3e9103d8",
@@ -1967,7 +2036,7 @@
       "summary": "The advancement of multimodal learning is heavily constrained by the scarcity and high annotation cost of high-quality instruction data. While raw videos offer an abundant…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 22
+      "points": 23
     },
     {
       "id": "pub-f3ce94e77db0afca8b",
@@ -2042,7 +2111,7 @@
       "summary": "Artificial general intelligence (AGI) requires a method that can understand, generate, reason, and act across diverse domains and modalities. Rather than relying on a single…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 88
+      "points": 89
     },
     {
       "id": "pub-7ca13591ff94866783",
@@ -2175,6 +2244,21 @@
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
       "repo": "sgl-project/sglang"
+    },
+    {
+      "id": "pub-331c88a499e2d06f14",
+      "title": "BEND 2.0: Benchmarking the Capabilities Needed to Design DNA",
+      "url": "https://arxiv.org/abs/2611.03806",
+      "publishedAt": "2026-11-02T19:00:07+00:00",
+      "source": "Hugging Face Papers",
+      "sourceId": "hf-papers",
+      "layer": "Research",
+      "priority": 4,
+      "kind": "research",
+      "summary": "Genomic foundation models are increasingly used to propose DNA sequences and edits. But successful design requires capabilities that current benchmarks do not measure. Here we…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1
     },
     {
       "id": "pub-0d297090385ad5a724",
@@ -2405,7 +2489,7 @@
       "summary": "GUI web agents require realistic and interactive environments that remain stable during both evaluation and training. Live website evaluation suffers from changing content, access restrictions,…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 15
+      "points": 16
     },
     {
       "id": "pub-4841cbfc0576617fe7",
@@ -2571,21 +2655,6 @@
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
       "points": 2
-    },
-    {
-      "id": "pub-1c629b3ebc286653b3",
-      "title": "PhotoGuider: Composition-Aware Cropping and 360^{circ} View Framing with Explainable Photographic Assessments",
-      "url": "https://arxiv.org/abs/2611.02897",
-      "publishedAt": "2026-11-02T00:00:00+00:00",
-      "source": "Hugging Face Papers",
-      "sourceId": "hf-papers",
-      "layer": "Research",
-      "priority": 4,
-      "kind": "research",
-      "summary": "Traditional image cropping assumes the photograph already contains the composition worth keeping, and asks only where to crop. A full 360^{circ} scene offers no such…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 34
     },
     {
       "id": "pub-e2f2cd3ee0a6015b87",
@@ -5522,7 +5591,7 @@
       "purpose": "Research, product capabilities and official limitations",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T14:12:15.166122+00:00",
+      "fetchedAt": "2026-11-04T14:36:38.145977+00:00",
       "error": null
     },
     {
@@ -5536,7 +5605,7 @@
       "purpose": "Agent architecture, context, tooling and evaluations",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T14:12:15.858327+00:00",
+      "fetchedAt": "2026-11-04T14:36:39.023073+00:00",
       "error": null
     },
     {
@@ -5550,7 +5619,7 @@
       "purpose": "New methods and demonstrated limits",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T14:12:16.015089+00:00",
+      "fetchedAt": "2026-11-04T14:36:39.023091+00:00",
       "error": null
     },
     {
@@ -5563,7 +5632,7 @@
       "purpose": "Model capabilities, research and applications",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T14:12:16.015113+00:00",
+      "fetchedAt": "2026-11-04T14:36:39.023099+00:00",
       "error": null
     },
     {
@@ -5576,7 +5645,7 @@
       "purpose": "Research mechanisms and technical reports",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T14:12:16.015123+00:00",
+      "fetchedAt": "2026-11-04T14:36:39.023105+00:00",
       "error": null
     },
     {
@@ -5589,7 +5658,7 @@
       "purpose": "Open models, model cards and reproducible implementations",
       "priority": 4,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T14:12:16.015131+00:00",
+      "fetchedAt": "2026-11-04T14:36:39.023111+00:00",
       "error": null
     },
     {
@@ -5603,7 +5672,7 @@
       "purpose": "Real agent workflows, infrastructure and evaluations",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T14:12:16.015138+00:00",
+      "fetchedAt": "2026-11-04T14:36:39.023118+00:00",
       "error": null
     },
     {
@@ -5617,7 +5686,7 @@
       "purpose": "Coding workflows and product engineering",
       "priority": 4,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T14:12:16.814188+00:00",
+      "fetchedAt": "2026-11-04T14:36:39.818405+00:00",
       "error": null
     },
     {
@@ -5630,7 +5699,7 @@
       "purpose": "Hands-on experiments, reproductions and failure reports",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T14:12:16.814216+00:00",
+      "fetchedAt": "2026-11-04T14:36:39.818424+00:00",
       "error": null
     },
     {
@@ -5643,7 +5712,7 @@
       "purpose": "Builder interviews, talks and practical context",
       "priority": 4,
       "itemCount": 20,
-      "fetchedAt": "2026-11-04T14:12:16.814225+00:00",
+      "fetchedAt": "2026-11-04T14:36:39.818431+00:00",
       "error": null
     },
     {
@@ -5656,7 +5725,7 @@
       "purpose": "Original papers, beyond community-selected trending lists",
       "priority": 4,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T14:12:16.814232+00:00",
+      "fetchedAt": "2026-11-04T14:36:39.818436+00:00",
       "error": null
     },
     {
@@ -5669,7 +5738,7 @@
       "purpose": "Research discovery and community interest",
       "priority": 4,
       "itemCount": 60,
-      "fetchedAt": "2026-11-04T14:12:16.814240+00:00",
+      "fetchedAt": "2026-11-04T14:36:39.818442+00:00",
       "error": null
     },
     {
@@ -5682,7 +5751,7 @@
       "purpose": "Shipped code and official release notes",
       "priority": 4,
       "itemCount": 20,
-      "fetchedAt": "2026-11-04T14:12:20.263611+00:00",
+      "fetchedAt": "2026-11-04T14:36:42.886471+00:00",
       "error": null
     },
     {
@@ -5695,16 +5764,18 @@
       "purpose": "Community discussion; contributes no evidence of correctness",
       "priority": 1,
       "itemCount": 60,
-      "fetchedAt": "2026-11-04T14:12:20.263632+00:00",
+      "fetchedAt": "2026-11-04T14:36:42.886487+00:00",
       "error": null
     }
   ],
-  "newTermIds": [],
-  "runUrl": "https://github.com/cypher0k/frontier-data/actions/runs/41844390169",
+  "newTermIds": [
+    "in-context-learning"
+  ],
+  "runUrl": "https://github.com/cypher0k/frontier-data/actions/runs/41848648818",
   "editionDay": "2026-11-04",
-  "guideStatus": "failed",
-  "guideError": "JSONDecodeError: Unterminated string starting at: line 29 column 5 (char 7285)",
-  "lastGuideCheckAt": "2026-11-04T13:06:46.576692+00:00",
+  "guideStatus": "passed",
+  "guideError": null,
+  "lastGuideCheckAt": "2026-11-04T14:41:56.887312+00:00",
   "editor": "Qwen3.5-4B drafts, a focused POC pass and a separate source-check pass; POCs are suggestions, not executed research tests",
   "history": [
     "2026-11-04"
