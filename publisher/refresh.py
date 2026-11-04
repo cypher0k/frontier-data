@@ -175,11 +175,12 @@ def validate_terms(values,candidates,known,now):
   for key in ['meaning','why','example','experiment','caution','evidenceNote']:
    if not isinstance(value.get(key),str) or len(value[key].strip())<25:raise ValueError('Incomplete guide: '+key)
   steps=value.get('how',[]);poc=value.get('poc',{})
-  poc={**poc,**{key:[re.sub(r'^\s*(?:\d+[.)]\s+|[-*]\s+)','',line) for line in poc.get(key,[])] for key in ['requirements','steps','successCriteria']}}
+  poc={**poc,**{key:[re.sub(r'^\s*(?:(?:step|check)\s*\d+[:.)]\s*|\d+[.)]\s+|[-*]\s+)','',line,flags=re.I) for line in poc.get(key,[])] for key in ['requirements','steps','successCriteria']}}
   if not 3<=len(steps)<=5 or any(not s.get('title') or not s.get('detail') for s in steps):raise ValueError('Mechanism needs three to five steps')
   if not poc.get('goal') or len(poc.get('steps',[]))<3 or len(poc.get('successCriteria',[]))<2 or not poc.get('limitations'):raise ValueError('POC must include steps, checks and limitations')
   if not isinstance(poc.get('timeMinutes'),int) or not 20<=poc['timeMinutes']<=90 or not poc.get('requirements'):raise ValueError('POC needs prerequisites and a 20–90 minute timebox')
-  practical=' '.join(poc.get('requirements',[])+poc.get('steps',[]))
+  clauses=re.split(r'(?<=[.;])\s+|\n','\n'.join(poc.get('requirements',[])+poc.get('steps',[])))
+  practical=' '.join(clause for clause in clauses if not re.match(r"^\s*(?:no\b|not\b|without\b|do not\b|don't\b|never\b|use no\b)",clause,re.I))
   if re.search(r'\btrain (?:a|the|your)\b|\bfine[- ]?tun(?:e|ing)\b|\bfrontier (?:open[- ]weight )?model\b|\bGPU cluster\b',practical,re.I):raise ValueError('Short POCs cannot require model training or frontier-model compute')
   if not any(re.search(r'\d|\b(?:one|two|three|four|five|ten|twenty|thirty|forty|fifty|hundred)\b',criterion,re.I) for criterion in poc.get('successCriteria',[])):raise ValueError('POC checks need an explicit sample size, threshold or count')
   if re.search(r'noise[- ]free|guarantee(?:s|d)? (?:accuracy|correctness|success)',value['meaning']+' '+' '.join(s['detail'] for s in steps),re.I):raise ValueError('Guide overstates an experimental result')

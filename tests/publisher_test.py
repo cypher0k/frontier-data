@@ -30,6 +30,14 @@ class PublisherTests(unittest.TestCase):
  def test_short_poc_cannot_ask_for_frontier_model_training(self):
   bad=copy.deepcopy(self.guide);bad['poc']['steps'][0]='Train a draft model on agent trajectories.'
   with self.assertRaisesRegex(ValueError,'model training'):self.validate(bad)
+ def test_negated_training_requirement_does_not_reject_a_local_exercise(self):
+  guide=copy.deepcopy(self.guide);guide['poc']['requirements']=['No GPU required.','No training or fine-tuning.','Python standard library.']
+  self.assertEqual(self.validate(guide)[0]['poc']['requirements'],guide['poc']['requirements'])
+ def test_negation_cannot_hide_a_later_affirmative_training_step(self):
+  bad=copy.deepcopy(self.guide);bad['poc']['steps'][0]='No GPU required. Train a frontier model on agent traces.'
+  with self.assertRaisesRegex(ValueError,'model training'):self.validate(bad)
+  bad['poc']['requirements']=['No GPU required'];bad['poc']['steps'][0]='Train a frontier model on agent traces.'
+  with self.assertRaisesRegex(ValueError,'model training'):self.validate(bad)
  def test_poc_checks_need_a_concrete_count_or_threshold(self):
   bad=copy.deepcopy(self.guide);bad['poc']['successCriteria']=['1. Improved accuracy.','2. Better reasoning.']
   with self.assertRaisesRegex(ValueError,'sample size'):self.validate(bad)
