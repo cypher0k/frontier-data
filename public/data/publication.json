@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-04T14:00:53.693756+00:00",
+  "generatedAt": "2026-11-04T14:24:00.524942+00:00",
   "terms": [
     {
       "aliases": [],
@@ -194,6 +194,159 @@
   ],
   "items": [
     {
+      "id": "pub-13fe6fe70be3a3b23b",
+      "title": "Jaron Lanier on parallels between AI and social media",
+      "url": "https://www.youtube.com/watch?v=WxaRn8kX2eI",
+      "publishedAt": "2026-11-04T14:10:14+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365760"
+    },
+    {
+      "id": "pub-a022f67b32291c2fd5",
+      "title": "Show HN: Swarm World – local LLM creatures living in a little tile world",
+      "url": "https://swarm-world.4rc4de.com/public/app",
+      "publishedAt": "2026-11-04T14:09:29+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365750"
+    },
+    {
+      "id": "pub-e621a5b384ce839c8a",
+      "title": "OpenAI might rebrand its data centers as 'AI compute campuses'",
+      "url": "https://techcrunch.com/2026/11/01/openai-might-rebrand-its-data-centers-as-ai-compute-campuses",
+      "publishedAt": "2026-11-04T14:08:32+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365733"
+    },
+    {
+      "id": "pub-0d65b71057c14c281a",
+      "title": "Show HN: Scan-to-vector – rebuild scanned pages as vector PDFs with an AI agent",
+      "url": "https://github.com/3351666087/scan-to-vector-skill",
+      "publishedAt": "2026-11-04T14:05:46+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365692"
+    },
+    {
+      "id": "pub-666ad4c7a20e8894d1",
+      "title": "An AI agent's first 73 days, counted: 0 buyers, 8 pieces, 2 readers",
+      "url": "https://pub-a941bfd863a24f91a60e6c4979c18a84.r2.dev/pi-sandbox-uploads/349868185312301056/2026-11-03/1793715350781-5613c382-1ed5-4562-b485-d1132a71a282-agent-ledger-73-days.html",
+      "publishedAt": "2026-11-04T14:01:58+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365644"
+    },
+    {
+      "id": "pub-281e48c39ecebce881",
+      "title": "Snowflake's AI_PARSE_DOCUMENT got an agentic mode",
+      "url": "https://www.sfrt.io/snowflakes-ai_parse_document-got-an-agentic-mode",
+      "publishedAt": "2026-11-04T13:59:42+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365603"
+    },
+    {
+      "id": "pub-e8a34e741df7f31a9f",
+      "title": "Old, Polluting Jet Engines Are Being Scavenged to Power Data Centers",
+      "url": "https://www.nytimes.com/2026/11/03/climate/jet-engines-ai-data-center-generators-boneyard.html",
+      "publishedAt": "2026-11-04T13:52:22+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 2,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365522"
+    },
+    {
+      "id": "pub-9837e455f9e2fbf50f",
+      "title": "MCP vs. API vs. CLI: How should AI agents connect to your app?",
+      "url": "https://wasp.sh/blog/2026/11/03/mcp-vs-api-vs-cli-connect-ai-agents-to-your-app",
+      "publishedAt": "2026-11-04T13:51:48+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 4,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365513"
+    },
+    {
+      "id": "pub-49ca080dc43dc6d14c",
+      "title": "Developers Are Getting RAIded",
+      "url": "https://www.nickbevers.dev/blog/developers-are-getting-r-ai-ded",
+      "publishedAt": "2026-11-04T13:50:57+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365502"
+    },
+    {
       "id": "pub-c14fbb32bfccb816c5",
       "title": "AI cannot be separated from the thought that is making it",
       "url": "https://openwisdom.substack.com/p/an-urgent-message-on-artificial-intelligence",
@@ -376,8 +529,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 7,
-      "comments": 3,
+      "points": 11,
+      "comments": 6,
       "discussionUrl": "https://news.ycombinator.com/item?id=50365009"
     },
     {
@@ -512,8 +665,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 243,
-      "comments": 128,
+      "points": 283,
+      "comments": 170,
       "discussionUrl": "https://news.ycombinator.com/item?id=50364336"
     },
     {
@@ -529,8 +682,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 6,
-      "comments": 0,
+      "points": 7,
+      "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50364330"
     },
     {
@@ -750,8 +903,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 152,
-      "comments": 101,
+      "points": 170,
+      "comments": 118,
       "discussionUrl": "https://news.ycombinator.com/item?id=50363554"
     },
     {
@@ -784,8 +937,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 194,
-      "comments": 52,
+      "points": 221,
+      "comments": 59,
       "discussionUrl": "https://news.ycombinator.com/item?id=50363461"
     },
     {
@@ -920,8 +1073,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 232,
-      "comments": 131,
+      "points": 251,
+      "comments": 138,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362905"
     },
     {
@@ -989,7 +1142,7 @@
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
       "points": 6,
-      "comments": 5,
+      "comments": 7,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362700"
     },
     {
@@ -1059,159 +1212,6 @@
       "points": 4,
       "comments": 0,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362464"
-    },
-    {
-      "id": "pub-c60288ce06e02a7e26",
-      "title": "Is the Neocloud Bubble Bursting?",
-      "url": "https://hxu296.github.io/ai-compute-landscape",
-      "publishedAt": "2026-11-04T07:34:17+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 3,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362451"
-    },
-    {
-      "id": "pub-4e3ccffb96908f46de",
-      "title": "WorkBuddy – AI Workspace from Tencent",
-      "url": "https://www.workbuddy.ai",
-      "publishedAt": "2026-11-04T07:30:06+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 1,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362428"
-    },
-    {
-      "id": "pub-ffcfde61f814066622",
-      "title": "Tiny Pickles: Why are AI companies investing so much in math proofs?",
-      "url": "https://blog.chaoticgood.computer/content/dead-math",
-      "publishedAt": "2026-11-04T07:15:45+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 1,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362354"
-    },
-    {
-      "id": "pub-003910a6c8daf0d516",
-      "title": "Tencent Hy4",
-      "url": "https://hy.tencent.ai/research/hy4?langVersion=en",
-      "publishedAt": "2026-11-04T07:05:00+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 7,
-      "comments": 2,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362291"
-    },
-    {
-      "id": "pub-91c49ae4bb3940a47f",
-      "title": "AI stocks slide as Texas governor result raises data center risks",
-      "url": "https://www.cnbc.com/2026/11/04/ai-stocks-texas-governor-data-centers.html",
-      "publishedAt": "2026-11-04T07:00:20+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 46,
-      "comments": 63,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362274"
-    },
-    {
-      "id": "pub-f0104ca8b4f25791d6",
-      "title": "AI assistant which get Advice from relevant humans",
-      "url": "https://etsalabs.com",
-      "publishedAt": "2026-11-04T06:56:46+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 1,
-      "comments": 2,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362253"
-    },
-    {
-      "id": "pub-92917d16ee744358d0",
-      "title": "Computerized clairvoyance: psychics push back against AI-generated readings",
-      "url": "https://www.theguardian.com/technology/ng-interactive/2026/oct/29/psychics-push-back-ai-readings",
-      "publishedAt": "2026-11-04T06:46:47+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 3,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362192"
-    },
-    {
-      "id": "pub-812ac6b8f98dc733f3",
-      "title": "Show HN: Lets1UP, birthday/party game kits that run on your TV",
-      "url": "https://lets1up.com",
-      "publishedAt": "2026-11-04T06:16:59+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 2,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362025"
-    },
-    {
-      "id": "pub-1241d0e34491e6d610",
-      "title": "Oracle cancels $7B Tencent AI deal under Trump pressure",
-      "url": "https://www.ft.com/content/c5a6a738-cd78-4a8e-a814-57a7473ebb9c",
-      "publishedAt": "2026-11-04T06:14:13+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 5,
-      "comments": 1,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50362002"
     },
     {
       "id": "pub-797aba84ba3e9103d8",
@@ -1937,7 +1937,7 @@
       "summary": "Large reasoning models achieve strong performance on challenging tasks, but their long chain-of-thought often incurs substantial inference costs by continuing to deliberate after sufficient information…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 62
+      "points": 63
     },
     {
       "id": "pub-a29421560cbd37d6ff",
@@ -2042,7 +2042,7 @@
       "summary": "Artificial general intelligence (AGI) requires a method that can understand, generate, reason, and act across diverse domains and modalities. Rather than relying on a single…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 87
+      "points": 88
     },
     {
       "id": "pub-7ca13591ff94866783",
@@ -2363,6 +2363,21 @@
       "dateLabel": "Source publication"
     },
     {
+      "id": "pub-482e713fe1afdb6a48",
+      "title": "Dory1.0-4B: A Looped Normalized-GPT",
+      "url": "https://arxiv.org/abs/2611.03998",
+      "publishedAt": "2026-11-02T00:00:00+00:00",
+      "source": "Hugging Face Papers",
+      "sourceId": "hf-papers",
+      "layer": "Research",
+      "priority": 4,
+      "kind": "research",
+      "summary": "We introduce Dory1.0-4B, a 4-billion-parameter looped (latent-recurrent) language model with elastic depth: a single checkpoint serves different inference compute budgets. Dory1.0-4B is built on a…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 0
+    },
+    {
       "id": "pub-9931765b1faaaee4d8",
       "title": "Every Pixel Is an Option: A System One Model for Medical Ultrasound Biometry",
       "url": "https://arxiv.org/abs/2611.03360",
@@ -2465,7 +2480,7 @@
       "summary": "Long-form multi-shot video editing requires an intended edit to remain coherent across abrupt changes in scene, viewpoint, and subject appearance, while processing substantially longer visual…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 57
+      "points": 58
     },
     {
       "id": "pub-0347bbda6ac6a11ba5",
@@ -2495,7 +2510,7 @@
       "summary": "General-purpose robot policies must work across robots, tasks, and environments, yet the variation that makes physical trials informative also makes them difficult to reproduce. We…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 35
+      "points": 37
     },
     {
       "id": "pub-2dded0516a7f401a5c",
@@ -2721,21 +2736,6 @@
       "points": 127
     },
     {
-      "id": "pub-acc620c8c3d90b39c4",
-      "title": "Can Large Language Model Agents Learn by Watching Tutorial Videos?",
-      "url": "https://arxiv.org/abs/2611.01460",
-      "publishedAt": "2026-11-01T00:00:00+00:00",
-      "source": "Hugging Face Papers",
-      "sourceId": "hf-papers",
-      "layer": "Research",
-      "priority": 4,
-      "kind": "research",
-      "summary": "Humans continuously acquire knowledge from carefully crafted materials such as books and tutorial videos, carrying that understanding into future tasks. Millions of such instructional videos…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 5
-    },
-    {
       "id": "pub-785d4ceb71a807a670",
       "title": "How We Took Over ChatGPT Accounts",
       "url": "https://simonwillison.net/2026/Oct/31/how-we-took-over-chatgpt-accounts",
@@ -2819,7 +2819,7 @@
       "summary": "Psychotherapy clients may experience distress before they can coherently describe it, and their expression changes with emotion, perceived safety, and trust. Large language model-based client…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 61
+      "points": 62
     },
     {
       "id": "pub-c8d7e83ca588d28d53",
@@ -2977,7 +2977,7 @@
       "summary": "LLM-based multi-agent systems (MAS) rely on collaboration among specialized agents to solve complex tasks. Existing methods improve MAS by refining the prompts, skills, and execution…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 22
+      "points": 23
     },
     {
       "id": "pub-15db23f231fe269b30",
@@ -3308,7 +3308,7 @@
       "summary": "Effective computer-use agents (CUAs) should seamlessly combine visual GUI interaction with code and terminal execution within a single policy. We present Mage-VL-Cowork, a 4B hybrid…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 10
+      "points": 11
     },
     {
       "id": "pub-78fb602b14b55d7044",
@@ -3719,7 +3719,7 @@
       "summary": "Many open mixture-of-experts (MoE) language models train with Muon instead of AdamW. Most balance the load with a bias on each expert's routing score, adjusted…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 1
+      "points": 2
     },
     {
       "id": "pub-abe51073a6833dd1c0",
@@ -5522,7 +5522,7 @@
       "purpose": "Research, product capabilities and official limitations",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:51:21.368833+00:00",
+      "fetchedAt": "2026-11-04T14:12:15.166122+00:00",
       "error": null
     },
     {
@@ -5536,7 +5536,7 @@
       "purpose": "Agent architecture, context, tooling and evaluations",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T13:51:22.550399+00:00",
+      "fetchedAt": "2026-11-04T14:12:15.858327+00:00",
       "error": null
     },
     {
@@ -5550,7 +5550,7 @@
       "purpose": "New methods and demonstrated limits",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T13:51:22.550415+00:00",
+      "fetchedAt": "2026-11-04T14:12:16.015089+00:00",
       "error": null
     },
     {
@@ -5563,7 +5563,7 @@
       "purpose": "Model capabilities, research and applications",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:51:22.550425+00:00",
+      "fetchedAt": "2026-11-04T14:12:16.015113+00:00",
       "error": null
     },
     {
@@ -5576,7 +5576,7 @@
       "purpose": "Research mechanisms and technical reports",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:51:22.550432+00:00",
+      "fetchedAt": "2026-11-04T14:12:16.015123+00:00",
       "error": null
     },
     {
@@ -5589,7 +5589,7 @@
       "purpose": "Open models, model cards and reproducible implementations",
       "priority": 4,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:51:22.550438+00:00",
+      "fetchedAt": "2026-11-04T14:12:16.015131+00:00",
       "error": null
     },
     {
@@ -5603,7 +5603,7 @@
       "purpose": "Real agent workflows, infrastructure and evaluations",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T13:51:22.550445+00:00",
+      "fetchedAt": "2026-11-04T14:12:16.015138+00:00",
       "error": null
     },
     {
@@ -5617,7 +5617,7 @@
       "purpose": "Coding workflows and product engineering",
       "priority": 4,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T13:51:22.550450+00:00",
+      "fetchedAt": "2026-11-04T14:12:16.814188+00:00",
       "error": null
     },
     {
@@ -5630,7 +5630,7 @@
       "purpose": "Hands-on experiments, reproductions and failure reports",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:51:22.550457+00:00",
+      "fetchedAt": "2026-11-04T14:12:16.814216+00:00",
       "error": null
     },
     {
@@ -5643,7 +5643,7 @@
       "purpose": "Builder interviews, talks and practical context",
       "priority": 4,
       "itemCount": 20,
-      "fetchedAt": "2026-11-04T13:51:22.550463+00:00",
+      "fetchedAt": "2026-11-04T14:12:16.814225+00:00",
       "error": null
     },
     {
@@ -5656,7 +5656,7 @@
       "purpose": "Original papers, beyond community-selected trending lists",
       "priority": 4,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:51:22.550469+00:00",
+      "fetchedAt": "2026-11-04T14:12:16.814232+00:00",
       "error": null
     },
     {
@@ -5669,7 +5669,7 @@
       "purpose": "Research discovery and community interest",
       "priority": 4,
       "itemCount": 60,
-      "fetchedAt": "2026-11-04T13:51:22.550475+00:00",
+      "fetchedAt": "2026-11-04T14:12:16.814240+00:00",
       "error": null
     },
     {
@@ -5682,7 +5682,7 @@
       "purpose": "Shipped code and official release notes",
       "priority": 4,
       "itemCount": 20,
-      "fetchedAt": "2026-11-04T13:51:25.708542+00:00",
+      "fetchedAt": "2026-11-04T14:12:20.263611+00:00",
       "error": null
     },
     {
@@ -5695,15 +5695,15 @@
       "purpose": "Community discussion; contributes no evidence of correctness",
       "priority": 1,
       "itemCount": 60,
-      "fetchedAt": "2026-11-04T13:51:25.708562+00:00",
+      "fetchedAt": "2026-11-04T14:12:20.263632+00:00",
       "error": null
     }
   ],
   "newTermIds": [],
-  "runUrl": "https://github.com/cypher0k/frontier-data/actions/runs/41840893086",
+  "runUrl": "https://github.com/cypher0k/frontier-data/actions/runs/41844390169",
   "editionDay": "2026-11-04",
   "guideStatus": "failed",
-  "guideError": "ValueError: The independent AI review rejected all draft guides",
+  "guideError": "JSONDecodeError: Unterminated string starting at: line 29 column 5 (char 7285)",
   "lastGuideCheckAt": "2026-11-04T13:06:46.576692+00:00",
   "editor": "Qwen3.5-4B drafts, a focused POC pass and a separate source-check pass; POCs are suggestions, not executed research tests",
   "history": [
