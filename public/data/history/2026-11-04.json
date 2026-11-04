@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-04T14:41:56.887312+00:00",
+  "generatedAt": "2026-11-04T15:16:41.804806+00:00",
   "terms": [
     {
       "aliases": [],
@@ -193,72 +193,72 @@
     },
     {
       "id": "in-context-learning",
-      "name": "In-context learning | ICL",
+      "name": "In-context learning",
       "aliases": [
-        "Few-shot learning",
-        "Prompt-based adaptation"
+        "ICL",
+        "Few-shot learning"
       ],
-      "category": "foundations",
+      "category": "context",
       "level": "intermediate",
-      "maturity": "research",
-      "meaning": "In-context learning (ICL) allows a pretrained language model to perform a task by providing demonstrations within the prompt, without updating model parameters. Recent research identifies a specific internal circuit where middle-layer attention heads write class information into a key-value memory structure, while upper-layer heads match the query against these stored keys to retrieve labels. This mechanism functions as a gated associative lookup, where an early-layer signal determines if label repetition occurs, and separate heads suppress the most recently seen label to prevent overfitting to the immediate context.",
+      "maturity": "established",
+      "meaning": "In-context learning lets a pretrained model infer a task from demonstrations in its prompt, without changing its weights. A recent circuit study examines how a label memory, class-matching attention and a repetition signal support this behavior in a controlled sentence-classification setting.",
       "how": [
         {
-          "title": "Demonstration Encoding",
-          "detail": "The model encodes the identity of each label token in the residual stream of the middle layers. Attention heads in these layers write the class of the preceding demonstration into this memory."
+          "title": "Store the demonstrated labels",
+          "detail": "In the studied models, each label position carries the label identity in its residual stream. Middle-layer heads write the preceding demonstration’s class as a key at that position."
         },
         {
-          "title": "Query Matching",
-          "detail": "Upper-layer attention heads match the query's class against the stored keys in the memory and copy out the matching labels during the forward pass."
+          "title": "Match the query class",
+          "detail": "Upper-layer heads match the query’s class against those stored keys and copy the corresponding label values."
         },
         {
-          "title": "Gated Readout",
-          "detail": "An early-layer signal encodes whether any label has repeated. In its absence, readers attend to the start of the prompt. A separate set of heads suppresses the most recently seen label to ensure diversity."
+          "title": "Enable the readout",
+          "detail": "An early signal indicates that a label has repeated. Without that signal, readers attend to the prompt’s start and no label is favored."
+        },
+        {
+          "title": "Keep a separate recency effect",
+          "detail": "Other heads suppress the most recently seen label. The paper treats this as a separate component, rather than the repetition gate."
         }
       ],
-      "why": "ICL enables agents to adapt to new tasks or domains instantly by providing few examples, avoiding the latency and cost of fine-tuning. Understanding the internal circuit helps builders design better prompts that leverage these specific attention mechanisms rather than generic instructions.",
-      "example": "A model classifies sentences into arbitrary labels (e.g., 'urgent', 'routine', 'error') by presenting three labeled examples in the prompt. Internally, the model uses the demonstrated labels as keys to retrieve the correct classification for a new query without changing its weights.",
-      "experiment": "Verify the 'Gated Associative Lookup' mechanism for few-shot sentence classification using a toy transformer without training.",
-      "caution": "This mechanism is specific to sentence classification with arbitrary labels in 3-4B parameter transformers. Evidence is from causal activation patching and head ablation, not production deployment.",
+      "why": "This gives builders a specific hypothesis for prompt experiments: demonstrations can supply a temporary label mapping. Test example choice and label assignments on your own tasks before assuming that more context will help.",
+      "example": "Demonstrations can map the classes cat and dog to arbitrary labels such as dax and wug. A new query’s class can then retrieve the demonstrated label mapping during the forward pass.",
+      "experiment": "Explore a simplified label memory and repetition gate with six hand-written query cases.",
+      "caution": "The circuit evidence comes from controlled classification experiments in three small transformers, with additional tests within one model family. The toy below does not establish how other models or production tasks behave.",
       "related": [
-        "rlaif",
-        "golden-answer"
+        "self-attention",
+        "transformer"
       ],
       "source": {
         "title": "A Circuit for In-Context Learning",
         "url": "https://arxiv.org/abs/2611.05344"
       },
       "evidenceStatus": "demonstrated",
-      "evidenceNote": "The source authors report experiments using activation patching and head ablation against random-head baselines to trace the causal components of the ICL circuit.",
+      "evidenceNote": "The authors report activation patching, head ablations and steering experiments. This app has not reproduced their neural-circuit results.",
       "pmRelevance": 4,
       "poc": {
-        "goal": "Verify the 'Gated Associative Lookup' mechanism for few-shot sentence classification using a toy transformer without training.",
+        "goal": "Explore a simplified label memory and repetition gate with six hand-written query cases.",
         "timeMinutes": 45,
         "requirements": [
-          "No model API, no GPU, no training.",
-          "Use standard library (e.g., numpy) to implement a 2-layer transformer.",
-          "Implement exactly ONE mechanism: the Gated Readout logic.",
-          "Use hand-written toy data."
+          "Python 3 with its standard library, or a spreadsheet",
+          "Three class-key vectors: (1,0), (0,1), (1,0)",
+          "Three label sets: A = dax,wug,dax; B = dax,wug,zop; C = wug,dax,wug"
         ],
         "steps": [
-          "Construct a minimal dataset of 3 samples (2 positive, 1 negative) with 2 demonstrations and 1 query.",
-          "Implement the 'Key Write' logic: For each demonstration, compute the attention weight between the demonstration's residual stream and the preceding context to 'write' the class ID into a Key Memory vector.",
-          "Implement the 'Query Match' logic: Compute attention between the query's residual stream and the Key Memory. If the dot product exceeds a threshold, copy the stored class ID to the output.",
-          "Implement the 'Gated Readout' logic: Check if any label has repeated in the prompt. If true, set a gate value of 0.0 (suppress readout). If false, set gate to 1.0 (allow readout).",
-          "Compute the final output by multiplying the Query Match scores by the Gate value."
+          "For each label set, run two queries: (1,0) and (0,1). Calculate the dot product of the query and each of the three class-key vectors. These are hand-chosen class features, not model activations.",
+          "Build an ungated baseline: sum the matching scores for each label, then divide by the total score to make a label distribution. For A, the first query gives dax a total score of 2 and wug a score of 0.",
+          "Add the repetition gate: if any label repeats in the demonstration set, retain the baseline distribution. If every label is unique, return an equal distribution over the unique labels instead. This models the source’s presence-versus-absence condition in a simplified way.",
+          "Compare A with B to inspect the gate, then A with C to inspect relabeling. Keep the class keys and queries fixed. Record all six outputs and their ungated baselines."
         ],
         "successCriteria": [
-          "Baseline (No Gate): When no label repeats, the model correctly outputs the class of the query based on the stored keys.",
-          "Change (Gate Active): When a label repeats in the prompt, the gate forces the output to 0.0, overriding the stored keys.",
-          "SampleSizesAndCountsCheck1: 2 samples with unique labels -> Output count matches stored keys (2/2 correct).",
-          "SampleSizesAndCountsCheck2: 1 sample with repeated label -> Output count is 0 (0/1 correct suppression)."
+          "Across the four repeated-label query cases in A and C, the highest-scoring labels follow each set’s demonstrated mapping. Relabeling A to C changes both query predictions without changing the class keys.",
+          "For both all-unique cases in B, the gated version returns 1/3 for each of its three labels, while the ungated baseline is nonuniform. Omitting the gate must therefore fail this check."
         ],
-        "limitations": "This toy implementation omits the full residual stream dynamics, positional encoding, and the specific causal ablation methods used in the original research. It only simulates the mathematical operation of the gated lookup without the full transformer architecture context."
+        "limitations": "This hand-written lookup illustrates selected components. It uses no neural weights or attention heads, omits the separate recency-suppression effect, and cannot reproduce the paper’s causal interventions or measure a real model’s ICL performance."
       },
       "publishedAt": "2026-11-03T18:44:34+00:00",
-      "verifiedAt": "2026-11-04T14:40:35.850403+00:00",
+      "verifiedAt": "2026-11-04T15:16:41.804806+00:00",
       "addedAt": "2026-11-03",
-      "generatedBy": "AI-written · separate source-check pass · suggested POC"
+      "generatedBy": "AI-written · source and POC checked · suggested exercise"
     }
   ],
   "items": [
@@ -5775,6 +5775,7 @@
   "editionDay": "2026-11-04",
   "guideStatus": "passed",
   "guideError": null,
-  "lastGuideCheckAt": "2026-11-04T14:41:56.887312+00:00",
-  "editor": "Qwen3.5-4B drafts, a focused POC pass and a separate source-check pass; POCs are suggestions, not executed research tests"
+  "lastGuideCheckAt": "2026-11-04T15:16:41.804806+00:00",
+  "editor": "Qwen3.5-4B drafts, a focused POC pass and a separate source-check pass; POCs are suggestions, not executed research tests",
+  "editorNote": "Launch review corrected the ICL explanation and toy exercise against the primary abstract. The six toy checks were run locally."
 }
