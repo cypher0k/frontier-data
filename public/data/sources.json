@@ -1,0 +1,146 @@
+[
+  {
+    "id": "openai",
+    "name": "OpenAI",
+    "layer": "Labs",
+    "type": "rss",
+    "url": "https://openai.com/news/rss.xml",
+    "homepage": "https://openai.com/news/",
+    "purpose": "Research, product capabilities and official limitations",
+    "priority": 5
+  },
+  {
+    "id": "anthropic-engineering",
+    "name": "Anthropic Engineering",
+    "layer": "Engineering",
+    "type": "html",
+    "url": "https://www.anthropic.com/engineering",
+    "homepage": "https://www.anthropic.com/engineering",
+    "articlePath": "/research/",
+    "purpose": "Agent architecture, context, tooling and evaluations",
+    "priority": 5
+  },
+  {
+    "id": "anthropic-research",
+    "name": "Anthropic Research",
+    "layer": "Labs",
+    "type": "html",
+    "url": "https://www.anthropic.com/research",
+    "homepage": "https://www.anthropic.com/research",
+    "articlePath": "/research/",
+    "purpose": "New methods and demonstrated limits",
+    "priority": 5
+  },
+  {
+    "id": "deepmind",
+    "name": "Google DeepMind",
+    "layer": "Labs",
+    "type": "rss",
+    "url": "https://deepmind.google/blog/rss.xml",
+    "homepage": "https://deepmind.google/blog/",
+    "purpose": "Model capabilities, research and applications",
+    "priority": 5
+  },
+  {
+    "id": "google-research",
+    "name": "Google Research",
+    "layer": "Research",
+    "type": "rss",
+    "url": "https://research.google/blog/rss/",
+    "homepage": "https://research.google/blog/",
+    "purpose": "Research mechanisms and technical reports",
+    "priority": 5
+  },
+  {
+    "id": "hf-blog",
+    "name": "Hugging Face Blog",
+    "layer": "Engineering",
+    "type": "rss",
+    "url": "https://huggingface.co/blog/feed.xml",
+    "homepage": "https://huggingface.co/blog",
+    "purpose": "Open models, model cards and reproducible implementations",
+    "priority": 4
+  },
+  {
+    "id": "langchain",
+    "name": "LangChain",
+    "layer": "Engineering",
+    "type": "html",
+    "url": "https://www.langchain.com/blog",
+    "homepage": "https://www.langchain.com/blog",
+    "articlePath": "/blog/",
+    "purpose": "Real agent workflows, infrastructure and evaluations",
+    "priority": 5
+  },
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "layer": "Engineering",
+    "type": "html",
+    "url": "https://cursor.com/blog",
+    "homepage": "https://cursor.com/blog",
+    "articlePath": "/blog/",
+    "purpose": "Coding workflows and product engineering",
+    "priority": 4
+  },
+  {
+    "id": "simon",
+    "name": "Simon Willison",
+    "layer": "Practitioners",
+    "type": "rss",
+    "url": "https://simonwillison.net/atom/everything/",
+    "homepage": "https://simonwillison.net/",
+    "purpose": "Hands-on experiments, reproductions and failure reports",
+    "priority": 5
+  },
+  {
+    "id": "latent-space",
+    "name": "Latent Space",
+    "layer": "Practitioners",
+    "type": "rss",
+    "url": "https://latent.space/feed",
+    "homepage": "https://latent.space/",
+    "purpose": "Builder interviews, talks and practical context",
+    "priority": 4
+  },
+  {
+    "id": "arxiv",
+    "name": "arXiv AI & language",
+    "layer": "Research",
+    "type": "rss",
+    "url": "https://export.arxiv.org/api/query?search_query=cat:cs.AI+OR+cat:cs.CL&sortBy=submittedDate&sortOrder=descending&max_results=30",
+    "homepage": "https://arxiv.org/list/cs.AI/recent",
+    "purpose": "Original papers, beyond community-selected trending lists",
+    "priority": 4
+  },
+  {
+    "id": "hf-papers",
+    "name": "Hugging Face Papers",
+    "layer": "Research",
+    "type": "hf",
+    "url": "https://huggingface.co/api/daily_papers?limit=60",
+    "homepage": "https://huggingface.co/papers",
+    "purpose": "Research discovery and community interest",
+    "priority": 4
+  },
+  {
+    "id": "github",
+    "name": "Official GitHub releases",
+    "layer": "Releases",
+    "type": "github",
+    "url": "https://api.github.com",
+    "homepage": "https://github.com/anthropics/claude-code/releases",
+    "purpose": "Shipped code and official release notes",
+    "priority": 4
+  },
+  {
+    "id": "hn",
+    "name": "Hacker News",
+    "layer": "Discussion",
+    "type": "hn",
+    "url": "https://hn.algolia.com/api/v1/search_by_date?query=AI&tags=story&hitsPerPage=60",
+    "homepage": "https://news.ycombinator.com/",
+    "purpose": "Community discussion; contributes no evidence of correctness",
+    "priority": 1
+  }
+]

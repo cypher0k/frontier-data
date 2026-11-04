@@ -1,0 +1,2949 @@
+[
+  {
+    "id": "foundation-model",
+    "name": "Foundation model",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "large-language-model",
+    "name": "Large language model",
+    "aliases": [
+      "LLM"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "tokenization",
+    "name": "Tokenization",
+    "aliases": [
+      "Tokenizer",
+      "BPE",
+      "Subword tokenization"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "embedding",
+    "name": "Embedding",
+    "aliases": [
+      "Vector representation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "transformer",
+    "name": "Transformer",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "self-attention",
+    "name": "Self-attention",
+    "aliases": [
+      "Attention mechanism"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "positional-encoding",
+    "name": "Positional encoding",
+    "aliases": [
+      "RoPE",
+      "Rotary position embedding"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "mixture-of-experts",
+    "name": "Mixture of experts",
+    "aliases": [
+      "MoE",
+      "Sparse MoE"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "state-space-model",
+    "name": "State-space model",
+    "aliases": [
+      "SSM",
+      "Selective state space"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "diffusion-language-model",
+    "name": "Diffusion language model",
+    "aliases": [
+      "dLLM",
+      "Masked diffusion language model"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "autoregressive-decoding",
+    "name": "Autoregressive decoding",
+    "aliases": [
+      "Next-token generation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "multimodal-model",
+    "name": "Multimodal model",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "model-weights",
+    "name": "Model weights",
+    "aliases": [
+      "Parameters"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "pretraining",
+    "name": "Pretraining",
+    "aliases": [
+      "Pre-training"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "self-supervised-learning",
+    "name": "Self-supervised learning",
+    "aliases": [
+      "SSL"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "next-token-prediction",
+    "name": "Next-token prediction",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "scaling-laws",
+    "name": "Scaling laws",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "compute-optimal-training",
+    "name": "Compute-optimal training",
+    "aliases": [
+      "Chinchilla scaling"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "data-curation",
+    "name": "Data curation",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "deduplication",
+    "name": "Deduplication",
+    "aliases": [
+      "Near-duplicate removal"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "synthetic-data",
+    "name": "Synthetic data",
+    "aliases": [
+      "Model-generated training data"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "data-contamination",
+    "name": "Data contamination",
+    "aliases": [
+      "Train-test leakage"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "curriculum-learning",
+    "name": "Curriculum learning",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "distillation",
+    "name": "Distillation",
+    "aliases": [
+      "Knowledge distillation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "model-merging",
+    "name": "Model merging",
+    "aliases": [
+      "Weight merging",
+      "Model soups"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "parameter-efficient-fine-tuning",
+    "name": "Parameter-efficient fine-tuning",
+    "aliases": [
+      "PEFT",
+      "LoRA",
+      "Low-rank adaptation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "supervised-fine-tuning",
+    "name": "Supervised fine-tuning",
+    "aliases": [
+      "SFT",
+      "Instruction tuning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "on-policy-distillation",
+    "name": "On-policy distillation",
+    "aliases": [
+      "OPD"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "preference-optimization",
+    "name": "Preference optimization",
+    "aliases": [
+      "Preference learning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "rlhf",
+    "name": "Reinforcement learning from human feedback",
+    "aliases": [
+      "RLHF"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "rlaif",
+    "name": "Reinforcement learning from AI feedback",
+    "aliases": [
+      "RLAIF",
+      "Constitutional AI"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "direct-preference-optimization",
+    "name": "Direct preference optimization",
+    "aliases": [
+      "DPO"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "proximal-policy-optimization",
+    "name": "Proximal policy optimization",
+    "aliases": [
+      "PPO"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "group-relative-policy-optimization",
+    "name": "Group relative policy optimization",
+    "aliases": [
+      "GRPO"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "reinforcement-learning-with-verifiable-rewards",
+    "name": "Reinforcement learning with verifiable rewards",
+    "aliases": [
+      "RLVR"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "reward-model",
+    "name": "Reward model",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "process-reward-model",
+    "name": "Process reward model",
+    "aliases": [
+      "PRM",
+      "Process supervision"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "outcome-reward",
+    "name": "Outcome reward",
+    "aliases": [
+      "Outcome supervision"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "reward-hacking",
+    "name": "Reward hacking",
+    "aliases": [
+      "Specification gaming"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "chain-of-thought",
+    "name": "Chain of thought",
+    "aliases": [
+      "CoT",
+      "Step-by-step reasoning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "reasoning-model",
+    "name": "Reasoning model",
+    "aliases": [
+      "Large reasoning model",
+      "LRM"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "test-time-compute",
+    "name": "Test-time compute",
+    "aliases": [
+      "Inference compute budget"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "inference-time-scaling",
+    "name": "Inference-time scaling",
+    "aliases": [
+      "Test-time scaling"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "best-of-n-sampling",
+    "name": "Best-of-N sampling",
+    "aliases": [
+      "BoN",
+      "Generate and rank"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "self-consistency",
+    "name": "Self-consistency",
+    "aliases": [
+      "Majority-vote reasoning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "beam-search",
+    "name": "Beam search",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "tree-of-thoughts",
+    "name": "Tree of thoughts",
+    "aliases": [
+      "ToT"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "monte-carlo-tree-search",
+    "name": "Monte Carlo tree search",
+    "aliases": [
+      "MCTS"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "verifier-guided-search",
+    "name": "Verifier-guided search",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "self-reflection",
+    "name": "Self-reflection",
+    "aliases": [
+      "Reflexion",
+      "Self-critique"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "program-aided-reasoning",
+    "name": "Program-aided reasoning",
+    "aliases": [
+      "PAL",
+      "Program-aided language model"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "tool-integrated-reasoning",
+    "name": "Tool-integrated reasoning",
+    "aliases": [
+      "TIR"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "prefill",
+    "name": "Prefill",
+    "aliases": [
+      "Prompt processing"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "decode",
+    "name": "Decode",
+    "aliases": [
+      "Decoding phase"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "kv-cache",
+    "name": "KV cache",
+    "aliases": [
+      "Key-value cache"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "prefix-caching",
+    "name": "Prefix caching",
+    "aliases": [
+      "Prompt caching",
+      "Automatic prefix caching"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "continuous-batching",
+    "name": "Continuous batching",
+    "aliases": [
+      "Iteration-level scheduling",
+      "In-flight batching"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "pagedattention",
+    "name": "PagedAttention",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "flashattention",
+    "name": "FlashAttention",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "speculative-decoding",
+    "name": "Speculative decoding",
+    "aliases": [
+      "Draft and verify"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "quantization",
+    "name": "Quantization",
+    "aliases": [
+      "Low-bit inference",
+      "INT8",
+      "INT4"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "tensor-parallelism",
+    "name": "Tensor parallelism",
+    "aliases": [
+      "TP",
+      "Intra-layer model parallelism"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "disaggregated-serving",
+    "name": "Disaggregated serving",
+    "aliases": [
+      "Prefill-decode disaggregation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "time-to-first-token",
+    "name": "Time to first token",
+    "aliases": [
+      "TTFT"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "inter-token-latency",
+    "name": "Inter-token latency",
+    "aliases": [
+      "ITL",
+      "Time per output token",
+      "TPOT"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "retrieval-augmented-generation",
+    "name": "Retrieval-augmented generation",
+    "aliases": [
+      "RAG"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "semantic-search",
+    "name": "Semantic search",
+    "aliases": [
+      "Dense retrieval"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "vector-database",
+    "name": "Vector database",
+    "aliases": [
+      "Vector index",
+      "Approximate nearest neighbor index"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "chunking",
+    "name": "Chunking",
+    "aliases": [
+      "Document segmentation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "hybrid-search",
+    "name": "Hybrid search",
+    "aliases": [
+      "Sparse-dense retrieval"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "bm25",
+    "name": "BM25",
+    "aliases": [
+      "Okapi BM25",
+      "Lexical retrieval"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "reranking",
+    "name": "Reranking",
+    "aliases": [
+      "Cross-encoder reranking"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "query-decomposition",
+    "name": "Query decomposition",
+    "aliases": [
+      "Multi-hop retrieval",
+      "Self-ask"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "query-rewriting",
+    "name": "Query rewriting",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "late-interaction",
+    "name": "Late interaction",
+    "aliases": [
+      "ColBERT",
+      "Multi-vector retrieval"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "contextual-retrieval",
+    "name": "Contextual retrieval",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "graph-rag",
+    "name": "Graph RAG",
+    "aliases": [
+      "GraphRAG",
+      "Graph-based retrieval"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "multimodal-retrieval",
+    "name": "Multimodal retrieval",
+    "aliases": [
+      "Visual document retrieval"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "context-engineering",
+    "name": "Context engineering",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "context-window",
+    "name": "Context window",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "in-context-learning",
+    "name": "In-context learning",
+    "aliases": [
+      "ICL",
+      "Few-shot learning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "context-compaction",
+    "name": "Context compaction",
+    "aliases": [
+      "Conversation compaction",
+      "Context summarization"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "context-rot",
+    "name": "Context rot",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "lost-in-the-middle",
+    "name": "Lost in the middle",
+    "aliases": [
+      "Position sensitivity"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "progressive-disclosure",
+    "name": "Progressive disclosure",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "short-term-memory",
+    "name": "Short-term memory",
+    "aliases": [
+      "Working memory",
+      "Thread-scoped memory"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "long-term-memory",
+    "name": "Long-term memory",
+    "aliases": [
+      "Persistent agent memory"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "episodic-memory",
+    "name": "Episodic memory",
+    "aliases": [
+      "Experience memory"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "semantic-memory",
+    "name": "Semantic memory",
+    "aliases": [
+      "Fact memory"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "procedural-memory",
+    "name": "Procedural memory",
+    "aliases": [
+      "How-to memory"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "memory-consolidation",
+    "name": "Memory consolidation",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "agent-loop",
+    "name": "Agent loop",
+    "aliases": [
+      "Observe-act loop",
+      "ReAct loop"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "agent-harness",
+    "name": "Agent harness",
+    "aliases": [
+      "Harness engineering",
+      "Agent runtime"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "planning",
+    "name": "Planning",
+    "aliases": [
+      "Task decomposition",
+      "Plan-and-execute"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "routing",
+    "name": "Routing",
+    "aliases": [
+      "Agent routing",
+      "Task routing"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "workflow-graph",
+    "name": "Workflow graph",
+    "aliases": [
+      "State graph",
+      "Directed agent workflow"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "subagent",
+    "name": "Subagent",
+    "aliases": [
+      "Specialist agent",
+      "Delegated agent"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "multi-agent-orchestration",
+    "name": "Multi-agent orchestration",
+    "aliases": [
+      "Multi-agent system",
+      "Supervisor pattern"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "parallel-tool-calls",
+    "name": "Parallel tool calls",
+    "aliases": [
+      "Concurrent tool use"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "handoff",
+    "name": "Handoff",
+    "aliases": [
+      "Agent handoff",
+      "Control transfer"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "checkpointing",
+    "name": "Checkpointing",
+    "aliases": [
+      "State persistence",
+      "Workflow checkpoint"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "durable-execution",
+    "name": "Durable execution",
+    "aliases": [
+      "Resumable workflow"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "event-driven-agent",
+    "name": "Event-driven agent",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "human-in-the-loop",
+    "name": "Human in the loop",
+    "aliases": [
+      "HITL",
+      "Human oversight"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "agentic-search",
+    "name": "Agentic search",
+    "aliases": [
+      "Iterative search",
+      "Agent-driven retrieval"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "ambient-agent",
+    "name": "Ambient agent",
+    "aliases": [
+      "Proactive agent",
+      "Always-on assistant"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "asynchronous-subagents",
+    "name": "Asynchronous subagents",
+    "aliases": [
+      "Async subagents",
+      "Background subagents"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "tool-calling",
+    "name": "Tool calling",
+    "aliases": [
+      "Function calling"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "structured-outputs",
+    "name": "Structured outputs",
+    "aliases": [
+      "Schema-constrained output"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "json-schema",
+    "name": "JSON Schema",
+    "aliases": [
+      "JSONSchema"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "constrained-decoding",
+    "name": "Constrained decoding",
+    "aliases": [
+      "Grammar-constrained generation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "mcp",
+    "name": "Model Context Protocol",
+    "aliases": [
+      "MCP"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "mcp-tools",
+    "name": "MCP tools",
+    "aliases": [
+      "MCP functions"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "mcp-resources",
+    "name": "MCP resources",
+    "aliases": [
+      "Resource URI"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "mcp-prompts",
+    "name": "MCP prompts",
+    "aliases": [
+      "Prompt templates"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "agent2agent-protocol",
+    "name": "Agent2Agent protocol",
+    "aliases": [
+      "A2A",
+      "Agent-to-agent protocol"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "agent-card",
+    "name": "Agent Card",
+    "aliases": [
+      "A2A Agent Card"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "agent-skills",
+    "name": "Agent Skills",
+    "aliases": [
+      "SKILL.md",
+      "Skills"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "computer-use",
+    "name": "Computer use",
+    "aliases": [
+      "GUI agent",
+      "Desktop agent"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "generative-ui",
+    "name": "Generative UI",
+    "aliases": [
+      "GenUI",
+      "Agent-generated interfaces"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "coding-agent",
+    "name": "Coding agent",
+    "aliases": [
+      "Software engineering agent"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "repository-map",
+    "name": "Repository map",
+    "aliases": [
+      "Repo map"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "spec-driven-development",
+    "name": "Spec-driven development",
+    "aliases": [
+      "SDD"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "agentic-code-review",
+    "name": "Agentic code review",
+    "aliases": [
+      "AI code review"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "test-driven-generation",
+    "name": "Test-driven generation",
+    "aliases": [
+      "AI-assisted TDD"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "execution-feedback",
+    "name": "Execution feedback",
+    "aliases": [
+      "Runtime feedback"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "sandboxed-execution",
+    "name": "Sandboxed execution",
+    "aliases": [
+      "Agent sandbox",
+      "Execution sandbox"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "browser-agent",
+    "name": "Browser agent",
+    "aliases": [
+      "Web agent"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "deep-research",
+    "name": "Deep research",
+    "aliases": [
+      "Research agent"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "citation-grounding",
+    "name": "Citation grounding",
+    "aliases": [
+      "Source attribution"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "autonomous-research-loop",
+    "name": "Autonomous research loop",
+    "aliases": [
+      "Autoresearch",
+      "Automated experimentation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "harness-optimization",
+    "name": "Harness optimization",
+    "aliases": [
+      "Harness hill-climbing"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "prompt-optimization",
+    "name": "Prompt optimization",
+    "aliases": [
+      "Automatic prompt optimization"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "evaluation-dataset",
+    "name": "Evaluation dataset",
+    "aliases": [
+      "Eval set",
+      "Test set"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "golden-answer",
+    "name": "Golden answer",
+    "aliases": [
+      "Reference answer",
+      "Gold response"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "rubric",
+    "name": "Rubric",
+    "aliases": [
+      "Scoring rubric"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "llm-as-judge",
+    "name": "LLM as judge",
+    "aliases": [
+      "LLM-as-a-judge",
+      "Model grader"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "pairwise-evaluation",
+    "name": "Pairwise evaluation",
+    "aliases": [
+      "A/B preference comparison"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "judge-calibration",
+    "name": "Judge calibration",
+    "aliases": [
+      "Grader calibration"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "task-completion-rate",
+    "name": "Task completion rate",
+    "aliases": [
+      "Success rate",
+      "Task success"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "pass-at-k",
+    "name": "pass@k",
+    "aliases": [
+      "Pass at k"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "pass-k",
+    "name": "pass^k",
+    "aliases": [
+      "Pass power k",
+      "Reliability across trials"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "trajectory-evaluation",
+    "name": "Trajectory evaluation",
+    "aliases": [
+      "Trace evaluation",
+      "Process evaluation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "tracing",
+    "name": "Tracing",
+    "aliases": [
+      "Agent traces",
+      "Observability traces"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "benchmark-contamination",
+    "name": "Benchmark contamination",
+    "aliases": [
+      "Test contamination",
+      "Data leakage"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "online-evaluation",
+    "name": "Online evaluation",
+    "aliases": [
+      "Production evaluation",
+      "Live evaluation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "prompt-injection",
+    "name": "Prompt injection",
+    "aliases": [
+      "Instruction injection"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "indirect-prompt-injection",
+    "name": "Indirect prompt injection",
+    "aliases": [
+      "IPI"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "tool-poisoning",
+    "name": "Tool poisoning",
+    "aliases": [
+      "MCP tool poisoning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "data-exfiltration",
+    "name": "Data exfiltration",
+    "aliases": [
+      "Unauthorized data export"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "least-privilege",
+    "name": "Least privilege",
+    "aliases": [
+      "Minimum necessary permissions"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "capability-boundary",
+    "name": "Capability boundary",
+    "aliases": [
+      "Authority boundary"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "approval-gate",
+    "name": "Approval gate",
+    "aliases": [
+      "Human approval",
+      "Human-in-the-loop gate"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "policy-enforcement",
+    "name": "Policy enforcement",
+    "aliases": [
+      "Runtime guardrails"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "red-teaming",
+    "name": "Red teaming",
+    "aliases": [
+      "Adversarial testing"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "jailbreak",
+    "name": "Jailbreak",
+    "aliases": [
+      "Safety bypass"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "groundedness",
+    "name": "Groundedness",
+    "aliases": [
+      "Faithfulness to context"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "abstention",
+    "name": "Abstention",
+    "aliases": [
+      "Selective prediction",
+      "Refuse to guess"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "sycophancy",
+    "name": "Sycophancy",
+    "aliases": [
+      "Excessive agreement"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "vision-language-model",
+    "name": "Vision-language model",
+    "aliases": [
+      "VLM",
+      "Visual language model"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "optical-character-recognition",
+    "name": "Optical character recognition",
+    "aliases": [
+      "OCR",
+      "Text recognition"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "document-understanding",
+    "name": "Document understanding",
+    "aliases": [
+      "Document AI",
+      "Intelligent document processing"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "automatic-speech-recognition",
+    "name": "Automatic speech recognition",
+    "aliases": [
+      "ASR",
+      "Speech-to-text",
+      "STT"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "text-to-speech",
+    "name": "Text to speech",
+    "aliases": [
+      "TTS",
+      "Speech synthesis"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "speech-to-speech",
+    "name": "Speech to speech",
+    "aliases": [
+      "S2S",
+      "Native audio conversation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "speaker-diarization",
+    "name": "Speaker diarization",
+    "aliases": [
+      "Who spoke when"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "voice-activity-detection",
+    "name": "Voice activity detection",
+    "aliases": [
+      "VAD",
+      "Speech activity detection"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "diffusion-model",
+    "name": "Diffusion model",
+    "aliases": [
+      "Denoising diffusion",
+      "DDPM"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "flow-matching",
+    "name": "Flow matching",
+    "aliases": [
+      "FM",
+      "Continuous flow training"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "classifier-free-guidance",
+    "name": "Classifier-free guidance",
+    "aliases": [
+      "CFG",
+      "Guidance scale"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "image-conditioning",
+    "name": "Image conditioning",
+    "aliases": [
+      "Reference-image guidance",
+      "Image-to-image conditioning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "video-generation",
+    "name": "Video generation",
+    "aliases": [
+      "Text-to-video",
+      "Image-to-video"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "embodied-ai",
+    "name": "Embodied AI",
+    "aliases": [
+      "Physical AI"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "world-model",
+    "name": "World model",
+    "aliases": [
+      "Learned dynamics model"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "latent-action",
+    "name": "Latent action",
+    "aliases": [
+      "Learned action representation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "vision-language-action-model",
+    "name": "Vision-language-action model",
+    "aliases": [
+      "VLA",
+      "Vision language action"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "imitation-learning",
+    "name": "Imitation learning",
+    "aliases": [
+      "Learning from demonstration",
+      "LfD"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "behavior-cloning",
+    "name": "Behavior cloning",
+    "aliases": [
+      "BC",
+      "Behaviour cloning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "diffusion-policy",
+    "name": "Diffusion policy",
+    "aliases": [
+      "Action diffusion"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "action-chunking",
+    "name": "Action chunking",
+    "aliases": [
+      "ACT",
+      "Action sequence prediction"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "sim-to-real",
+    "name": "Sim to real",
+    "aliases": [
+      "Simulation-to-reality transfer",
+      "Sim2real"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "digital-twin",
+    "name": "Digital twin",
+    "aliases": [
+      "Operational digital replica"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "model-predictive-control",
+    "name": "Model predictive control",
+    "aliases": [
+      "MPC",
+      "Receding-horizon control"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "reward-shaping",
+    "name": "Reward shaping",
+    "aliases": [
+      "Auxiliary rewards"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "robot-foundation-model",
+    "name": "Robot foundation model",
+    "aliases": [
+      "Generalist robot policy"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "continual-learning",
+    "name": "Continual learning",
+    "aliases": [
+      "Lifelong learning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "catastrophic-forgetting",
+    "name": "Catastrophic forgetting",
+    "aliases": [
+      "Catastrophic interference"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "test-time-training",
+    "name": "Test-time training",
+    "aliases": [
+      "TTT",
+      "Test-time adaptation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "online-learning",
+    "name": "Online learning",
+    "aliases": [
+      "Incremental learning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "active-learning",
+    "name": "Active learning",
+    "aliases": [
+      "Query learning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "meta-learning",
+    "name": "Meta-learning",
+    "aliases": [
+      "Learning to learn"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "self-play",
+    "name": "Self-play",
+    "aliases": [
+      "Self-generated competition"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "synthetic-trajectory-generation",
+    "name": "Synthetic trajectory generation",
+    "aliases": [
+      "Synthetic agent traces"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "experience-replay",
+    "name": "Experience replay",
+    "aliases": [
+      "Replay buffer"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "model-editing",
+    "name": "Model editing",
+    "aliases": [
+      "Knowledge editing",
+      "ROME"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "parametric-memory",
+    "name": "Parametric memory",
+    "aliases": [
+      "Knowledge in weights"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "sleep-phase-consolidation",
+    "name": "Sleep-phase consolidation",
+    "aliases": [
+      "Sleep framework",
+      "Offline consolidation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "weight-space-programming",
+    "name": "Weight-space programming",
+    "aliases": [
+      "Direct weight editing by LLMs"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "model-routing",
+    "name": "Model routing",
+    "aliases": [
+      "LLM router",
+      "Dynamic model selection"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "model-cascade",
+    "name": "Model cascade",
+    "aliases": [
+      "LLM cascade",
+      "Escalation cascade"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "fallback",
+    "name": "Fallback",
+    "aliases": [
+      "Failover",
+      "Model failover"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "semantic-cache",
+    "name": "Semantic cache",
+    "aliases": [
+      "Similarity cache"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "edge-inference",
+    "name": "Edge inference",
+    "aliases": [
+      "Edge AI"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "on-device-ai",
+    "name": "On-device AI",
+    "aliases": [
+      "Local AI",
+      "Device-local inference"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "open-weights",
+    "name": "Open weights",
+    "aliases": [
+      "Open-weight model",
+      "Downloadable weights"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "model-card",
+    "name": "Model card",
+    "aliases": [
+      "Model documentation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "cost-per-completed-task",
+    "name": "Cost per completed task",
+    "aliases": [
+      "Cost per success",
+      "Outcome cost"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "latency-budget",
+    "name": "Latency budget",
+    "aliases": [
+      "Response-time budget"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "agentic-ux",
+    "name": "Agentic UX",
+    "aliases": [
+      "Agent experience design"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "personalization",
+    "name": "Personalization",
+    "aliases": [
+      "User adaptation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "feedback-flywheel",
+    "name": "Feedback flywheel",
+    "aliases": [
+      "Learning loop",
+      "Product feedback loop"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "lora",
+    "name": "LoRA",
+    "aliases": [
+      "Low-rank adaptation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "qlora",
+    "name": "QLoRA",
+    "aliases": [
+      "Quantized low-rank adaptation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "dora",
+    "name": "DoRA",
+    "aliases": [
+      "Weight-decomposed low-rank adaptation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "adapter-tuning",
+    "name": "Adapter tuning",
+    "aliases": [
+      "Bottleneck adapters"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "prefix-tuning",
+    "name": "Prefix tuning",
+    "aliases": [
+      "Continuous prefix tuning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "soft-prompt-tuning",
+    "name": "Soft prompt tuning",
+    "aliases": [
+      "Prompt tuning",
+      "Soft prompts"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "continued-pretraining",
+    "name": "Continued pretraining",
+    "aliases": [
+      "Domain-adaptive pretraining",
+      "DAPT",
+      "Task-adaptive pretraining"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "rejection-sampling-fine-tuning",
+    "name": "Rejection-sampling fine-tuning",
+    "aliases": [
+      "RFT",
+      "Rejection sampling training"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "sequence-level-distillation",
+    "name": "Sequence-level distillation",
+    "aliases": [
+      "Sequence knowledge distillation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "self-distillation",
+    "name": "Self-distillation",
+    "aliases": [
+      "Born-again networks",
+      "Self-teaching"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "contrastive-learning",
+    "name": "Contrastive learning",
+    "aliases": [
+      "Contrastive representation learning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "hard-negative-mining",
+    "name": "Hard-negative mining",
+    "aliases": [
+      "Difficult negative sampling"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "gradient-accumulation",
+    "name": "Gradient accumulation",
+    "aliases": [
+      "Microbatch accumulation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "activation-checkpointing",
+    "name": "Activation checkpointing",
+    "aliases": [
+      "Gradient checkpointing",
+      "Activation recomputation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "mixed-precision-training",
+    "name": "Mixed-precision training",
+    "aliases": [
+      "FP16 training",
+      "BF16 training"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "fully-sharded-data-parallel",
+    "name": "Fully sharded data parallel",
+    "aliases": [
+      "FSDP",
+      "Parameter sharding"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "pipeline-parallelism",
+    "name": "Pipeline parallelism",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "sequence-parallelism",
+    "name": "Sequence parallelism",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "muon-optimizer",
+    "name": "Muon optimizer",
+    "aliases": [
+      "Muon",
+      "Momentum orthogonalized by Newton-Schulz"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "manifold-constrained-hyper-connections",
+    "name": "Manifold-constrained hyper-connections",
+    "aliases": [
+      "mHC",
+      "Constrained hyper-connections"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "grouped-query-attention",
+    "name": "Grouped-query attention",
+    "aliases": [
+      "GQA"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "multi-query-attention",
+    "name": "Multi-query attention",
+    "aliases": [
+      "MQA"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "multi-head-latent-attention",
+    "name": "Multi-head latent attention",
+    "aliases": [
+      "MLA"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "sliding-window-attention",
+    "name": "Sliding-window attention",
+    "aliases": [
+      "Local attention",
+      "SWA"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "sparse-attention",
+    "name": "Sparse attention",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "chunked-prefill",
+    "name": "Chunked prefill",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "kv-cache-quantization",
+    "name": "KV-cache quantization",
+    "aliases": [
+      "Quantized KV cache"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "kv-cache-offloading",
+    "name": "KV-cache offloading",
+    "aliases": [
+      "CPU cache offload"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "kv-cache-eviction",
+    "name": "KV-cache eviction",
+    "aliases": [
+      "Attention-cache pruning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "attention-sinks",
+    "name": "Attention sinks",
+    "aliases": [
+      "StreamingLLM"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "multi-token-prediction",
+    "name": "Multi-token prediction",
+    "aliases": [
+      "MTP"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "self-speculative-decoding",
+    "name": "Self-speculative decoding",
+    "aliases": [
+      "Draft and verify"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "lookahead-decoding",
+    "name": "Lookahead decoding",
+    "aliases": [],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "radix-attention",
+    "name": "RadixAttention",
+    "aliases": [
+      "Radix prefix caching"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "expert-parallelism",
+    "name": "Expert parallelism",
+    "aliases": [
+      "EP"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "fp8-inference",
+    "name": "FP8 inference",
+    "aliases": [
+      "Eight-bit floating-point inference"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "fp4-inference",
+    "name": "FP4 inference",
+    "aliases": [
+      "Four-bit floating-point inference"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "moe-load-balancing",
+    "name": "MoE load balancing",
+    "aliases": [
+      "Expert load balancing"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "cuda-graphs",
+    "name": "CUDA Graphs",
+    "aliases": [
+      "GPU execution graphs"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "reciprocal-rank-fusion",
+    "name": "Reciprocal rank fusion",
+    "aliases": [
+      "RRF"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "hnsw",
+    "name": "HNSW",
+    "aliases": [
+      "Hierarchical navigable small world graph"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "inverted-file-index",
+    "name": "Inverted file vector index",
+    "aliases": [
+      "IVF",
+      "Coarse vector quantization"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "product-quantization",
+    "name": "Product quantization",
+    "aliases": [
+      "PQ",
+      "Compressed vector codes"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "hyde",
+    "name": "Hypothetical document embeddings",
+    "aliases": [
+      "HyDE"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "parent-document-retrieval",
+    "name": "Parent-document retrieval",
+    "aliases": [
+      "Parent-child retrieval",
+      "Small-to-big retrieval"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "contextual-compression",
+    "name": "Contextual compression",
+    "aliases": [
+      "Query-aware context compression"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "self-rag",
+    "name": "Self-RAG",
+    "aliases": [
+      "Self-reflective retrieval-augmented generation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "corrective-rag",
+    "name": "Corrective RAG",
+    "aliases": [
+      "CRAG",
+      "Corrective retrieval-augmented generation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "raptor",
+    "name": "RAPTOR",
+    "aliases": [
+      "Recursive abstractive processing for tree-organized retrieval"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "matryoshka-embeddings",
+    "name": "Matryoshka embeddings",
+    "aliases": [
+      "Matryoshka representation learning",
+      "MRL"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "longrag",
+    "name": "LongRAG",
+    "aliases": [
+      "Long-context retrieval-augmented generation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "time-weighted-retrieval",
+    "name": "Time-weighted retrieval",
+    "aliases": [
+      "Recency-weighted memory retrieval"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "retrieval-recall",
+    "name": "Retrieval recall",
+    "aliases": [
+      "Recall at k",
+      "Recall@k"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "context-precision",
+    "name": "Context precision",
+    "aliases": [
+      "Retrieval precision"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "elastic-weight-consolidation",
+    "name": "Elastic weight consolidation",
+    "aliases": [
+      "EWC"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "learning-without-forgetting",
+    "name": "Learning without Forgetting",
+    "aliases": [
+      "LwF"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "task-arithmetic",
+    "name": "Task arithmetic",
+    "aliases": [
+      "Task vectors",
+      "Weight-space arithmetic"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "ties-merging",
+    "name": "TIES-Merging",
+    "aliases": [
+      "Trim elect sign merge"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "dare-merging",
+    "name": "DARE merging",
+    "aliases": [
+      "Drop and rescale"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "rome-model-editing",
+    "name": "ROME model editing",
+    "aliases": [
+      "Rank-one model editing"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "memit",
+    "name": "MEMIT",
+    "aliases": [
+      "Mass-editing memory in a transformer"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "fast-weights",
+    "name": "Fast weights",
+    "aliases": [
+      "Fast-weight memory"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "retrieval-augmented-fine-tuning",
+    "name": "Retrieval-augmented fine-tuning",
+    "aliases": [
+      "RAFT"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "orpo",
+    "name": "ORPO",
+    "aliases": [
+      "Odds ratio preference optimization"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "online-dpo",
+    "name": "Online DPO",
+    "aliases": [
+      "Online direct preference optimization"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "kto",
+    "name": "KTO",
+    "aliases": [
+      "Kahneman-Tversky optimization"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "self-distillation-policy-optimization",
+    "name": "Self-distillation policy optimization",
+    "aliases": [
+      "SDPO"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "group-sequence-policy-optimization",
+    "name": "Group sequence policy optimization",
+    "aliases": [
+      "GSPO"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "conformal-prediction",
+    "name": "Conformal prediction",
+    "aliases": [
+      "Conformal uncertainty quantification"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "probability-calibration",
+    "name": "Probability calibration",
+    "aliases": [
+      "Confidence calibration",
+      "Temperature scaling"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "mcp-sampling",
+    "name": "MCP sampling",
+    "aliases": [
+      "Server-requested generation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "mcp-elicitation",
+    "name": "MCP elicitation",
+    "aliases": [
+      "Elicitation request"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "mcp-roots",
+    "name": "MCP roots",
+    "aliases": [
+      "Root URI"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "mcp-authorization",
+    "name": "MCP authorization",
+    "aliases": [
+      "MCP OAuth"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "mcp-tasks",
+    "name": "MCP tasks",
+    "aliases": [
+      "Task-augmented requests"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "a2a-task",
+    "name": "A2A task",
+    "aliases": [
+      "Agent2Agent task lifecycle"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "a2a-artifact",
+    "name": "A2A artifact",
+    "aliases": [
+      "Agent result artifact"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "a2a-streaming",
+    "name": "A2A streaming",
+    "aliases": [
+      "Agent task event stream"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "a2a-push-notifications",
+    "name": "A2A push notifications",
+    "aliases": [
+      "Task webhooks"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "container-sandbox",
+    "name": "Container sandbox",
+    "aliases": [
+      "Container isolation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "microvm-sandbox",
+    "name": "MicroVM sandbox",
+    "aliases": [
+      "Micro virtual machine",
+      "Firecracker sandbox"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "webassembly-sandbox",
+    "name": "WebAssembly sandbox",
+    "aliases": [
+      "Wasm sandbox",
+      "WASI"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "react",
+    "name": "ReAct",
+    "aliases": [
+      "Reasoning and acting"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "reflexion",
+    "name": "Reflexion",
+    "aliases": [
+      "Verbal reinforcement learning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "plan-and-execute",
+    "name": "Plan and execute",
+    "aliases": [
+      "Planner-executor pattern"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "rewoo",
+    "name": "ReWOO",
+    "aliases": [
+      "Reasoning without observation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "supervisor-worker",
+    "name": "Supervisor-worker pattern",
+    "aliases": [
+      "Manager-worker orchestration"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "agent-as-tool",
+    "name": "Agent as tool",
+    "aliases": [
+      "Tool-wrapped agent"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "idempotency",
+    "name": "Idempotency",
+    "aliases": [
+      "Idempotent operation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "git-worktree",
+    "name": "Git worktree",
+    "aliases": [
+      "Linked working tree"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "evaluator-optimizer-loop",
+    "name": "Evaluator-optimizer loop",
+    "aliases": [
+      "Critique-revise loop"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "map-reduce-workflow",
+    "name": "Map-reduce workflow",
+    "aliases": [
+      "Parallel map and synthesis"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "task-environment",
+    "name": "Task environment",
+    "aliases": [
+      "Agent environment"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "evaluation-harness",
+    "name": "Evaluation harness",
+    "aliases": [
+      "Eval harness"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "execution-based-evaluation",
+    "name": "Execution-based evaluation",
+    "aliases": [
+      "Executable grading"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "inter-rater-reliability",
+    "name": "Inter-rater reliability",
+    "aliases": [
+      "Annotator agreement"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "judge-bias",
+    "name": "Judge bias",
+    "aliases": [
+      "Position bias",
+      "Verbosity bias",
+      "Self-preference bias"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "computer-use-benchmark",
+    "name": "Computer-use benchmark",
+    "aliases": [
+      "GUI agent benchmark"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "slice-evaluation",
+    "name": "Slice evaluation",
+    "aliases": [
+      "Segment evaluation",
+      "Subgroup evaluation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "metamorphic-testing",
+    "name": "Metamorphic testing",
+    "aliases": [
+      "Invariance testing"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "counterfactual-evaluation",
+    "name": "Counterfactual evaluation",
+    "aliases": [
+      "Controlled contrast evaluation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "calibration-error",
+    "name": "Calibration error",
+    "aliases": [
+      "Expected calibration error",
+      "ECE"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "distribution-shift",
+    "name": "Distribution shift",
+    "aliases": [
+      "Dataset shift",
+      "Out-of-distribution input"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "regression-suite",
+    "name": "Regression suite",
+    "aliases": [
+      "Regression evaluations"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "skill-injection",
+    "name": "Skill injection",
+    "aliases": [
+      "Malicious skill instructions"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "tool-shadowing",
+    "name": "Tool shadowing",
+    "aliases": [
+      "Cross-tool manipulation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "tool-rug-pull",
+    "name": "Tool rug pull",
+    "aliases": [
+      "Changed tool definition attack"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "confused-deputy",
+    "name": "Confused deputy",
+    "aliases": [
+      "Authority confusion"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "token-passthrough",
+    "name": "Token passthrough",
+    "aliases": [
+      "Unvalidated token forwarding"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "instruction-hierarchy",
+    "name": "Instruction hierarchy",
+    "aliases": [
+      "Instruction priority"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "taint-tracking",
+    "name": "Taint tracking",
+    "aliases": [
+      "Data provenance labels"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "egress-control",
+    "name": "Egress control",
+    "aliases": [
+      "Outbound network policy"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "credential-brokering",
+    "name": "Credential brokering",
+    "aliases": [
+      "Secret proxy",
+      "Credential proxy"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "prompt-leakage",
+    "name": "Prompt leakage",
+    "aliases": [
+      "System prompt extraction"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "native-multimodality",
+    "name": "Native multimodality",
+    "aliases": [
+      "Natively multimodal model"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "cross-modal-alignment",
+    "name": "Cross-modal alignment",
+    "aliases": [
+      "Multimodal alignment"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "audio-codec-tokens",
+    "name": "Audio codec tokens",
+    "aliases": [
+      "Neural audio tokens",
+      "Discrete audio codes"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "codec-language-model",
+    "name": "Codec language model",
+    "aliases": [
+      "Neural codec language model"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "speech-prosody",
+    "name": "Speech prosody",
+    "aliases": [
+      "Intonation",
+      "Prosodic control"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "barge-in",
+    "name": "Barge-in",
+    "aliases": [
+      "Voice interruption handling"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "turn-taking",
+    "name": "Turn-taking",
+    "aliases": [
+      "End-of-turn detection"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "full-duplex-voice",
+    "name": "Full-duplex voice",
+    "aliases": [
+      "Simultaneous listening and speaking"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "forced-alignment",
+    "name": "Forced alignment",
+    "aliases": [
+      "Audio-text alignment"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "temporal-grounding",
+    "name": "Temporal grounding",
+    "aliases": [
+      "Video moment retrieval"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "visuomotor-policy",
+    "name": "Visuomotor policy",
+    "aliases": [
+      "Vision-to-action policy"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "proprioception",
+    "name": "Proprioception",
+    "aliases": [
+      "Robot state sensing"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "robot-teleoperation",
+    "name": "Robot teleoperation",
+    "aliases": [
+      "Remote robot control"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "inverse-dynamics",
+    "name": "Inverse dynamics",
+    "aliases": [
+      "Dynamics inversion"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "forward-dynamics",
+    "name": "Forward dynamics",
+    "aliases": [
+      "Action-conditioned dynamics"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "domain-randomization",
+    "name": "Domain randomization",
+    "aliases": [
+      "Simulation parameter randomization"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "dexterous-manipulation",
+    "name": "Dexterous manipulation",
+    "aliases": [
+      "In-hand manipulation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "tactile-sensing",
+    "name": "Tactile sensing",
+    "aliases": [
+      "Robot touch sensing"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "constitutional-ai",
+    "name": "Constitutional AI",
+    "aliases": [
+      "CAI"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "generative-replay",
+    "name": "Generative replay",
+    "aliases": [
+      "Synthetic replay"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "test-time-entropy-minimization",
+    "name": "Test-time entropy minimization",
+    "aliases": [
+      "Tent"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "machine-unlearning",
+    "name": "Machine unlearning",
+    "aliases": [
+      "Data influence removal"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "trajectory-stitching",
+    "name": "Trajectory stitching",
+    "aliases": [
+      "Offline trajectory composition"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "influence-functions",
+    "name": "Influence functions",
+    "aliases": [
+      "Training-data attribution"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "prompt-versioning",
+    "name": "Prompt versioning",
+    "aliases": [
+      "Versioned prompts"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "model-version-pinning",
+    "name": "Model version pinning",
+    "aliases": [
+      "Snapshot pinning"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "shadow-deployment",
+    "name": "Shadow deployment",
+    "aliases": [
+      "Shadow mode",
+      "Dark launch"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "canary-release",
+    "name": "Canary release",
+    "aliases": [
+      "Canary deployment"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "service-level-objective",
+    "name": "Service-level objective",
+    "aliases": [
+      "SLO",
+      "Service objective"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "automation-bias",
+    "name": "Automation bias",
+    "aliases": [
+      "Overreliance on automation"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "human-escalation",
+    "name": "Human escalation",
+    "aliases": [
+      "Escalation path",
+      "Human handoff"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "cold-start-problem",
+    "name": "Cold-start problem",
+    "aliases": [
+      "New-user cold start",
+      "New-item cold start"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "trust-calibration",
+    "name": "Trust calibration",
+    "aliases": [
+      "Appropriate reliance"
+    ],
+    "addedAt": "2026-11-03"
+  },
+  {
+    "id": "agent-identity",
+    "name": "Agent identity",
+    "aliases": [
+      "AI agent identity",
+      "Non-human identity"
+    ],
+    "addedAt": "2026-11-03"
+  }
+]

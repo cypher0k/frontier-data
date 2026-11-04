@@ -1,0 +1,43 @@
+name: Publish Frontier daily
+on:
+  schedule:
+    - cron: '17 5 * * *' # 09:17 Asia/Dubai
+  push:
+    paths:
+      - 'publisher/**'
+      - '.github/workflows/frontier-daily.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: frontier-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Start the pinned open model on this cloud runner
+        run: bash publisher/bootstrap-model.sh
+      - name: Collect sources, write guides, and review claims
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          FRONTIER_AI_PROVIDER: local
+          FRONTIER_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python3 publisher/refresh.py
+      - name: Validate publication
+        run: python3 publisher/validate.py
+      - name: Publish the validated JSON atomically
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name 'frontier-publisher[bot]'
+          git config user.email 'frontier-publisher@users.noreply.github.com'
+          git add public/data/publication.json public/data/history
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Publish daily source research and guides'
+          gh auth setup-git
+          git push
