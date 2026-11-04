@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-04T13:11:07.504958+00:00",
+  "generatedAt": "2026-11-04T13:21:34.730109+00:00",
   "terms": [
     {
       "aliases": [],
@@ -194,6 +194,74 @@
   ],
   "items": [
     {
+      "id": "pub-d6f1b160efa3d2639d",
+      "title": "Show HN: Gradevibes-Is your AI-written app finished?",
+      "url": "https://gradevibes.com?tab=upload",
+      "publishedAt": "2026-11-04T13:09:44+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365056"
+    },
+    {
+      "id": "pub-1c0bcb0962cbcc4c48",
+      "title": "EdgeDAE: Acceleration of Diffusion Action Experts for Real-Time Physical AI",
+      "url": "https://arxiv.org/abs/2610.00311",
+      "publishedAt": "2026-11-04T13:06:44+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365027"
+    },
+    {
+      "id": "pub-94ea492389c7530015",
+      "title": "Disaster is still better than AI",
+      "url": "https://jasonpolak.substack.com/p/disaster-is-still-better-than-ai",
+      "publishedAt": "2026-11-04T13:05:26+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 2,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365009"
+    },
+    {
+      "id": "pub-ba73517a92e52df3b6",
+      "title": "Show HN: Backup your ChatGPT and Claude conversation free",
+      "url": "https://www.samewindow.com",
+      "publishedAt": "2026-11-04T13:04:25+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 2,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50364996"
+    },
+    {
       "id": "pub-898acdde039e707e60",
       "title": "Show HN: Shield KYA – Open-source audit trail and gate for AI agent tool calls",
       "url": "https://github.com/The-Pixel-Boys/shield-kya",
@@ -206,7 +274,7 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 1,
+      "points": 3,
       "comments": 0,
       "discussionUrl": "https://news.ycombinator.com/item?id=50364706"
     },
@@ -291,7 +359,7 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 2,
+      "points": 3,
       "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50364420"
     },
@@ -308,8 +376,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 153,
-      "comments": 60,
+      "points": 181,
+      "comments": 84,
       "discussionUrl": "https://news.ycombinator.com/item?id=50364336"
     },
     {
@@ -325,7 +393,7 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 3,
+      "points": 4,
       "comments": 0,
       "discussionUrl": "https://news.ycombinator.com/item?id=50364330"
     },
@@ -546,8 +614,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 104,
-      "comments": 64,
+      "points": 115,
+      "comments": 76,
       "discussionUrl": "https://news.ycombinator.com/item?id=50363554"
     },
     {
@@ -580,8 +648,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 128,
-      "comments": 41,
+      "points": 146,
+      "comments": 42,
       "discussionUrl": "https://news.ycombinator.com/item?id=50363461"
     },
     {
@@ -716,8 +784,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 190,
-      "comments": 100,
+      "points": 206,
+      "comments": 107,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362905"
     },
     {
@@ -784,8 +852,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 5,
-      "comments": 3,
+      "points": 6,
+      "comments": 4,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362700"
     },
     {
@@ -802,7 +870,7 @@
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
       "points": 6,
-      "comments": 2,
+      "comments": 3,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362698"
     },
     {
@@ -937,8 +1005,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 43,
-      "comments": 61,
+      "points": 45,
+      "comments": 63,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362274"
     },
     {
@@ -1144,74 +1212,6 @@
       "points": 2,
       "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50361361"
-    },
-    {
-      "id": "pub-aa40ff21015208e37a",
-      "title": "GIMP 3.2.8 with Many Refinements, Numerous Security Fixes Due to AI Reports",
-      "url": "https://www.phoronix.com/news/GIMP-3.2.8-Released",
-      "publishedAt": "2026-11-04T03:59:51+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 4,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50361359"
-    },
-    {
-      "id": "pub-2e060c4609abaa8513",
-      "title": "A private AI box in one apply",
-      "url": "https://conn3x.org/blog/private-ai-box",
-      "publishedAt": "2026-11-04T03:49:20+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 2,
-      "comments": 1,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50361306"
-    },
-    {
-      "id": "pub-7aa201b49130b15e24",
-      "title": "Show HN: TickerTown, a pixel-art stock market simulator",
-      "url": "https://tickertown.ai",
-      "publishedAt": "2026-11-04T03:40:31+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 1,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50361263"
-    },
-    {
-      "id": "pub-4e0869b749b040dd44",
-      "title": "Ask HN: What do you call Holy Grail mania risk?",
-      "url": "https://news.ycombinator.com/item?id=50361108",
-      "publishedAt": "2026-11-04T03:11:37+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 2,
-      "comments": 1,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50361108"
     },
     {
       "id": "pub-797aba84ba3e9103d8",
@@ -1453,7 +1453,7 @@
       "summary": "Later tokens are costlier to generate than earlier tokens. On frontier open weight models, the disparity in cost may rise to as much as 7x.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 2,
+      "points": 3,
       "comments": 0
     },
     {
@@ -1922,7 +1922,7 @@
       "summary": "Composed Image Retrieval (CIR) aims to retrieve a target image given a reference image and a modification text. Although recent approaches leveraging Multimodal Large Language…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 31
+      "points": 32
     },
     {
       "id": "pub-5ae91bff08b3cb5cd0",
@@ -1937,7 +1937,7 @@
       "summary": "Large reasoning models achieve strong performance on challenging tasks, but their long chain-of-thought often incurs substantial inference costs by continuing to deliberate after sufficient information…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 60
+      "points": 62
     },
     {
       "id": "pub-a29421560cbd37d6ff",
@@ -2465,7 +2465,7 @@
       "summary": "Long-form multi-shot video editing requires an intended edit to remain coherent across abrupt changes in scene, viewpoint, and subject appearance, while processing substantially longer visual…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 53
+      "points": 54
     },
     {
       "id": "pub-0347bbda6ac6a11ba5",
@@ -2819,7 +2819,7 @@
       "summary": "Psychotherapy clients may experience distress before they can coherently describe it, and their expression changes with emotion, perceived safety, and trust. Large language model-based client…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 59
+      "points": 61
     },
     {
       "id": "pub-c8d7e83ca588d28d53",
@@ -3263,7 +3263,7 @@
       "summary": "On-policy Self-distillation (OPSD) has proven effective for post-training large language models by constructing a teacher conditioned on privileged references. However, existing approaches keep the teacher…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 4
+      "points": 5
     },
     {
       "id": "pub-e9312f63a8158d5bdc",
@@ -5522,7 +5522,7 @@
       "purpose": "Research, product capabilities and official limitations",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T12:59:13.987853+00:00",
+      "fetchedAt": "2026-11-04T13:14:58.191268+00:00",
       "error": null
     },
     {
@@ -5536,7 +5536,7 @@
       "purpose": "Agent architecture, context, tooling and evaluations",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T12:59:14.848921+00:00",
+      "fetchedAt": "2026-11-04T13:14:59.391839+00:00",
       "error": null
     },
     {
@@ -5550,7 +5550,7 @@
       "purpose": "New methods and demonstrated limits",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T12:59:15.302460+00:00",
+      "fetchedAt": "2026-11-04T13:14:59.391857+00:00",
       "error": null
     },
     {
@@ -5563,7 +5563,7 @@
       "purpose": "Model capabilities, research and applications",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T12:59:15.302490+00:00",
+      "fetchedAt": "2026-11-04T13:14:59.391866+00:00",
       "error": null
     },
     {
@@ -5576,7 +5576,7 @@
       "purpose": "Research mechanisms and technical reports",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T12:59:15.302501+00:00",
+      "fetchedAt": "2026-11-04T13:14:59.391874+00:00",
       "error": null
     },
     {
@@ -5589,7 +5589,7 @@
       "purpose": "Open models, model cards and reproducible implementations",
       "priority": 4,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T12:59:15.302509+00:00",
+      "fetchedAt": "2026-11-04T13:14:59.391881+00:00",
       "error": null
     },
     {
@@ -5603,7 +5603,7 @@
       "purpose": "Real agent workflows, infrastructure and evaluations",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T12:59:15.302516+00:00",
+      "fetchedAt": "2026-11-04T13:14:59.391890+00:00",
       "error": null
     },
     {
@@ -5617,7 +5617,7 @@
       "purpose": "Coding workflows and product engineering",
       "priority": 4,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T12:59:15.302523+00:00",
+      "fetchedAt": "2026-11-04T13:14:59.391895+00:00",
       "error": null
     },
     {
@@ -5630,7 +5630,7 @@
       "purpose": "Hands-on experiments, reproductions and failure reports",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T12:59:15.302529+00:00",
+      "fetchedAt": "2026-11-04T13:14:59.391901+00:00",
       "error": null
     },
     {
@@ -5643,7 +5643,7 @@
       "purpose": "Builder interviews, talks and practical context",
       "priority": 4,
       "itemCount": 20,
-      "fetchedAt": "2026-11-04T12:59:15.302535+00:00",
+      "fetchedAt": "2026-11-04T13:14:59.391907+00:00",
       "error": null
     },
     {
@@ -5656,7 +5656,7 @@
       "purpose": "Original papers, beyond community-selected trending lists",
       "priority": 4,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T12:59:15.302540+00:00",
+      "fetchedAt": "2026-11-04T13:14:59.507379+00:00",
       "error": null
     },
     {
@@ -5669,7 +5669,7 @@
       "purpose": "Research discovery and community interest",
       "priority": 4,
       "itemCount": 60,
-      "fetchedAt": "2026-11-04T12:59:15.302546+00:00",
+      "fetchedAt": "2026-11-04T13:14:59.507405+00:00",
       "error": null
     },
     {
@@ -5682,7 +5682,7 @@
       "purpose": "Shipped code and official release notes",
       "priority": 4,
       "itemCount": 20,
-      "fetchedAt": "2026-11-04T12:59:18.329894+00:00",
+      "fetchedAt": "2026-11-04T13:15:02.158722+00:00",
       "error": null
     },
     {
@@ -5695,21 +5695,18 @@
       "purpose": "Community discussion; contributes no evidence of correctness",
       "priority": 1,
       "itemCount": 60,
-      "fetchedAt": "2026-11-04T12:59:18.329918+00:00",
+      "fetchedAt": "2026-11-04T13:15:02.158740+00:00",
       "error": null
     }
   ],
-  "newTermIds": [
-    "adversarial-speculative-reasoning"
-  ],
-  "runUrl": "https://github.com/cypher0k/frontier-data/actions/runs/41833563340",
+  "newTermIds": [],
+  "runUrl": "https://github.com/cypher0k/frontier-data/actions/runs/41835860086",
   "editionDay": "2026-11-04",
-  "guideStatus": "passed",
-  "guideError": null,
+  "guideStatus": "failed",
+  "guideError": "ValueError: Short POCs cannot require model training or frontier-model compute",
   "lastGuideCheckAt": "2026-11-04T13:06:46.576692+00:00",
   "editor": "Qwen3-4B drafts with a separate source-check pass; POCs are suggestions, not executed tests",
   "history": [
     "2026-11-04"
-  ],
-  "editorNote": "Initial cloud guide revised after a source and POC feasibility check."
+  ]
 }
