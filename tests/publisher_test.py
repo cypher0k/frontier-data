@@ -27,6 +27,15 @@ class PublisherTests(unittest.TestCase):
   self.assertEqual(self.validate(known=[old])[0]['addedAt'],old['addedAt'])
   bad=copy.deepcopy(self.guide);bad['id']='replacement-id'
   with self.assertRaisesRegex(ValueError,'original ID'):self.validate(bad,[old])
+ def test_short_poc_cannot_ask_for_frontier_model_training(self):
+  bad=copy.deepcopy(self.guide);bad['poc']['steps'][0]='Train a draft model on agent trajectories.'
+  with self.assertRaisesRegex(ValueError,'model training'):self.validate(bad)
+ def test_poc_checks_need_a_concrete_count_or_threshold(self):
+  bad=copy.deepcopy(self.guide);bad['poc']['successCriteria']=['Improved accuracy.','Better reasoning.']
+  with self.assertRaisesRegex(ValueError,'sample size'):self.validate(bad)
+ def test_experimental_results_cannot_be_called_noise_free(self):
+  bad=copy.deepcopy(self.guide);bad['meaning']='This method produces noise-free reasoning at every decision point.'
+  with self.assertRaisesRegex(ValueError,'overstates'):self.validate(bad)
  def test_incomplete_poc_is_rejected(self):
   bad=copy.deepcopy(self.guide);bad['poc']['successCriteria']=[]
   with self.assertRaisesRegex(ValueError,'checks'):self.validate(bad)

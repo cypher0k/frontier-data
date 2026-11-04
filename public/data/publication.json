@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-04T13:06:46.576692+00:00",
+  "generatedAt": "2026-11-04T13:11:07.504958+00:00",
   "terms": [
     {
       "aliases": [],
@@ -137,60 +137,59 @@
       "category": "reasoning",
       "level": "advanced",
       "maturity": "research",
-      "meaning": "A technique that improves the reasoning accuracy of long-horizon agents by training a draft model to reject certain critical reasoning points, thereby forcing the target model to generate more precise and noise-free outputs at decision points.",
+      "meaning": "A research approach that trains a speculative draft model to disagree at important reasoning points, causing target verification to restart there. It uses rejection timing to manage numerical precision during long agent tasks.",
       "how": [
         {
-          "title": "Train a draft model to reject critical reasoning points",
-          "detail": "Train a draft model to favor adversarial preferences, identifying key decision points in agent traces where the target model's output distribution is most sensitive to noise."
+          "title": "Find sensitive decision points",
+          "detail": "The authors examine where numerical differences within speculative verification windows can affect later agent decisions."
         },
         {
-          "title": "Inference with precise decision points",
-          "detail": "At inference, the trained draft and target models part ways precisely at these decision points, triggering verification restarts to ensure critical thinking tokens are sampled from the target model under least noisy conditions."
+          "title": "Train for selective disagreement",
+          "detail": "Their draft model learns adversarial preferences around these points, seeking useful rejections rather than maximizing acceptance everywhere."
         },
         {
-          "title": "Control noise growth in verification windows",
-          "detail": "By controlling noise growth within verification windows, the approach ensures that the draft model's rejection of certain reasoning points does not alter the overall token distribution verified by the target model."
+          "title": "Restart target verification",
+          "detail": "Draft disagreement restarts verification at selected points. The authors report coding benchmark gains under their evaluated settings."
         }
       ],
-      "why": "Improves the accuracy of long-horizon agents by training the draft model to reject certain critical reasoning points, thereby forcing the target model to generate more precise and noise-free outputs at decision points.",
-      "example": "On complex agentic coding benchmarks, adversarial speculative reasoning raises end-to-end success rates with no change to the target model or its output distribution.",
-      "experiment": "POC: Adversarial Speculative Reasoning for Long-Horizon Agents",
-      "caution": "This approach is not suitable for short-horizon tasks where the noise growth within verification windows is less significant.",
+      "why": "For a PM, decoding speed and task success can interact. Evaluate an acceleration method on completed tasks as well as tokens per second.",
+      "example": "A coding-agent evaluation could compare task pass rates and runtime across speculative-decoding configurations, rather than choosing the highest draft acceptance rate alone.",
+      "experiment": "Use a small rounding simulation to explore why numerical settings can affect repeated decisions. This is a diagnostic exercise, not an ASR reproduction.",
+      "caution": "The evidence comes from the authors’ long-horizon coding experiments. Results on other tasks and runtimes remain uncertain. Reproducing ASR requires model and inference-engine work beyond this exercise.",
       "related": [
         "speculative-decoding",
-        "long-term-memory"
+        "test-time-compute"
       ],
       "source": {
         "title": "Adversarial Speculative Reasoning Improves Long Horizon Agents",
         "url": "https://arxiv.org/abs/2611.05345"
       },
       "evidenceStatus": "demonstrated",
-      "evidenceNote": "The source authors report an experiment where adversarial speculative reasoning improves the accuracy of long-horizon agents on complex agentic coding benchmarks.",
+      "evidenceNote": "The authors report coding experiments with trained draft models. This app has not reproduced those results.",
       "pmRelevance": 5,
       "poc": {
-        "goal": "Improve the accuracy of long-horizon agents by controlling noise growth in verification windows.",
-        "timeMinutes": 20,
+        "goal": "See how rounding and restart intervals can change a chain of toy decisions.",
+        "timeMinutes": 45,
         "requirements": [
-          "A frontier open-weight model",
-          "A dataset of complex agentic coding tasks",
-          "A way to identify critical decision points in agent traces"
+          "A spreadsheet or Python with its standard library",
+          "A table with columns for step, reference value, rounded value, decision and mismatch"
         ],
         "steps": [
-          "1. Identify critical decision points in agent traces where the target model's output distribution is most sensitive to noise.",
-          "2. Train a draft model to favor adversarial preferences, focusing on these decision points.",
-          "3. At inference, have the trained draft and target models part ways precisely at these decision points, triggering verification restarts.",
-          "4. Ensure critical thinking tokens are sampled from the target model under least noisy conditions."
+          "Create 40 rows. Start two values at 0.4. At each row compute next = 3.9 × value × (1 − value). Keep one column at full precision; round the other to three decimal places after each update.",
+          "Record a toy decision at every row: A if the value is at least 0.5, B otherwise. Count disagreements between the two columns.",
+          "Repeat with restart windows of 4, 8 and 16 rows. At each boundary copy the current reference value into the rounded column, then continue updating.",
+          "Repeat all settings from starting values 0.2 and 0.7. Keep every result, including settings where restarting does not reduce disagreement."
         ],
         "successCriteria": [
-          "1. Improved end-to-end success rate on complex agentic coding benchmarks.",
-          "2. Reduced noise growth within verification windows."
+          "Record the first disagreement and total mismatched decisions across all 40 rows for each of the three starting values.",
+          "Produce a comparison table for the three restart windows and the no-restart baseline; account for every trial without claiming an agent accuracy gain."
         ],
-        "limitations": "This approach is not suitable for short-horizon tasks where the noise growth within verification windows is less significant."
+        "limitations": "This toy recurrence illustrates numerical sensitivity and resets. It contains no draft model, target model, learned rejection policy or real agent task, so it cannot test ASR performance."
       },
       "publishedAt": "2026-11-03T18:45:23+00:00",
-      "verifiedAt": "2026-11-04T13:05:10.965576+00:00",
+      "verifiedAt": "2026-11-04T13:11:07.504958+00:00",
       "addedAt": "2026-11-04T13:05:10.965576+00:00",
-      "generatedBy": "AI-written · separate source-check pass · suggested POC"
+      "generatedBy": "AI-written · source and POC checked · suggested exercise"
     }
   ],
   "items": [
@@ -5711,5 +5710,6 @@
   "editor": "Qwen3-4B drafts with a separate source-check pass; POCs are suggestions, not executed tests",
   "history": [
     "2026-11-04"
-  ]
+  ],
+  "editorNote": "Initial cloud guide revised after a source and POC feasibility check."
 }

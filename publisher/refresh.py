@@ -178,6 +178,10 @@ def validate_terms(values,candidates,known,now):
   if not 3<=len(steps)<=5 or any(not s.get('title') or not s.get('detail') for s in steps):raise ValueError('Mechanism needs three to five steps')
   if not poc.get('goal') or len(poc.get('steps',[]))<3 or len(poc.get('successCriteria',[]))<2 or not poc.get('limitations'):raise ValueError('POC must include steps, checks and limitations')
   if not isinstance(poc.get('timeMinutes'),int) or not 20<=poc['timeMinutes']<=90 or not poc.get('requirements'):raise ValueError('POC needs prerequisites and a 20–90 minute timebox')
+  practical=' '.join(poc.get('requirements',[])+poc.get('steps',[]))
+  if re.search(r'\btrain (?:a|the|your)\b|\bfine[- ]?tun(?:e|ing)\b|\bfrontier (?:open[- ]weight )?model\b|\bGPU cluster\b',practical,re.I):raise ValueError('Short POCs cannot require model training or frontier-model compute')
+  if not any(re.search(r'\d|\b(?:one|two|three|four|five|ten|twenty|thirty|forty|fifty|hundred)\b',criterion,re.I) for criterion in poc.get('successCriteria',[])):raise ValueError('POC checks need an explicit sample size, threshold or count')
+  if re.search(r'noise[- ]free|guarantee(?:s|d)? (?:accuracy|correctness|success)',value['meaning']+' '+' '.join(s['detail'] for s in steps),re.I):raise ValueError('Guide overstates an experimental result')
   if not 1<=value.get('pmRelevance',0)<=5:raise ValueError('Invalid PM relevance score')
   valid_ids=set(known_by_id)|{t['id'] for t in values}
   if any(t not in valid_ids for t in value.get('related',[])):raise ValueError('Unknown related guide')
@@ -226,7 +230,7 @@ def generate(items,previous,known):
  if valid:
   review_schema=obj({'approvedIds':arr(STR),'issues':arr(STR)})
   cited=[item for item in selected if canonical(item['url']) in {canonical(t['source']['url']) for t in valid}]
-  review=infer('Independently review these drafted guides against ONLY the supplied excerpts. Approve an ID only if its definition, mechanism, evidence classification and POC are supportable. POCs are suggested experiments, never executed results. Reject unsupported numbers, claims of independent reproduction without another source, or production use without explicit evidence.\nDrafts:'+json.dumps(valid)+'\nSources:'+json.dumps(cited),review_schema,1500)
+  review=infer('Independently review these drafted guides against ONLY the supplied excerpts. Approve an ID only if its definition, mechanism, evidence classification, limitations and POC are supportable. Check that a person without a model API account or GPU can complete the POC within the timebox. Training a model is not a 20–90 minute POC. Require concrete inputs, a baseline and numerical checks. A toy simulation is acceptable only if clearly separated from reproducing the paper. Reject guaranteed improvements, noise-free claims, unsupported limitations, unsupported numbers, claims of independent reproduction without another source, or production use without explicit evidence.\nDrafts:'+json.dumps(valid)+'\nSources:'+json.dumps(cited),review_schema,1500)
   approved=set(review.get('approvedIds',[]));valid=[t for t in valid if t['id'] in approved]
   if not valid:raise ValueError('The independent AI review rejected all draft guides')
  return valid
