@@ -1,13 +1,32 @@
-# Frontier data
+# Frontier public data
 
-Public source feed and daily guide publisher for https://usefrontier.vercel.app. This repository contains public research and updater code, never personal bookmarks, imports or browser history.
+[Open the app](https://usefrontier.vercel.app) · [Publisher runs](https://github.com/cypher0k/frontier-data/actions/workflows/frontier-daily.yml)
 
-The scheduled GitHub Actions job runs daily at 09:17 Asia/Dubai (05:17 UTC). It collects 14 source families, then runs the open Qwen3-4B model on the temporary GitHub-hosted runner. No model API account or key is required. The model and llama.cpp revisions are pinned; the model download is checked with SHA-256. Nothing runs on the user's computer. The application stays a static frontend on Vercel.
+This repository contains public source research, complete AI-written guides and the scheduled updater for frontier /. Personal imports, bookmarks and browser archive data are not uploaded here. The Vercel app is a static frontend that reads this JSON directly; new data does not require an app redeploy.
 
-The writer chooses up to two reusable new concepts or substantive revisions, preserving IDs and first addition dates. Each full guide contains a definition, mechanism, relevance, example, limitations and a suggested POC with ordered steps and success checks. A separate AI review pass and schema validation precede the atomic Git commit. AI review does not establish correctness or replace expert review; POCs are not executed by the publisher. A day with no worthwhile additions may publish zero new guides. Failed generation or validation preserves the previous publication.
+## Schedule and model
 
-Sources include OpenAI, Anthropic engineering/research, Google DeepMind/Research, Hugging Face blog/papers, LangChain, Cursor, Simon Willison, Latent Space, arXiv, official releases and Hacker News. Original source excerpts are limited to 25 words each; full explanations are original drafts with citations. Source failures retain the prior source snapshot and timestamp.
+The GitHub Actions workflow runs daily around **09:17 Asia/Dubai (05:17 UTC)**, on publisher changes, or with Run workflow. GitHub can queue scheduled starts. It runs pinned official Qwen3-4B Q4_K_M weights through pinned llama.cpp on a temporary standard GitHub-hosted Ubuntu runner. The download is checksum verified. No model API account/key or always-running server is needed. Model weights and runtime files are temporary and never committed.
 
-Feed: public/data/publication.json. History: public/data/history/YYYY-MM-DD.json. The feed includes its last successful timestamp, source health and a link to its actual workflow run. Daily history is retained without automatic deletion.
+The job collects 14 feeds spanning labs, engineering, research, practitioners, releases and discussion. Hacker News is an engagement signal, not the primary evidence source. Candidate selection reserves room for papers, engineering and practitioner reports instead of filling the context with lab announcements. It writes zero or one worthwhile new or substantially revised concepts with a full mechanism, original explanation and suggested POC. There is no manufactured daily quota.
 
-Model: Qwen/Qwen3-4B-GGUF, Apache-2.0, https://huggingface.co/Qwen/Qwen3-4B-GGUF. Runtime: ggml-org/llama.cpp, MIT, https://github.com/ggml-org/llama.cpp. Runtime downloads remain on the ephemeral runner and are not committed. Only public source data is sent to this local model.
+A separate model call checks drafts against source excerpts, then deterministic validation checks dates, IDs, citations and complete POCs. These are AI checks, not human verification or independent experimental reproduction. POCs are suggestions, not executed results. A guide-generation failure retains previous guides, publishes successfully collected sources and records the failure for display in the app. Failed source collection or publication validation preserves the previous feed.
+
+## Files
+
+- `public/data/publication.json`: cumulative full guides, current source items, health, actual generation time, real run URL, guideStatus and available history dates.
+- `public/data/history/YYYY-MM-DD.json`: dated Dubai-calendar-day editions; older editions remain available to the app even if it was closed.
+- `public/data/sources.json`: source registry and collection methods.
+- `publisher/catalog-index.json`: public guide IDs, names and aliases to avoid duplicates and preserve identity on revisions.
+- `publisher/refresh.py`: collection, source selection, model draft/check and atomic publication.
+- `publisher/bootstrap-model.sh`: pinned official runtime/model and checksum.
+
+The workflow uses its short-lived repository-scoped GitHub token for release collection and publishing. Never add credentials, private documents, browser data, `.env` files, model binaries or logs to this public repository.
+
+## Checks
+
+`python3 -B -m unittest discover -s tests -p 'publisher_test.py'`
+
+`python3 publisher/validate.py`
+
+Failed runs are visible in Actions. The app labels a publication overdue after 36 hours and keeps the last valid data. Standard public-repository GitHub-hosted runners require no model API key. Changes to GitHub service availability or policy can affect scheduling.
