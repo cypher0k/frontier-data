@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-04T11:59:45.159569+00:00",
+  "generatedAt": "2026-11-04T13:06:46.576692+00:00",
   "terms": [
     {
       "aliases": [],
@@ -126,9 +126,312 @@
         ],
         "limitations": "Five inspected traces cannot establish the full method’s environment coverage, benchmark difficulty, or training benefits."
       }
+    },
+    {
+      "id": "adversarial-speculative-reasoning",
+      "name": "Adversarial Speculative Reasoning",
+      "aliases": [
+        "ASR",
+        "Adversarial Drafting"
+      ],
+      "category": "reasoning",
+      "level": "advanced",
+      "maturity": "research",
+      "meaning": "A technique that improves the reasoning accuracy of long-horizon agents by training a draft model to reject certain critical reasoning points, thereby forcing the target model to generate more precise and noise-free outputs at decision points.",
+      "how": [
+        {
+          "title": "Train a draft model to reject critical reasoning points",
+          "detail": "Train a draft model to favor adversarial preferences, identifying key decision points in agent traces where the target model's output distribution is most sensitive to noise."
+        },
+        {
+          "title": "Inference with precise decision points",
+          "detail": "At inference, the trained draft and target models part ways precisely at these decision points, triggering verification restarts to ensure critical thinking tokens are sampled from the target model under least noisy conditions."
+        },
+        {
+          "title": "Control noise growth in verification windows",
+          "detail": "By controlling noise growth within verification windows, the approach ensures that the draft model's rejection of certain reasoning points does not alter the overall token distribution verified by the target model."
+        }
+      ],
+      "why": "Improves the accuracy of long-horizon agents by training the draft model to reject certain critical reasoning points, thereby forcing the target model to generate more precise and noise-free outputs at decision points.",
+      "example": "On complex agentic coding benchmarks, adversarial speculative reasoning raises end-to-end success rates with no change to the target model or its output distribution.",
+      "experiment": "POC: Adversarial Speculative Reasoning for Long-Horizon Agents",
+      "caution": "This approach is not suitable for short-horizon tasks where the noise growth within verification windows is less significant.",
+      "related": [
+        "speculative-decoding",
+        "long-term-memory"
+      ],
+      "source": {
+        "title": "Adversarial Speculative Reasoning Improves Long Horizon Agents",
+        "url": "https://arxiv.org/abs/2611.05345"
+      },
+      "evidenceStatus": "demonstrated",
+      "evidenceNote": "The source authors report an experiment where adversarial speculative reasoning improves the accuracy of long-horizon agents on complex agentic coding benchmarks.",
+      "pmRelevance": 5,
+      "poc": {
+        "goal": "Improve the accuracy of long-horizon agents by controlling noise growth in verification windows.",
+        "timeMinutes": 20,
+        "requirements": [
+          "A frontier open-weight model",
+          "A dataset of complex agentic coding tasks",
+          "A way to identify critical decision points in agent traces"
+        ],
+        "steps": [
+          "1. Identify critical decision points in agent traces where the target model's output distribution is most sensitive to noise.",
+          "2. Train a draft model to favor adversarial preferences, focusing on these decision points.",
+          "3. At inference, have the trained draft and target models part ways precisely at these decision points, triggering verification restarts.",
+          "4. Ensure critical thinking tokens are sampled from the target model under least noisy conditions."
+        ],
+        "successCriteria": [
+          "1. Improved end-to-end success rate on complex agentic coding benchmarks.",
+          "2. Reduced noise growth within verification windows."
+        ],
+        "limitations": "This approach is not suitable for short-horizon tasks where the noise growth within verification windows is less significant."
+      },
+      "publishedAt": "2026-11-03T18:45:23+00:00",
+      "verifiedAt": "2026-11-04T13:05:10.965576+00:00",
+      "addedAt": "2026-11-04T13:05:10.965576+00:00",
+      "generatedBy": "AI-written · separate source-check pass · suggested POC"
     }
   ],
   "items": [
+    {
+      "id": "pub-898acdde039e707e60",
+      "title": "Show HN: Shield KYA – Open-source audit trail and gate for AI agent tool calls",
+      "url": "https://github.com/The-Pixel-Boys/shield-kya",
+      "publishedAt": "2026-11-04T12:33:39+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50364706"
+    },
+    {
+      "id": "pub-6990c855a1cc2b0713",
+      "title": "Spec-driven AI development for insurance claims rule changes [video]",
+      "url": "https://www.youtube.com/watch?v=FRw3Og9tylE",
+      "publishedAt": "2026-11-04T12:25:03+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50364622"
+    },
+    {
+      "id": "pub-d952ab6d652f8f98f2",
+      "title": "Revolut slashes AI coding costs 10x by cutting out Claude and going self-hosted",
+      "url": "https://www.theregister.com/ai-and-ml/2026/11/03/british-fintech-revolut-slashes-ai-coding-costs-10x-by-cutting-out-claude-and-going-self-hosted/5307345",
+      "publishedAt": "2026-11-04T12:14:23+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 4,
+      "comments": 1,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50364529"
+    },
+    {
+      "id": "pub-7425ae5ae2ded04150",
+      "title": "Show HN: Rivermark, a superfast AI graphic design canvas",
+      "url": "https://rivermark.ai",
+      "publishedAt": "2026-11-04T12:13:58+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50364525"
+    },
+    {
+      "id": "pub-799a08a17bcf79b606",
+      "title": "Can Advertising Fund Free AI? Evidence from ChatGPT's Advertising Rollout",
+      "url": "https://ecommerceresearch.org/chatgpt-ads",
+      "publishedAt": "2026-11-04T12:12:36+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50364513"
+    },
+    {
+      "id": "pub-15e0050151954c8cff",
+      "title": "Why the Term \"Smart City Surveillance\" Needs an Update in the Era of AI and 5G",
+      "url": "https://www.red5.net/blog/smart-city-surveillance-in-the-era-of-ai-and-5g",
+      "publishedAt": "2026-11-04T12:03:24+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 2,
+      "comments": 1,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50364420"
+    },
+    {
+      "id": "pub-857e942cc1110bf466",
+      "title": "AI is forcing us to pay off 40 years of technical debt",
+      "url": "https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
+      "publishedAt": "2026-11-04T11:52:17+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 153,
+      "comments": 60,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50364336"
+    },
+    {
+      "id": "pub-4c980086af9425ed7c",
+      "title": "AI Slop Threatens Trust in Science",
+      "url": "https://spectrum.ieee.org/ai-slop-trust-science",
+      "publishedAt": "2026-11-04T11:51:32+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 3,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50364330"
+    },
+    {
+      "id": "pub-923fb84d63c8badda6",
+      "title": "iOS Simulator MCP benchmark: eight tools for AI agents",
+      "url": "https://simulator-use.dev/benchmarks",
+      "publishedAt": "2026-11-04T11:47:01+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 2,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50364299"
+    },
+    {
+      "id": "pub-5263b67bd0a2ce1fc9",
+      "title": "Audio Enhancer – Free Online AI Audio Enhancer and Noise Remover",
+      "url": "https://audioenhancer.io",
+      "publishedAt": "2026-11-04T11:46:38+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50364295"
+    },
+    {
+      "id": "pub-59117c96413638f565",
+      "title": "AI-Generated Content on Nexus Mods",
+      "url": "https://www.nexusmods.com/news/15654",
+      "publishedAt": "2026-11-04T11:45:57+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 2,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50364289"
+    },
+    {
+      "id": "pub-1e1df04ab2f3c6facf",
+      "title": "Automated grounding verification of AI statements about chest radiographs",
+      "url": "https://arxiv.org/abs/2604.09537",
+      "publishedAt": "2026-11-04T11:43:37+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50364273"
+    },
+    {
+      "id": "pub-985db3a95c5d58c2d5",
+      "title": "Show HN: Olo, an AI companion that labels each claim against",
+      "url": "https://helius-olo.io/chat",
+      "publishedAt": "2026-11-04T11:36:36+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 2,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50364206"
+    },
+    {
+      "id": "pub-49ba178cf34cee2695",
+      "title": "Ask HN: If an AI agent chooses a tool to use, will it pay the tool?",
+      "url": "https://news.ycombinator.com/item?id=50364183",
+      "publishedAt": "2026-11-04T11:34:02+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 2,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50364183"
+    },
     {
       "id": "pub-3d7887e39ef85d8cf7",
       "title": "Webflow wanted $2,500 for one language. AI rebuilt our whole site in a weekend",
@@ -142,8 +445,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 1,
-      "comments": 0,
+      "points": 2,
+      "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50364038"
     },
     {
@@ -198,9 +501,9 @@
       "discussionUrl": "https://news.ycombinator.com/item?id=50363800"
     },
     {
-      "id": "pub-cc77127d90976cf657",
+      "id": "pub-aef1dd043e93ee2ca6",
       "title": "Show HN : I built Caloi AI – an AI-powered calorie tracker",
-      "url": "https://play.google.com/store/apps/details",
+      "url": "https://play.google.com/store/apps/details?hl=en_US&id=com.caloi.app",
       "publishedAt": "2026-11-04T10:47:43+00:00",
       "source": "Hacker News",
       "sourceId": "hn",
@@ -215,6 +518,23 @@
       "discussionUrl": "https://news.ycombinator.com/item?id=50363746"
     },
     {
+      "id": "pub-d21832ce6946258db7",
+      "title": "AI in Mathematical Research: Heidelberg Laureate Forum",
+      "url": "https://www.youtube.com/watch?v=H7_d_sgui6o",
+      "publishedAt": "2026-11-04T10:27:45+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 1,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50363592"
+    },
+    {
       "id": "pub-96fe654d833fe36f85",
       "title": "Geoffrey Hinton: it might turn out we were better off without AI",
       "url": "https://www.theguardian.com/uk-news/2026/nov/03/ai-godfather-geoffrey-hinton-better-off-without-ai",
@@ -227,14 +547,14 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 30,
-      "comments": 16,
+      "points": 104,
+      "comments": 64,
       "discussionUrl": "https://news.ycombinator.com/item?id=50363554"
     },
     {
-      "id": "pub-855335bcc000434e86",
+      "id": "pub-870b1c5ad467f139de",
       "title": "Siri AI is now open to all developers",
-      "url": "https://developer.apple.com/news",
+      "url": "https://developer.apple.com/news?id=gdk2umrf",
       "publishedAt": "2026-11-04T10:17:19+00:00",
       "source": "Hacker News",
       "sourceId": "hn",
@@ -249,6 +569,23 @@
       "discussionUrl": "https://news.ycombinator.com/item?id=50363502"
     },
     {
+      "id": "pub-d5eecd06151a766344",
+      "title": "Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)",
+      "url": "https://news.ycombinator.com/item?id=50363461",
+      "publishedAt": "2026-11-04T10:10:27+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 128,
+      "comments": 41,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50363461"
+    },
+    {
       "id": "pub-63f87adb22b1d4dd16",
       "title": "Supermarket fridge attack is just the start, says UK cybersecurity chief",
       "url": "https://www.reuters.com/legal/government/uk-must-expect-ai-powered-attack-critical-infrastructure-within-two-years-report-2026-11-03",
@@ -261,7 +598,7 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 2,
+      "points": 3,
       "comments": 0,
       "discussionUrl": "https://news.ycombinator.com/item?id=50363383"
     },
@@ -380,8 +717,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 101,
-      "comments": 53,
+      "points": 190,
+      "comments": 100,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362905"
     },
     {
@@ -434,6 +771,40 @@
       "points": 3,
       "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362730"
+    },
+    {
+      "id": "pub-64137b2e365603a067",
+      "title": "Ask HN: Impact of US Elections on AI?",
+      "url": "https://news.ycombinator.com/item?id=50362700",
+      "publishedAt": "2026-11-04T08:16:44+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 5,
+      "comments": 3,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50362700"
+    },
+    {
+      "id": "pub-f28f2e9429838e3296",
+      "title": "Ask HN: How to Keep the Edge as an Engineer?",
+      "url": "https://news.ycombinator.com/item?id=50362698",
+      "publishedAt": "2026-11-04T08:16:29+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 6,
+      "comments": 2,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50362698"
     },
     {
       "id": "pub-8f14aa2ef12a4c33ea",
@@ -538,9 +909,9 @@
       "discussionUrl": "https://news.ycombinator.com/item?id=50362354"
     },
     {
-      "id": "pub-34beab957f96878287",
+      "id": "pub-003910a6c8daf0d516",
       "title": "Tencent Hy4",
-      "url": "https://hy.tencent.ai/research/hy4",
+      "url": "https://hy.tencent.ai/research/hy4?langVersion=en",
       "publishedAt": "2026-11-04T07:05:00+00:00",
       "source": "Hacker News",
       "sourceId": "hn",
@@ -567,8 +938,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 41,
-      "comments": 58,
+      "points": 43,
+      "comments": 61,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362274"
     },
     {
@@ -638,6 +1009,23 @@
       "points": 5,
       "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362002"
+    },
+    {
+      "id": "pub-dab92d7b7ec8f2a07a",
+      "title": "Ask HN: Advice on local efficient analogical retrieval?",
+      "url": "https://news.ycombinator.com/item?id=50361973",
+      "publishedAt": "2026-11-04T06:09:55+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50361973"
     },
     {
       "id": "pub-438f55dffd91cd3022",
@@ -810,10 +1198,10 @@
       "discussionUrl": "https://news.ycombinator.com/item?id=50361263"
     },
     {
-      "id": "pub-2f11643a689186b452",
-      "title": "Is hosting an open-source inference engine profitable?",
-      "url": "https://userecurrence.ai/research/is-hosting-open-source-inference-profitable",
-      "publishedAt": "2026-11-04T02:58:34+00:00",
+      "id": "pub-4e0869b749b040dd44",
+      "title": "Ask HN: What do you call Holy Grail mania risk?",
+      "url": "https://news.ycombinator.com/item?id=50361108",
+      "publishedAt": "2026-11-04T03:11:37+00:00",
       "source": "Hacker News",
       "sourceId": "hn",
       "layer": "Discussion",
@@ -823,229 +1211,8 @@
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
       "points": 2,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50361035"
-    },
-    {
-      "id": "pub-f400a8a2e0a8ec6a5b",
-      "title": "Silicon Valley Promises AI Will Cure Disease. Drugmaker CEOs Aren't Buying It",
-      "url": "https://www.wsj.com/tech/ai/silicon-valley-promises-ai-will-cure-disease-drugmaker-ceos-arent-buying-it-5218511c",
-      "publishedAt": "2026-11-04T02:58:13+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 6,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50361033"
-    },
-    {
-      "id": "pub-72f28014a0a6851435",
-      "title": "I Built an AI That Works Through the Apocalypse – Will Prowse [video]",
-      "url": "https://www.youtube.com/watch",
-      "publishedAt": "2026-11-04T02:53:14+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 1,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50361005"
-    },
-    {
-      "id": "pub-e8a34e741df7f31a9f",
-      "title": "Old, Polluting Jet Engines Are Being Scavenged to Power Data Centers",
-      "url": "https://www.nytimes.com/2026/11/03/climate/jet-engines-ai-data-center-generators-boneyard.html",
-      "publishedAt": "2026-11-04T02:47:15+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 5,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50360973"
-    },
-    {
-      "id": "pub-266671e621f53edee1",
-      "title": "Ask HN: AI Side/personal projects to improve hireability?",
-      "url": "https://news.ycombinator.com/item",
-      "publishedAt": "2026-11-04T02:24:06+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 3,
-      "comments": 2,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50360823"
-    },
-    {
-      "id": "pub-e2d2bf508ced1caa08",
-      "title": "OpenAI is quietly renaming data centers 'compute campuses'",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/1025242/openai-quietly-renames-data-centers-as-compute-campuses",
-      "publishedAt": "2026-11-04T01:52:37+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 11,
-      "comments": 3,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50360659"
-    },
-    {
-      "id": "pub-b0bc03f34f9b6e249c",
-      "title": "Show HN: Pauseless – Free silence/filler-word remover from videos, on-browser",
-      "url": "https://tahaygun.github.io/pauseless",
-      "publishedAt": "2026-11-04T01:52:24+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 5,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50360658"
-    },
-    {
-      "id": "pub-894b245fb8ba05e8ea",
-      "title": "Graduates are managing AI – but are they learning much else?",
-      "url": "https://www.bbc.com/news/articles/c820vz6wyp65o",
-      "publishedAt": "2026-11-04T01:44:03+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 6,
-      "comments": 2,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50360592"
-    },
-    {
-      "id": "pub-8e836b4338fda8febf",
-      "title": "Local AI app that runs an 80B model on an 8GB Mac",
-      "url": "https://yanahchat.com",
-      "publishedAt": "2026-11-04T01:30:30+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 1,
-      "comments": 2,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50360513"
-    },
-    {
-      "id": "pub-f10f273082c78292a1",
-      "title": "Writing as an act of rebellion (Despite the AI psychosis)",
-      "url": "https://charlesfonseca.substack.com/p/writing-as-an-act-of-rebellion",
-      "publishedAt": "2026-11-04T01:21:28+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 8,
-      "comments": 2,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50360457"
-    },
-    {
-      "id": "pub-2c1a8c772c90590dd2",
-      "title": "SpaceX Will Be the Biggest AI Cloud",
-      "url": "https://newsletter.semianalysis.com/p/elon-is-doing-it-again-spacex-will",
-      "publishedAt": "2026-11-04T01:02:58+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 3,
-      "comments": 2,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50360345"
-    },
-    {
-      "id": "pub-45523eb164e32431c6",
-      "title": "AI Can Read Neural Network Weights. I Wasn't Ready for That. – Arcturus Labs",
-      "url": "https://arcturus-labs.com/blog/2026/11/03/ai-can-read-neural-network-weights-i-wasnt-ready-for-that",
-      "publishedAt": "2026-11-04T00:54:35+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 2,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50360281"
-    },
-    {
-      "id": "pub-5b0fb166678062285a",
-      "title": "Show HN: HackerReels - Short Videos for viral HN posts",
-      "url": "https://wile.ai/v/BPOH3BHCRWWCAKU4OVNOTEQ73A",
-      "publishedAt": "2026-11-04T00:50:50+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 4,
-      "comments": 3,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50360259"
-    },
-    {
-      "id": "pub-5185b1efc8d622d0c0",
-      "title": "WayPointo – A directory for discovering and comparing AI and creative products",
-      "url": "https://waypointo.com",
-      "publishedAt": "2026-11-04T00:06:12+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 1,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50359965"
+      "comments": 1,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50361108"
     },
     {
       "id": "pub-797aba84ba3e9103d8",
@@ -1091,9 +1258,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-8eb28acdb4745ec7f0",
+      "id": "pub-a055728d0cef2896c7",
       "title": "DreamX: Video Diffusion Model is a Universal Latent Action Learner",
-      "url": "https://arxiv.org/abs/2611.05377v1",
+      "url": "https://arxiv.org/abs/2611.05377",
       "publishedAt": "2026-11-03T18:59:56+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1102,12 +1269,14 @@
       "kind": "research",
       "summary": "Learning a universal action representation from video requires modeling dynamics that are consistent across different executions of the same action yet invariant to changes in…",
       "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication"
+      "dateLabel": "Source publication",
+      "points": 46,
+      "comments": 0
     },
     {
-      "id": "pub-3bd975395a2a0e25eb",
+      "id": "pub-0196764a91070fc907",
       "title": "From Autonomous Agents to Cognitive Symbionts: Toward AI-Augmented Human Intelligence",
-      "url": "https://arxiv.org/abs/2611.05376v1",
+      "url": "https://arxiv.org/abs/2611.05376",
       "publishedAt": "2026-11-03T18:59:52+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1119,9 +1288,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-4079641725d4c0e0aa",
+      "id": "pub-22d0c626a2e60657d6",
       "title": "Aligning Language Models with General Preferences: An Empirical Study of Direct Nash Optimization",
-      "url": "https://arxiv.org/abs/2611.05373v1",
+      "url": "https://arxiv.org/abs/2611.05373",
       "publishedAt": "2026-11-03T18:59:15+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1133,9 +1302,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-534aa0712ea5852af6",
+      "id": "pub-15b1ba65058b80bb27",
       "title": "Suppressing Misaligned Behaviors in Language Models, Durably",
-      "url": "https://arxiv.org/abs/2611.05358v1",
+      "url": "https://arxiv.org/abs/2611.05358",
       "publishedAt": "2026-11-03T18:54:08+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1147,9 +1316,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-24ad945b79fde1b062",
+      "id": "pub-771b804a47f57c9278",
       "title": "Reading Why: Born-Measured Attention with Exact Word Evidence on Light and Qubits",
-      "url": "https://arxiv.org/abs/2611.05355v1",
+      "url": "https://arxiv.org/abs/2611.05355",
       "publishedAt": "2026-11-03T18:52:44+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1161,9 +1330,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-325ed833d5b8f12c2f",
+      "id": "pub-70d2c47ee1f38ba4d1",
       "title": "Adversarial Speculative Reasoning Improves Long Horizon Agents",
-      "url": "https://arxiv.org/abs/2611.05345v1",
+      "url": "https://arxiv.org/abs/2611.05345",
       "publishedAt": "2026-11-03T18:45:23+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1175,9 +1344,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-8aab758744836e7420",
+      "id": "pub-a60ce2c3db2dfe39cb",
       "title": "A Circuit for In-Context Learning",
-      "url": "https://arxiv.org/abs/2611.05344v1",
+      "url": "https://arxiv.org/abs/2611.05344",
       "publishedAt": "2026-11-03T18:44:34+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1189,9 +1358,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-b37568ab794bbfebcd",
+      "id": "pub-f33fba3424d44e405b",
       "title": "Weight-space programming for auditing clinical decision networks",
-      "url": "https://arxiv.org/abs/2611.05341v1",
+      "url": "https://arxiv.org/abs/2611.05341",
       "publishedAt": "2026-11-03T18:41:15+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1203,9 +1372,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-ceb18ee78cae6c0454",
+      "id": "pub-ce092dfc11a5a4fea4",
       "title": "MedPhysBench: A Benchmark for Evaluating Language Models on Medical Physics Calculations and Error Detection",
-      "url": "https://arxiv.org/abs/2611.05340v1",
+      "url": "https://arxiv.org/abs/2611.05340",
       "publishedAt": "2026-11-03T18:40:35+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1217,9 +1386,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-9f3b695215aeb7c8f3",
+      "id": "pub-760e5c3ad6aee62faa",
       "title": "A simple adaptive accelerated optimistic dual averaging method for unconstrained convex optimization in $p$-norm geometry",
-      "url": "https://arxiv.org/abs/2611.05334v1",
+      "url": "https://arxiv.org/abs/2611.05334",
       "publishedAt": "2026-11-03T18:35:20+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1231,9 +1400,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-3aaad9bec9bde6b511",
+      "id": "pub-19848385fe328fa5a9",
       "title": "PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data",
-      "url": "https://arxiv.org/abs/2611.05320v1",
+      "url": "https://arxiv.org/abs/2611.05320",
       "publishedAt": "2026-11-03T18:25:14+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1245,9 +1414,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-f13c4251295ecc9c76",
+      "id": "pub-e486eac826ccc2a51c",
       "title": "HARP: Training-Free Dual-Profile Agentic Communication for LLM-Based Recommendation",
-      "url": "https://arxiv.org/abs/2611.05319v1",
+      "url": "https://arxiv.org/abs/2611.05319",
       "publishedAt": "2026-11-03T18:24:20+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1259,9 +1428,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-d47f21ec9a96fce483",
+      "id": "pub-3a1a5bd6950601c867",
       "title": "MDSKILL: Learning to Internalize Skill Memory through Multi-View Distillation for Efficient Dynamic Agent Self-Evolution",
-      "url": "https://arxiv.org/abs/2611.05313v1",
+      "url": "https://arxiv.org/abs/2611.05313",
       "publishedAt": "2026-11-03T18:19:55+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1273,9 +1442,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-f55560086070b9db40",
+      "id": "pub-70e99cf4ef04126b36",
       "title": "You don't need long context",
-      "url": "https://arxiv.org/abs/2611.05306v1",
+      "url": "https://arxiv.org/abs/2611.05306",
       "publishedAt": "2026-11-03T18:17:23+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1284,12 +1453,14 @@
       "kind": "research",
       "summary": "Later tokens are costlier to generate than earlier tokens. On frontier open weight models, the disparity in cost may rise to as much as 7x.…",
       "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication"
+      "dateLabel": "Source publication",
+      "points": 2,
+      "comments": 0
     },
     {
-      "id": "pub-6e892918bf5dce6665",
+      "id": "pub-6d4c27c235f7d68854",
       "title": "LoopVQ: Sub 1-bit KV Cache Quantization for Looped Transformers",
-      "url": "https://arxiv.org/abs/2611.05304v1",
+      "url": "https://arxiv.org/abs/2611.05304",
       "publishedAt": "2026-11-03T18:16:29+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1316,9 +1487,9 @@
       "repo": "langchain-ai/langgraph"
     },
     {
-      "id": "pub-988b823310babd11f4",
+      "id": "pub-44fb41e18908e05bf9",
       "title": "Personas Are Not People: Identity as State, Not Attribute",
-      "url": "https://arxiv.org/abs/2611.05292v1",
+      "url": "https://arxiv.org/abs/2611.05292",
       "publishedAt": "2026-11-03T18:07:27+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1330,9 +1501,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-89e1fc57adfd2b371f",
+      "id": "pub-f013124ce5a774a5aa",
       "title": "False Reassurance in LLM Severe-Weather Guidance: A Replayable Evaluation Against Real NWS Alerts",
-      "url": "https://arxiv.org/abs/2611.05290v1",
+      "url": "https://arxiv.org/abs/2611.05290",
       "publishedAt": "2026-11-03T18:04:53+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1344,9 +1515,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-a11b2222750e3bf3b3",
+      "id": "pub-2f7c1ef69b1893a289",
       "title": "Knowingly Wrong: Training LLMs Against Their Own Beliefs can Induce Misalignment",
-      "url": "https://arxiv.org/abs/2611.05287v1",
+      "url": "https://arxiv.org/abs/2611.05287",
       "publishedAt": "2026-11-03T18:02:21+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1358,9 +1529,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-174d2be942e2d10b6b",
+      "id": "pub-a17df3dc39ab2c525e",
       "title": "Beyond Accuracy: What Language-Subspace Interventions Capture, Remove, and Improve",
-      "url": "https://arxiv.org/abs/2611.05278v1",
+      "url": "https://arxiv.org/abs/2611.05278",
       "publishedAt": "2026-11-03T17:58:52+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1372,9 +1543,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-b612308a5feae05b19",
+      "id": "pub-037e2e753f3fc9c424",
       "title": "The Geometry of Ignorance: Detecting Suppressed Knowledge in LLMs through Activation Fragmentation",
-      "url": "https://arxiv.org/abs/2611.05272v1",
+      "url": "https://arxiv.org/abs/2611.05272",
       "publishedAt": "2026-11-03T17:55:57+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1386,9 +1557,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-5cb22037cedb16fd63",
+      "id": "pub-3477f33aff28475175",
       "title": "JHiMA-WebRL: A Joint Hierarchical Multi-Agent Reinforcement Learning Framework for Long-Horizon Web Tasks",
-      "url": "https://arxiv.org/abs/2611.05263v1",
+      "url": "https://arxiv.org/abs/2611.05263",
       "publishedAt": "2026-11-03T17:49:14+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1400,9 +1571,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-455d6d35dc422585c1",
+      "id": "pub-bc3b9706feecd1d2b4",
       "title": "Going Deeper With Memories",
-      "url": "https://arxiv.org/abs/2611.05255v1",
+      "url": "https://arxiv.org/abs/2611.05255",
       "publishedAt": "2026-11-03T17:44:07+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1411,12 +1582,14 @@
       "kind": "research",
       "summary": "Byte level language models avoid tokenizer dependence and provide universal coverage, but processing every byte at full resolution is expensive. We introduce DeepMem, a causal…",
       "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication"
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0
     },
     {
-      "id": "pub-7534c98b8e40a5674c",
+      "id": "pub-b5e82526d200872a2c",
       "title": "ARLoop: Fully-Open Pre-trained Looped Transformers with Attention Residuals",
-      "url": "https://arxiv.org/abs/2611.05234v1",
+      "url": "https://arxiv.org/abs/2611.05234",
       "publishedAt": "2026-11-03T17:18:33+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1442,9 +1615,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-359157e6d86b7f15ae",
+      "id": "pub-0418a060e47610c410",
       "title": "Fairness Metrics based on the AUC in Clinical Predictive AI",
-      "url": "https://arxiv.org/abs/2611.05222v1",
+      "url": "https://arxiv.org/abs/2611.05222",
       "publishedAt": "2026-11-03T17:07:56+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1470,9 +1643,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-a115793a0381fdf555",
+      "id": "pub-5e0e1f78cb04607a09",
       "title": "What Does the Model See? Representation Validity in Multimodal LLM-Based Video Analysis",
-      "url": "https://arxiv.org/abs/2611.05181v1",
+      "url": "https://arxiv.org/abs/2611.05181",
       "publishedAt": "2026-11-03T16:42:49+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1484,9 +1657,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-d301d9fc0ab8fe98f8",
+      "id": "pub-9095504ba37cf944c3",
       "title": "OperAItor: An Agentic Framework for Fault-Tolerant Operation of Chemical Processes",
-      "url": "https://arxiv.org/abs/2611.05179v1",
+      "url": "https://arxiv.org/abs/2611.05179",
       "publishedAt": "2026-11-03T16:40:46+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1498,9 +1671,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-1194a9673c44db09a5",
+      "id": "pub-4845b7ec5643c5f2f2",
       "title": "AgentAM: An AI Agent for Spatter- and Defect-Aware Process Optimization in Laser Powder Bed Fusion",
-      "url": "https://arxiv.org/abs/2611.05171v1",
+      "url": "https://arxiv.org/abs/2611.05171",
       "publishedAt": "2026-11-03T16:38:46+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1512,9 +1685,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-3f0d853b9462010d73",
+      "id": "pub-38c6e65f7d07b383e9",
       "title": "Learning Behaviorally Relevant Dynamics in Multimodal Neural Recordings",
-      "url": "https://arxiv.org/abs/2611.05167v1",
+      "url": "https://arxiv.org/abs/2611.05167",
       "publishedAt": "2026-11-03T16:36:55+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1526,9 +1699,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-38fe3e8582fa5adc1b",
+      "id": "pub-e09c5856ffd26fdf87",
       "title": "When Self-Verification Hurts: Calibrated Answer Repair for Financial Question Answering",
-      "url": "https://arxiv.org/abs/2611.05166v1",
+      "url": "https://arxiv.org/abs/2611.05166",
       "publishedAt": "2026-11-03T16:36:53+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1540,9 +1713,9 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-48feaa9b85a78e3d0b",
+      "id": "pub-61ff33c8040824b9dd",
       "title": "Basin2Vec: Learning Basin-Centric Embeddings for Scalable Hydrological Modeling",
-      "url": "https://arxiv.org/abs/2611.05164v1",
+      "url": "https://arxiv.org/abs/2611.05164",
       "publishedAt": "2026-11-03T16:36:09+00:00",
       "source": "arXiv AI & language",
       "sourceId": "arxiv",
@@ -1750,7 +1923,7 @@
       "summary": "Composed Image Retrieval (CIR) aims to retrieve a target image given a reference image and a modification text. Although recent approaches leveraging Multimodal Large Language…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 28
+      "points": 31
     },
     {
       "id": "pub-5ae91bff08b3cb5cd0",
@@ -1765,22 +1938,7 @@
       "summary": "Large reasoning models achieve strong performance on challenging tasks, but their long chain-of-thought often incurs substantial inference costs by continuing to deliberate after sufficient information…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 11
-    },
-    {
-      "id": "pub-70e99cf4ef04126b36",
-      "title": "You don't need long context",
-      "url": "https://arxiv.org/abs/2611.05306",
-      "publishedAt": "2026-11-03T00:00:00+00:00",
-      "source": "Hugging Face Papers",
-      "sourceId": "hf-papers",
-      "layer": "Research",
-      "priority": 4,
-      "kind": "research",
-      "summary": "Later tokens are costlier to generate than earlier tokens. On frontier open weight models, the disparity in cost may rise to as much as 7x.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 1
+      "points": 60
     },
     {
       "id": "pub-a29421560cbd37d6ff",
@@ -1798,21 +1956,6 @@
       "points": 0
     },
     {
-      "id": "pub-a055728d0cef2896c7",
-      "title": "DreamX: Video Diffusion Model is a Universal Latent Action Learner",
-      "url": "https://arxiv.org/abs/2611.05377",
-      "publishedAt": "2026-11-03T00:00:00+00:00",
-      "source": "Hugging Face Papers",
-      "sourceId": "hf-papers",
-      "layer": "Research",
-      "priority": 4,
-      "kind": "research",
-      "summary": "Learning a universal action representation from video requires modeling dynamics that are consistent across different executions of the same action yet invariant to changes in…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 43
-    },
-    {
       "id": "pub-f1df04219b766bf8e1",
       "title": "VidUEU-Agent: A Data-Curation Agent for Multimodal Understanding, Editing, and Unified Tasks",
       "url": "https://arxiv.org/abs/2611.04418",
@@ -1828,21 +1971,6 @@
       "points": 21
     },
     {
-      "id": "pub-bc3b9706feecd1d2b4",
-      "title": "Going Deeper With Memories",
-      "url": "https://arxiv.org/abs/2611.05255",
-      "publishedAt": "2026-11-03T00:00:00+00:00",
-      "source": "Hugging Face Papers",
-      "sourceId": "hf-papers",
-      "layer": "Research",
-      "priority": 4,
-      "kind": "research",
-      "summary": "Byte level language models avoid tokenizer dependence and provide universal coverage, but processing every byte at full resolution is expensive. We introduce DeepMem, a causal…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 1
-    },
-    {
       "id": "pub-f3ce94e77db0afca8b",
       "title": "RoboTryOn: Synthesizing Dexterous Robot Demonstrations from Human Videos via Virtual Try-On",
       "url": "https://arxiv.org/abs/2611.05163",
@@ -1855,7 +1983,7 @@
       "summary": "Robot foundation models have shown remarkable performance in robot control, yet adapting them to a new task still relies heavily on teleoperated demonstrations. Egocentric human…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 3
+      "points": 4
     },
     {
       "id": "pub-4caac68c73b92bea6a",
@@ -1915,7 +2043,7 @@
       "summary": "Artificial general intelligence (AGI) requires a method that can understand, generate, reason, and act across diverse domains and modalities. Rather than relying on a single…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 86
+      "points": 87
     },
     {
       "id": "pub-7ca13591ff94866783",
@@ -1945,7 +2073,7 @@
       "summary": "Video generation has progressed from isolated clips to coherent short-form audiovisual sequences, and the bottleneck is shifting from rendering to semantic control. This report summarizes…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 46
+      "points": 47
     },
     {
       "id": "pub-116da851a2ad3f835a",
@@ -2278,7 +2406,7 @@
       "summary": "We introduce Axion 1.0, a fully open agent foundation model that combines strong and broad agentic capabilities with a remarkably simple training recipe. Axion 1.0…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 33
+      "points": 35
     },
     {
       "id": "pub-2d3614d1a3110f1f4f",
@@ -2338,7 +2466,7 @@
       "summary": "Long-form multi-shot video editing requires an intended edit to remain coherent across abrupt changes in scene, viewpoint, and subject appearance, while processing substantially longer visual…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 51
+      "points": 53
     },
     {
       "id": "pub-0347bbda6ac6a11ba5",
@@ -2383,7 +2511,7 @@
       "summary": "Research taste, the judgment of what to read, which problems to pursue, and which methods to try, increasingly shapes the work of AI scientists, yet…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 40
+      "points": 41
     },
     {
       "id": "pub-74ee729d37164be4cf",
@@ -2443,7 +2571,7 @@
       "summary": "Traditional image cropping assumes the photograph already contains the composition worth keeping, and asks only where to crop. A full 360^{circ} scene offers no such…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 33
+      "points": 34
     },
     {
       "id": "pub-e2f2cd3ee0a6015b87",
@@ -2501,7 +2629,7 @@
       "summary": "Software development sessions often involve several unfinished tasks rather than one issue carried through to completion. As coding agents take on repository-level development, they need…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 5
+      "points": 6
     },
     {
       "id": "pub-d70edca9eafeab6e83",
@@ -2692,7 +2820,7 @@
       "summary": "Psychotherapy clients may experience distress before they can coherently describe it, and their expression changes with emotion, perceived safety, and trust. Large language model-based client…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 47
+      "points": 59
     },
     {
       "id": "pub-c8d7e83ca588d28d53",
@@ -2850,7 +2978,7 @@
       "summary": "LLM-based multi-agent systems (MAS) rely on collaboration among specialized agents to solve complex tasks. Existing methods improve MAS by refining the prompts, skills, and execution…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 21
+      "points": 22
     },
     {
       "id": "pub-15db23f231fe269b30",
@@ -3124,6 +3252,21 @@
       "dateLabel": "Source publication"
     },
     {
+      "id": "pub-62c87da6c730bf4f1c",
+      "title": "Every Token Needs Its Own Teacher: Multi-teacher Adaptive On-policy Self-distillation",
+      "url": "https://arxiv.org/abs/2610.40574",
+      "publishedAt": "2026-10-29T00:00:00+00:00",
+      "source": "Hugging Face Papers",
+      "sourceId": "hf-papers",
+      "layer": "Research",
+      "priority": 4,
+      "kind": "research",
+      "summary": "On-policy Self-distillation (OPSD) has proven effective for post-training large language models by constructing a teacher conditioned on privileged references. However, existing approaches keep the teacher…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 4
+    },
+    {
       "id": "pub-e9312f63a8158d5bdc",
       "title": "\"Shall We Approve?\" Consequence-Aware Approval for Autonomous Coding Agents",
       "url": "https://arxiv.org/abs/2610.40753",
@@ -3166,7 +3309,7 @@
       "summary": "Effective computer-use agents (CUAs) should seamlessly combine visual GUI interaction with code and terminal execution within a single policy. We present Mage-VL-Cowork, a 4B hybrid…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 8
+      "points": 9
     },
     {
       "id": "pub-78fb602b14b55d7044",
@@ -4442,21 +4585,6 @@
       "dateLabel": "Source publication"
     },
     {
-      "id": "pub-237deedd2c00f5d0d3",
-      "title": "SIMIT: Self-Improving Vision-Language Models via Imagination at Test-Time",
-      "url": "https://arxiv.org/abs/2611.00053",
-      "publishedAt": "2026-10-11T00:00:00+00:00",
-      "source": "Hugging Face Papers",
-      "sourceId": "hf-papers",
-      "layer": "Research",
-      "priority": 4,
-      "kind": "research",
-      "summary": "We introduce SIMIT, a test-time self-improvement framework in which a vision-language model creates its own query-specific training data before answering an unlabeled test query. Our…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 5
-    },
-    {
       "id": "pub-43e19cac5ca4688d79",
       "title": "The Alignment team works to understand the risks of AI models and develop ways to ensure that future ones remain helpful, honest, and harmless. We also work to develop and implement the ideal persona for our AI assistant, Claude.",
       "url": "https://www.anthropic.com/research/team/alignment",
@@ -5395,7 +5523,7 @@
       "purpose": "Research, product capabilities and official limitations",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T11:47:52.045913+00:00",
+      "fetchedAt": "2026-11-04T12:59:13.987853+00:00",
       "error": null
     },
     {
@@ -5409,7 +5537,7 @@
       "purpose": "Agent architecture, context, tooling and evaluations",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T11:47:54.387578+00:00",
+      "fetchedAt": "2026-11-04T12:59:14.848921+00:00",
       "error": null
     },
     {
@@ -5423,7 +5551,7 @@
       "purpose": "New methods and demonstrated limits",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T11:47:54.727830+00:00",
+      "fetchedAt": "2026-11-04T12:59:15.302460+00:00",
       "error": null
     },
     {
@@ -5436,7 +5564,7 @@
       "purpose": "Model capabilities, research and applications",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T11:47:54.727844+00:00",
+      "fetchedAt": "2026-11-04T12:59:15.302490+00:00",
       "error": null
     },
     {
@@ -5449,7 +5577,7 @@
       "purpose": "Research mechanisms and technical reports",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T11:47:54.727849+00:00",
+      "fetchedAt": "2026-11-04T12:59:15.302501+00:00",
       "error": null
     },
     {
@@ -5462,7 +5590,7 @@
       "purpose": "Open models, model cards and reproducible implementations",
       "priority": 4,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T11:47:54.727853+00:00",
+      "fetchedAt": "2026-11-04T12:59:15.302509+00:00",
       "error": null
     },
     {
@@ -5476,7 +5604,7 @@
       "purpose": "Real agent workflows, infrastructure and evaluations",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T11:47:54.727856+00:00",
+      "fetchedAt": "2026-11-04T12:59:15.302516+00:00",
       "error": null
     },
     {
@@ -5490,7 +5618,7 @@
       "purpose": "Coding workflows and product engineering",
       "priority": 4,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T11:47:54.727859+00:00",
+      "fetchedAt": "2026-11-04T12:59:15.302523+00:00",
       "error": null
     },
     {
@@ -5503,7 +5631,7 @@
       "purpose": "Hands-on experiments, reproductions and failure reports",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T11:47:54.727863+00:00",
+      "fetchedAt": "2026-11-04T12:59:15.302529+00:00",
       "error": null
     },
     {
@@ -5516,7 +5644,7 @@
       "purpose": "Builder interviews, talks and practical context",
       "priority": 4,
       "itemCount": 20,
-      "fetchedAt": "2026-11-04T11:47:54.727867+00:00",
+      "fetchedAt": "2026-11-04T12:59:15.302535+00:00",
       "error": null
     },
     {
@@ -5529,7 +5657,7 @@
       "purpose": "Original papers, beyond community-selected trending lists",
       "priority": 4,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T11:47:54.727870+00:00",
+      "fetchedAt": "2026-11-04T12:59:15.302540+00:00",
       "error": null
     },
     {
@@ -5542,7 +5670,7 @@
       "purpose": "Research discovery and community interest",
       "priority": 4,
       "itemCount": 60,
-      "fetchedAt": "2026-11-04T11:47:54.727873+00:00",
+      "fetchedAt": "2026-11-04T12:59:15.302546+00:00",
       "error": null
     },
     {
@@ -5555,7 +5683,7 @@
       "purpose": "Shipped code and official release notes",
       "priority": 4,
       "itemCount": 20,
-      "fetchedAt": "2026-11-04T11:47:57.279347+00:00",
+      "fetchedAt": "2026-11-04T12:59:18.329894+00:00",
       "error": null
     },
     {
@@ -5568,18 +5696,17 @@
       "purpose": "Community discussion; contributes no evidence of correctness",
       "priority": 1,
       "itemCount": 60,
-      "fetchedAt": "2026-11-04T11:47:57.279358+00:00",
+      "fetchedAt": "2026-11-04T12:59:18.329918+00:00",
       "error": null
     }
   ],
   "newTermIds": [
-    "loco-reasoning-compression",
-    "toolspace"
+    "adversarial-speculative-reasoning"
   ],
-  "runUrl": "",
+  "runUrl": "https://github.com/cypher0k/frontier-data/actions/runs/41833563340",
   "editionDay": "2026-11-04",
-  "history": [
-    "2026-11-04"
-  ],
-  "editor": "Initial source-checked guides; suggested POCs are not executed tests"
+  "guideStatus": "passed",
+  "guideError": null,
+  "lastGuideCheckAt": "2026-11-04T13:06:46.576692+00:00",
+  "editor": "Qwen3-4B drafts with a separate source-check pass; POCs are suggestions, not executed tests"
 }
