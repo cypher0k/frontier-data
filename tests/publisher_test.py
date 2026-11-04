@@ -14,6 +14,13 @@ class PublisherTests(unittest.TestCase):
  def validate(self,guide=None,known=None):
   catalog=json.loads((ROOT/'publisher/catalog-index.json').read_text())
   return publisher.validate_terms([copy.deepcopy(guide or self.guide)],[self.source],catalog+(known or []),'2026-11-04T12:00:00+00:00')
+ def test_public_reader_retains_paper_abstracts_without_publishing_article_bodies(self):
+  abstract='An author abstract with detailed methods and results. '*40
+  paper=publisher.public_item({'url':'https://arxiv.org/abs/2611.05344','kind':'research','summary':abstract})
+  self.assertEqual(paper['abstract'],abstract)
+  self.assertEqual(len(paper['summary'].split()),25)
+  article=publisher.public_item({'url':'https://example.com/article','kind':'engineering','summary':abstract})
+  self.assertNotIn('abstract',article)
  def test_hn_self_posts_remain_distinct(self):
   self.assertNotEqual(publisher.canonical('https://news.ycombinator.com/item?id=1'),publisher.canonical('https://news.ycombinator.com/item?id=2'))
  def test_tracking_and_paper_versions_deduplicate(self):

@@ -94,7 +94,7 @@ def collect_source(source):
  if source['type']=='rss':return rss(source,body)
  if source['type']=='html':return html_articles(source,body)
  if source['type']=='hf':
-  return [record(source,p.get('title',''),'https://arxiv.org/abs/'+p['id'],p.get('publishedAt'),p.get('summary',''),points=p.get('upvotes',0)) for row in json.loads(body) if (p:=row.get('paper',row)).get('id')]
+  return [record(source,p.get('title',''),'https://arxiv.org/abs/'+p['id'],p.get('publishedAt'),p.get('summary',''),points=p.get('upvotes',0),aiSummary=plain(p.get('ai_summary') or '')[:6000],codeUrl=p.get('githubRepo',''),projectUrl=p.get('projectPage','')) for row in json.loads(body) if (p:=row.get('paper',row)).get('id')]
  if source['type']=='hn':
   return [record(source,p.get('title',''),p.get('url') or 'https://news.ycombinator.com/item?id='+p['objectID'],p.get('created_at'),'Community discussion. Check the original source.',points=p.get('points',0),comments=p.get('num_comments',0),discussionUrl='https://news.ycombinator.com/item?id='+p['objectID']) for p in json.loads(body).get('hits',[])]
  if source['type']=='github':
@@ -263,6 +263,12 @@ def generate(items,previous,known):
 
 def atomic(path,value):
  path.parent.mkdir(parents=True,exist_ok=True);temp=path.with_suffix('.tmp');temp.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n');temp.replace(path)
+def public_item(item):
+ # Keep paper abstracts for the static reader; article bodies remain short excerpts.
+ value={**item,'summary':' '.join(item.get('summary','').split()[:25])+'…','summaryLabel':'Source excerpt · up to 25 words'}
+ if item.get('kind')=='research' and re.match(r'https://arxiv\.org/abs/',item.get('url','')):
+  value['abstract']=item.get('abstract') or item.get('summary','')[:6000]
+ return value
 def main():
  parser=argparse.ArgumentParser();parser.add_argument('--collect-only',action='store_true');args=parser.parse_args()
  previous=json.loads((DATA/'publication.json').read_text()) if (DATA/'publication.json').exists() else {'terms':[],'items':[]}
@@ -279,7 +285,7 @@ def main():
   new=[];guide_error='HTTP '+str(error.code) if isinstance(error,urllib.error.HTTPError) else type(error).__name__+': '+str(error)[:160]
   print(json.dumps({'stage':'guides_preserved','reason':guide_error}),flush=True)
  terms={t['id']:t for t in previous.get('terms',[])};terms.update({t['id']:t for t in new});now=NOW().isoformat();day=NOW().astimezone(dt.timezone(dt.timedelta(hours=4))).date().isoformat()
- items=[{**item,'summary':' '.join(item.get('summary','').split()[:25])+'…','summaryLabel':'Source excerpt · up to 25 words'} for item in items]
+ items=[public_item(item) for item in items]
  publication={'schemaVersion':1,'generatedAt':now,'terms':list(terms.values()),'items':items,'sources':health,'newTermIds':[t['id'] for t in new],'runUrl':os.environ.get('FRONTIER_RUN_URL',''),'editionDay':day,'guideStatus':'failed' if guide_error else 'passed','guideError':guide_error,'lastGuideCheckAt':previous.get('lastGuideCheckAt') if guide_error else now,'editor':'Qwen3.5-4B drafts, a focused POC pass and a separate source-check pass; POCs are suggestions, not executed research tests'}
  # The repository commit publishes these files together. A failed generation leaves old files intact.
  atomic(DATA/'history'/f'{day}.json',publication)
