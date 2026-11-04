@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-04T13:40:47.733999+00:00",
+  "generatedAt": "2026-11-04T14:00:53.693756+00:00",
   "terms": [
     {
       "aliases": [],
@@ -194,6 +194,57 @@
   ],
   "items": [
     {
+      "id": "pub-c14fbb32bfccb816c5",
+      "title": "AI cannot be separated from the thought that is making it",
+      "url": "https://openwisdom.substack.com/p/an-urgent-message-on-artificial-intelligence",
+      "publishedAt": "2026-11-04T13:47:55+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365458"
+    },
+    {
+      "id": "pub-e68ac998ecfccad855",
+      "title": "How much faster are agents with WebMCP? We measured it",
+      "url": "https://alpic.ai/blog/how-much-faster-are-agents-with-webmcp",
+      "publishedAt": "2026-11-04T13:35:56+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365332"
+    },
+    {
+      "id": "pub-19d8ec14972ca14941",
+      "title": "The RevOS Metric Store: one definition of every metric, for people and agents",
+      "url": "https://www.revos.ai/blog/introducing-revos-metric-store",
+      "publishedAt": "2026-11-04T13:35:00+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365322"
+    },
+    {
       "id": "pub-8aafee69264b43377a",
       "title": "Deterministic Agents with Aigenos Engine",
       "url": "https://github.com/aigenos/flow",
@@ -207,7 +258,7 @@
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
       "points": 1,
-      "comments": 0,
+      "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50365244"
     },
     {
@@ -223,7 +274,7 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 1,
+      "points": 2,
       "comments": 0,
       "discussionUrl": "https://news.ycombinator.com/item?id=50365135"
     },
@@ -275,7 +326,7 @@
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
       "points": 1,
-      "comments": 0,
+      "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50365120"
     },
     {
@@ -325,8 +376,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 4,
-      "comments": 0,
+      "points": 7,
+      "comments": 3,
       "discussionUrl": "https://news.ycombinator.com/item?id=50365009"
     },
     {
@@ -393,7 +444,7 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 6,
+      "points": 8,
       "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50364529"
     },
@@ -461,8 +512,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 220,
-      "comments": 110,
+      "points": 243,
+      "comments": 128,
       "discussionUrl": "https://news.ycombinator.com/item?id=50364336"
     },
     {
@@ -699,8 +750,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 135,
-      "comments": 87,
+      "points": 152,
+      "comments": 101,
       "discussionUrl": "https://news.ycombinator.com/item?id=50363554"
     },
     {
@@ -733,8 +784,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 177,
-      "comments": 47,
+      "points": 194,
+      "comments": 52,
       "discussionUrl": "https://news.ycombinator.com/item?id=50363461"
     },
     {
@@ -869,8 +920,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 222,
-      "comments": 120,
+      "points": 232,
+      "comments": 131,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362905"
     },
     {
@@ -938,7 +989,7 @@
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
       "points": 6,
-      "comments": 4,
+      "comments": 5,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362700"
     },
     {
@@ -1090,7 +1141,7 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 45,
+      "points": 46,
       "comments": 63,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362274"
     },
@@ -1161,57 +1212,6 @@
       "points": 5,
       "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362002"
-    },
-    {
-      "id": "pub-dab92d7b7ec8f2a07a",
-      "title": "Ask HN: Advice on local efficient analogical retrieval?",
-      "url": "https://news.ycombinator.com/item?id=50361973",
-      "publishedAt": "2026-11-04T06:09:55+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 1,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50361973"
-    },
-    {
-      "id": "pub-438f55dffd91cd3022",
-      "title": "GPT-Synopsys Combines IC Design EDA with Agentic AI",
-      "url": "https://www.eetimes.com/gpt-synopsys-combines-ic-design-eda-with-agentic-ai",
-      "publishedAt": "2026-11-04T04:55:01+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 1,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50361631"
-    },
-    {
-      "id": "pub-ae379e776ec13d7b6e",
-      "title": "Engraphis – Local-first, bi-temporal memory for AI coding agents",
-      "url": "https://github.com/Coding-Dev-Tools/engraphis",
-      "publishedAt": "2026-11-04T04:52:44+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 2,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50361620"
     },
     {
       "id": "pub-797aba84ba3e9103d8",
@@ -1922,7 +1922,7 @@
       "summary": "Composed Image Retrieval (CIR) aims to retrieve a target image given a reference image and a modification text. Although recent approaches leveraging Multimodal Large Language…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 33
+      "points": 37
     },
     {
       "id": "pub-5ae91bff08b3cb5cd0",
@@ -1967,7 +1967,7 @@
       "summary": "The advancement of multimodal learning is heavily constrained by the scarcity and high annotation cost of high-quality instruction data. While raw videos offer an abundant…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 21
+      "points": 22
     },
     {
       "id": "pub-f3ce94e77db0afca8b",
@@ -2465,7 +2465,7 @@
       "summary": "Long-form multi-shot video editing requires an intended edit to remain coherent across abrupt changes in scene, viewpoint, and subject appearance, while processing substantially longer visual…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 55
+      "points": 57
     },
     {
       "id": "pub-0347bbda6ac6a11ba5",
@@ -2480,7 +2480,7 @@
       "summary": "3D generation, editing, and completion are typically treated as regenerating the complete 3D asset under task-specific constraints, even when only a local region needs modification.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 2
+      "points": 3
     },
     {
       "id": "pub-023b8a9373f8f35265",
@@ -2495,7 +2495,7 @@
       "summary": "General-purpose robot policies must work across robots, tasks, and environments, yet the variation that makes physical trials informative also makes them difficult to reproduce. We…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 34
+      "points": 35
     },
     {
       "id": "pub-2dded0516a7f401a5c",
@@ -3308,7 +3308,7 @@
       "summary": "Effective computer-use agents (CUAs) should seamlessly combine visual GUI interaction with code and terminal execution within a single policy. We present Mage-VL-Cowork, a 4B hybrid…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 9
+      "points": 10
     },
     {
       "id": "pub-78fb602b14b55d7044",
@@ -5522,7 +5522,7 @@
       "purpose": "Research, product capabilities and official limitations",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:34:52.148485+00:00",
+      "fetchedAt": "2026-11-04T13:51:21.368833+00:00",
       "error": null
     },
     {
@@ -5536,7 +5536,7 @@
       "purpose": "Agent architecture, context, tooling and evaluations",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T13:34:53.444751+00:00",
+      "fetchedAt": "2026-11-04T13:51:22.550399+00:00",
       "error": null
     },
     {
@@ -5550,7 +5550,7 @@
       "purpose": "New methods and demonstrated limits",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T13:34:53.653808+00:00",
+      "fetchedAt": "2026-11-04T13:51:22.550415+00:00",
       "error": null
     },
     {
@@ -5563,7 +5563,7 @@
       "purpose": "Model capabilities, research and applications",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:34:53.653825+00:00",
+      "fetchedAt": "2026-11-04T13:51:22.550425+00:00",
       "error": null
     },
     {
@@ -5576,7 +5576,7 @@
       "purpose": "Research mechanisms and technical reports",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:34:53.653835+00:00",
+      "fetchedAt": "2026-11-04T13:51:22.550432+00:00",
       "error": null
     },
     {
@@ -5589,7 +5589,7 @@
       "purpose": "Open models, model cards and reproducible implementations",
       "priority": 4,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:34:53.653842+00:00",
+      "fetchedAt": "2026-11-04T13:51:22.550438+00:00",
       "error": null
     },
     {
@@ -5603,7 +5603,7 @@
       "purpose": "Real agent workflows, infrastructure and evaluations",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T13:34:53.653849+00:00",
+      "fetchedAt": "2026-11-04T13:51:22.550445+00:00",
       "error": null
     },
     {
@@ -5617,7 +5617,7 @@
       "purpose": "Coding workflows and product engineering",
       "priority": 4,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T13:34:54.108262+00:00",
+      "fetchedAt": "2026-11-04T13:51:22.550450+00:00",
       "error": null
     },
     {
@@ -5630,7 +5630,7 @@
       "purpose": "Hands-on experiments, reproductions and failure reports",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:34:54.108277+00:00",
+      "fetchedAt": "2026-11-04T13:51:22.550457+00:00",
       "error": null
     },
     {
@@ -5643,7 +5643,7 @@
       "purpose": "Builder interviews, talks and practical context",
       "priority": 4,
       "itemCount": 20,
-      "fetchedAt": "2026-11-04T13:34:54.108285+00:00",
+      "fetchedAt": "2026-11-04T13:51:22.550463+00:00",
       "error": null
     },
     {
@@ -5656,7 +5656,7 @@
       "purpose": "Original papers, beyond community-selected trending lists",
       "priority": 4,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:34:54.108291+00:00",
+      "fetchedAt": "2026-11-04T13:51:22.550469+00:00",
       "error": null
     },
     {
@@ -5669,7 +5669,7 @@
       "purpose": "Research discovery and community interest",
       "priority": 4,
       "itemCount": 60,
-      "fetchedAt": "2026-11-04T13:34:54.108298+00:00",
+      "fetchedAt": "2026-11-04T13:51:22.550475+00:00",
       "error": null
     },
     {
@@ -5682,7 +5682,7 @@
       "purpose": "Shipped code and official release notes",
       "priority": 4,
       "itemCount": 20,
-      "fetchedAt": "2026-11-04T13:34:56.879610+00:00",
+      "fetchedAt": "2026-11-04T13:51:25.708542+00:00",
       "error": null
     },
     {
@@ -5695,15 +5695,15 @@
       "purpose": "Community discussion; contributes no evidence of correctness",
       "priority": 1,
       "itemCount": 60,
-      "fetchedAt": "2026-11-04T13:34:56.879625+00:00",
+      "fetchedAt": "2026-11-04T13:51:25.708562+00:00",
       "error": null
     }
   ],
   "newTermIds": [],
-  "runUrl": "https://github.com/cypher0k/frontier-data/actions/runs/41838570625",
+  "runUrl": "https://github.com/cypher0k/frontier-data/actions/runs/41840893086",
   "editionDay": "2026-11-04",
   "guideStatus": "failed",
-  "guideError": "ValueError: Short POCs cannot require model training or frontier-model compute",
+  "guideError": "ValueError: The independent AI review rejected all draft guides",
   "lastGuideCheckAt": "2026-11-04T13:06:46.576692+00:00",
   "editor": "Qwen3.5-4B drafts, a focused POC pass and a separate source-check pass; POCs are suggestions, not executed research tests",
   "history": [
