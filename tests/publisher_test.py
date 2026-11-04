@@ -87,8 +87,15 @@ class PublisherTests(unittest.TestCase):
  def test_source_check_rejection_prevents_publication(self):
   source={**self.source,'sourceId':'paper','priority':5,'layer':'Research'}
   catalog=json.loads((ROOT/'publisher/catalog-index.json').read_text())
-  with patch.object(publisher,'NOW',return_value=dt.datetime(2026,11,4,tzinfo=dt.timezone.utc)),patch.object(publisher,'infer',side_effect=[{'terms':[self.guide]},self.guide['poc'],{'approvedIds':[],'issues':['Unsupported claim']} ]):
+  with patch.object(publisher,'NOW',return_value=dt.datetime(2026,11,4,tzinfo=dt.timezone.utc)),patch.object(publisher,'infer',side_effect=[{'terms':[self.guide]},self.guide['poc'],{'approvedIds':[],'issues':['Unsupported claim']},{'terms':[self.guide]},{'approvedIds':[],'issues':['Still unsupported']}] ):
    with self.assertRaisesRegex(ValueError,'rejected all'):publisher.generate([source],{},catalog)
+ def test_review_feedback_can_repair_a_draft_before_publication(self):
+  source={**self.source,'sourceId':'paper','priority':5,'layer':'Research'}
+  catalog=json.loads((ROOT/'publisher/catalog-index.json').read_text())
+  responses=[{'terms':[self.guide]},self.guide['poc'],{'approvedIds':[],'issues':['A check needs clarification']},{'terms':[self.guide]},{'approvedIds':[self.guide['id']],'issues':[]}]
+  with patch.object(publisher,'NOW',return_value=dt.datetime(2026,11,4,tzinfo=dt.timezone.utc)),patch.object(publisher,'infer',side_effect=responses) as model:
+   result=publisher.generate([source],{},catalog)
+  self.assertEqual(result[0]['id'],self.guide['id']);self.assertIn('A check needs clarification',model.call_args_list[3].args[0])
  def test_no_daily_quota_can_publish_sources_without_a_fake_guide(self):
   source={**self.source,'sourceId':'paper','priority':5,'layer':'Research'}
   with patch.object(publisher,'NOW',return_value=dt.datetime(2026,11,4,tzinfo=dt.timezone.utc)),patch.object(publisher,'infer',return_value={'terms':[]}):

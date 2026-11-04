@@ -240,9 +240,19 @@ def generate(items,previous,known):
  if valid:
   review_schema=obj({'approvedIds':arr(STR),'issues':arr(STR)})
   cited=[item for item in selected if canonical(item['url']) in {canonical(t['source']['url']) for t in valid}]
-  review=infer('Independently review these drafted guides against ONLY the supplied excerpts. Approve an ID only if its definition, mechanism, evidence classification, limitations and POC are supportable. Check that a person without a model API account or GPU can complete the POC within the timebox. Training a model is not a 20–90 minute POC. Require concrete inputs, a baseline and numerical checks. A toy simulation is acceptable only if clearly separated from reproducing the paper. Proposed toy sample sizes are exercise settings, not claims from the paper. Reject guaranteed improvements, noise-free claims, unsupported limitations, unsupported reported results, claims of independent reproduction without another source, or production use without explicit evidence.\nDrafts:'+json.dumps(valid)+'\nSources:'+json.dumps(cited),review_schema,1500)
-  approved=set(review.get('approvedIds',[]));valid=[t for t in valid if t['id'] in approved]
-  if not valid:raise ValueError('The independent AI review rejected all draft guides')
+  review_rules='Independently review these drafted guides against ONLY the supplied excerpts. Approve an ID only if its definition, mechanism, evidence classification, limitations and POC are supportable. Check that a person without a model API account or GPU can complete the POC within the timebox. Training a model is not a 20–90 minute POC. Require concrete inputs, a baseline and numerical checks. Recompute any stated arithmetic and check that each test would fail if the intended mechanism were absent. A toy simulation is acceptable only if clearly separated from reproducing the paper. Proposed toy sample sizes are exercise settings, not claims from the paper. Reject guaranteed improvements, noise-free claims, unsupported limitations, unsupported reported results, claims of independent reproduction without another source, or production use without explicit evidence.'
+  identity={t['id']:(norm(t['name']),canonical(t['source']['url'])) for t in valid}
+  for attempt in range(2):
+   review=infer(review_rules+'\nDrafts:'+json.dumps(valid)+'\nSources:'+json.dumps(cited),review_schema,1500)
+   print(json.dumps({'stage':'guide_review','attempt':attempt+1,**review}),flush=True)
+   approved=set(review.get('approvedIds',[]))
+   if all(t['id'] in approved for t in valid):break
+   if attempt:raise ValueError('The independent AI review rejected all draft guides after one revision')
+   repaired=infer('Revise the draft to address EVERY review issue using ONLY the supplied source excerpts. Keep exactly the same concept ID, name and citation. Correct unsupported statements and POC logic. Preserve a feasible 20–90 minute exercise using standard-library Python or a spreadsheet, no language model, model training, API or GPU. Make its experiment overview consistent with the detailed POC. Recompute all example arithmetic. A success check must distinguish the baseline from the proposed change; it must not pass trivially in both conditions. Do not conflate distinct mechanisms from the source. Clearly state which source mechanisms the toy omits. Return the complete repaired guide in the terms array, or an empty array if it cannot be supported.\nReview issues:'+json.dumps(review.get('issues',[]))+'\nDraft:'+json.dumps(valid)+'\nSources:'+json.dumps(cited),SCHEMA,2300).get('terms')
+   if not repaired or any(identity.get(t.get('id'))!=(norm(t.get('name','')),canonical(t.get('source',{}).get('url',''))) for t in repaired):raise ValueError('The review revision could not preserve a supported guide identity')
+   valid=validate_terms(repaired,selected,known,NOW().isoformat())
+   print(json.dumps({'stage':'revised_poc','concept':valid[0]['name'],'poc':valid[0]['poc']}),flush=True)
+
  return valid
 
 def atomic(path,value):

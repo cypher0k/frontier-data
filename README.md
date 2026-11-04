@@ -10,7 +10,7 @@ The GitHub Actions workflow runs daily around **09:17 Asia/Dubai (05:17 UTC)**, 
 
 The job collects 14 feeds spanning labs, engineering, research, practitioners, releases and discussion. Hacker News is an engagement signal, not the primary evidence source. Candidate selection reserves room for papers, engineering and practitioner reports instead of filling the context with lab announcements. It writes zero or one worthwhile new or substantially revised concepts with a full mechanism, original explanation and suggested POC. There is no manufactured daily quota.
 
-A focused model pass designs a feasible no-API learning exercise, then a separate model call checks drafts against source excerpts, then deterministic validation checks dates, IDs, citations and complete POCs. These are AI checks, not human verification or independent experimental reproduction. POCs are suggestions, not executed results. A guide-generation failure retains previous guides, publishes successfully collected sources and records the failure for display in the app. Failed source collection or publication validation preserves the previous feed.
+A focused model pass designs a feasible no-API learning exercise, then a separate model call checks drafts against source excerpts, then deterministic validation checks dates, IDs, citations and complete POCs. A rejected draft gets one revision using the review feedback, then a fresh review; it is published only if approved. These are AI checks, not human verification or independent experimental reproduction. POCs are suggestions, not executed results. A guide-generation failure retains previous guides, publishes successfully collected sources and records the failure for display in the app. Failed source collection or publication validation preserves the previous feed.
 
 ## Files
 
@@ -30,4 +30,3 @@ The workflow uses its short-lived repository-scoped GitHub token for release col
 `python3 publisher/validate.py`
 
 Failed runs are visible in Actions. The app labels a publication overdue after 36 hours and keeps the last valid data. Standard public-repository GitHub-hosted runners require no model API key. Changes to GitHub service availability or policy can affect scheduling.
-
