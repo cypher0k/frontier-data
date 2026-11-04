@@ -6,11 +6,11 @@ This repository contains public source research, complete AI-written guides and 
 
 ## Schedule and model
 
-The GitHub Actions workflow runs daily around **09:17 Asia/Dubai (05:17 UTC)**, on publisher changes, or with Run workflow. GitHub can queue scheduled starts. It runs pinned official Qwen3-4B Q4_K_M weights through pinned llama.cpp on a temporary standard GitHub-hosted Ubuntu runner. The download is checksum verified. No model API account/key or always-running server is needed. Model weights and runtime files are temporary and never committed.
+The GitHub Actions workflow runs daily around **09:17 Asia/Dubai (05:17 UTC)**, on publisher changes, or with Run workflow. GitHub can queue scheduled starts. It runs Qwen3.5-4B using a pinned LM Studio community Q4_K_M GGUF conversion through pinned official llama.cpp on a temporary standard GitHub-hosted Ubuntu runner. The download is checksum verified. No model API account/key or always-running server is needed. Model weights and runtime files are temporary and never committed.
 
 The job collects 14 feeds spanning labs, engineering, research, practitioners, releases and discussion. Hacker News is an engagement signal, not the primary evidence source. Candidate selection reserves room for papers, engineering and practitioner reports instead of filling the context with lab announcements. It writes zero or one worthwhile new or substantially revised concepts with a full mechanism, original explanation and suggested POC. There is no manufactured daily quota.
 
-A separate model call checks drafts against source excerpts, then deterministic validation checks dates, IDs, citations and complete POCs. These are AI checks, not human verification or independent experimental reproduction. POCs are suggestions, not executed results. A guide-generation failure retains previous guides, publishes successfully collected sources and records the failure for display in the app. Failed source collection or publication validation preserves the previous feed.
+A focused model pass designs a feasible no-API learning exercise, then a separate model call checks drafts against source excerpts, then deterministic validation checks dates, IDs, citations and complete POCs. These are AI checks, not human verification or independent experimental reproduction. POCs are suggestions, not executed results. A guide-generation failure retains previous guides, publishes successfully collected sources and records the failure for display in the app. Failed source collection or publication validation preserves the previous feed.
 
 ## Files
 
@@ -30,3 +30,4 @@ The workflow uses its short-lived repository-scoped GitHub token for release col
 `python3 publisher/validate.py`
 
 Failed runs are visible in Actions. The app labels a publication overdue after 36 hours and keeps the last valid data. Standard public-repository GitHub-hosted runners require no model API key. Changes to GitHub service availability or policy can affect scheduling.
+

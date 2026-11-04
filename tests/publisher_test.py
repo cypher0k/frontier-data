@@ -31,7 +31,7 @@ class PublisherTests(unittest.TestCase):
   bad=copy.deepcopy(self.guide);bad['poc']['steps'][0]='Train a draft model on agent trajectories.'
   with self.assertRaisesRegex(ValueError,'model training'):self.validate(bad)
  def test_poc_checks_need_a_concrete_count_or_threshold(self):
-  bad=copy.deepcopy(self.guide);bad['poc']['successCriteria']=['Improved accuracy.','Better reasoning.']
+  bad=copy.deepcopy(self.guide);bad['poc']['successCriteria']=['1. Improved accuracy.','2. Better reasoning.']
   with self.assertRaisesRegex(ValueError,'sample size'):self.validate(bad)
  def test_experimental_results_cannot_be_called_noise_free(self):
   bad=copy.deepcopy(self.guide);bad['meaning']='This method produces noise-free reasoning at every decision point.'
@@ -42,6 +42,11 @@ class PublisherTests(unittest.TestCase):
  def test_future_sources_cannot_generate_guides(self):
   future={**self.source,'publishedAt':'2099-11-04T00:00:00+00:00'}
   with self.assertRaisesRegex(ValueError,'No recent source'):publisher.generate([future],{},[])
+ def test_already_covered_article_is_not_rewritten_as_daily_news(self):
+  source={**self.source,'sourceId':'paper','priority':5,'layer':'Research'}
+  with patch.object(publisher,'NOW',return_value=dt.datetime(2026,11,4,tzinfo=dt.timezone.utc)),patch.object(publisher,'infer') as model:
+   self.assertEqual(publisher.generate([source],{'terms':[self.guide]},[]),[])
+   model.assert_not_called()
  def test_primary_source_survives_hn_duplicate(self):
   sources=[{'id':'lab','priority':5},{'id':'hn','priority':2}]
   rows={'lab':{**self.source,'sourceId':'lab','priority':5,'id':'same'},'hn':{**self.source,'kind':'discussion','sourceId':'hn','priority':2,'points':42,'id':'same'}}
@@ -74,7 +79,7 @@ class PublisherTests(unittest.TestCase):
  def test_source_check_rejection_prevents_publication(self):
   source={**self.source,'sourceId':'paper','priority':5,'layer':'Research'}
   catalog=json.loads((ROOT/'publisher/catalog-index.json').read_text())
-  with patch.object(publisher,'NOW',return_value=dt.datetime(2026,11,4,tzinfo=dt.timezone.utc)),patch.object(publisher,'infer',side_effect=[{'terms':[self.guide]},{'approvedIds':[],'issues':['Unsupported claim']} ]):
+  with patch.object(publisher,'NOW',return_value=dt.datetime(2026,11,4,tzinfo=dt.timezone.utc)),patch.object(publisher,'infer',side_effect=[{'terms':[self.guide]},self.guide['poc'],{'approvedIds':[],'issues':['Unsupported claim']} ]):
    with self.assertRaisesRegex(ValueError,'rejected all'):publisher.generate([source],{},catalog)
  def test_no_daily_quota_can_publish_sources_without_a_fake_guide(self):
   source={**self.source,'sourceId':'paper','priority':5,'layer':'Research'}
