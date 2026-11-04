@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-04T13:21:34.730109+00:00",
+  "generatedAt": "2026-11-04T13:40:47.733999+00:00",
   "terms": [
     {
       "aliases": [],
@@ -194,6 +194,91 @@
   ],
   "items": [
     {
+      "id": "pub-8aafee69264b43377a",
+      "title": "Deterministic Agents with Aigenos Engine",
+      "url": "https://github.com/aigenos/flow",
+      "publishedAt": "2026-11-04T13:27:27+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365244"
+    },
+    {
+      "id": "pub-8fecab6533752c98ca",
+      "title": "WikiAnesthesia: Airway Fire",
+      "url": "https://wikianesthesia.org/wiki/Airway_fire",
+      "publishedAt": "2026-11-04T13:17:24+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365135"
+    },
+    {
+      "id": "pub-16d3136058c2df75d1",
+      "title": "Aizome: Sekka's Own Desktop",
+      "url": "https://sekka.computer/aizome",
+      "publishedAt": "2026-11-04T13:17:22+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365134"
+    },
+    {
+      "id": "pub-878e0c606b4b98f938",
+      "title": "Block training, keep answers? What 13,938 sites ask of AI bots",
+      "url": "https://trakis.io/research/block-training-keep-answers",
+      "publishedAt": "2026-11-04T13:16:29+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365123"
+    },
+    {
+      "id": "pub-5d9ef3cabfa3170925",
+      "title": "Microsoft Files Patent to Rewrite What Speakers Say in Live Video",
+      "url": "https://patentlyze.com/patent/microsoft-live-ai-video-rewrites-speech",
+      "publishedAt": "2026-11-04T13:16:12+00:00",
+      "source": "Hacker News",
+      "sourceId": "hn",
+      "layer": "Discussion",
+      "priority": 1,
+      "kind": "discussion",
+      "summary": "Community discussion. Check the original source.…",
+      "summaryLabel": "Source excerpt · up to 25 words",
+      "dateLabel": "Source publication",
+      "points": 1,
+      "comments": 0,
+      "discussionUrl": "https://news.ycombinator.com/item?id=50365120"
+    },
+    {
       "id": "pub-d6f1b160efa3d2639d",
       "title": "Show HN: Gradevibes-Is your AI-written app finished?",
       "url": "https://gradevibes.com?tab=upload",
@@ -240,7 +325,7 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 2,
+      "points": 4,
       "comments": 0,
       "discussionUrl": "https://news.ycombinator.com/item?id=50365009"
     },
@@ -308,7 +393,7 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 4,
+      "points": 6,
       "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50364529"
     },
@@ -359,7 +444,7 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 3,
+      "points": 4,
       "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50364420"
     },
@@ -376,8 +461,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 181,
-      "comments": 84,
+      "points": 220,
+      "comments": 110,
       "discussionUrl": "https://news.ycombinator.com/item?id=50364336"
     },
     {
@@ -393,7 +478,7 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 4,
+      "points": 6,
       "comments": 0,
       "discussionUrl": "https://news.ycombinator.com/item?id=50364330"
     },
@@ -563,7 +648,7 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 2,
+      "points": 3,
       "comments": 0,
       "discussionUrl": "https://news.ycombinator.com/item?id=50363800"
     },
@@ -614,8 +699,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 115,
-      "comments": 76,
+      "points": 135,
+      "comments": 87,
       "discussionUrl": "https://news.ycombinator.com/item?id=50363554"
     },
     {
@@ -648,8 +733,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 146,
-      "comments": 42,
+      "points": 177,
+      "comments": 47,
       "discussionUrl": "https://news.ycombinator.com/item?id=50363461"
     },
     {
@@ -784,8 +869,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 206,
-      "comments": 107,
+      "points": 222,
+      "comments": 120,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362905"
     },
     {
@@ -903,8 +988,8 @@
       "summary": "Community discussion. Check the original source.…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 7,
-      "comments": 0,
+      "points": 8,
+      "comments": 1,
       "discussionUrl": "https://news.ycombinator.com/item?id=50362588"
     },
     {
@@ -1127,91 +1212,6 @@
       "points": 2,
       "comments": 0,
       "discussionUrl": "https://news.ycombinator.com/item?id=50361620"
-    },
-    {
-      "id": "pub-86adf82cd0396bb5ac",
-      "title": "I built a free local AI co-processor in Rust. AXON Developer Edition",
-      "url": "https://jrabbass.github.io/axon",
-      "publishedAt": "2026-11-04T04:49:40+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 2,
-      "comments": 0,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50361599"
-    },
-    {
-      "id": "pub-791e9d1f0aae68780a",
-      "title": "Google will cut off search access for students at schools that reject AI",
-      "url": "https://apnews.com/article/ai-schools-classroom-students-google-7ba4219e505db1c11d672f6eefe7155a",
-      "publishedAt": "2026-11-04T04:40:06+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 15,
-      "comments": 3,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50361562"
-    },
-    {
-      "id": "pub-bb1f2f07f5994d40a0",
-      "title": "Anthropic launched tools to show companies what their AI spending is buying",
-      "url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying",
-      "publishedAt": "2026-11-04T04:26:22+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 8,
-      "comments": 1,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50361486"
-    },
-    {
-      "id": "pub-17229e3993f43056af",
-      "title": "VibeVoted – The best software products as ranked by 10 leading AI models",
-      "url": "https://vibevoted.com",
-      "publishedAt": "2026-11-04T04:14:59+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 1,
-      "comments": 2,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50361440"
-    },
-    {
-      "id": "pub-0cda82f47ed49abc7b",
-      "title": "\"Start with a Monolith\" Was Good Advice. AI Is Changing That",
-      "url": "https://medium.com/scalar-engineering/architecture-in-the-ai-era-part-1-summary-start-with-a-monolith-was-good-advice-7df0597d0e37",
-      "publishedAt": "2026-11-04T04:00:28+00:00",
-      "source": "Hacker News",
-      "sourceId": "hn",
-      "layer": "Discussion",
-      "priority": 1,
-      "kind": "discussion",
-      "summary": "Community discussion. Check the original source.…",
-      "summaryLabel": "Source excerpt · up to 25 words",
-      "dateLabel": "Source publication",
-      "points": 2,
-      "comments": 1,
-      "discussionUrl": "https://news.ycombinator.com/item?id=50361361"
     },
     {
       "id": "pub-797aba84ba3e9103d8",
@@ -1922,7 +1922,7 @@
       "summary": "Composed Image Retrieval (CIR) aims to retrieve a target image given a reference image and a modification text. Although recent approaches leveraging Multimodal Large Language…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 32
+      "points": 33
     },
     {
       "id": "pub-5ae91bff08b3cb5cd0",
@@ -2405,7 +2405,7 @@
       "summary": "We introduce Axion 1.0, a fully open agent foundation model that combines strong and broad agentic capabilities with a remarkably simple training recipe. Axion 1.0…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 35
+      "points": 38
     },
     {
       "id": "pub-2d3614d1a3110f1f4f",
@@ -2465,7 +2465,7 @@
       "summary": "Long-form multi-shot video editing requires an intended edit to remain coherent across abrupt changes in scene, viewpoint, and subject appearance, while processing substantially longer visual…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 54
+      "points": 55
     },
     {
       "id": "pub-0347bbda6ac6a11ba5",
@@ -3263,7 +3263,7 @@
       "summary": "On-policy Self-distillation (OPSD) has proven effective for post-training large language models by constructing a teacher conditioned on privileged references. However, existing approaches keep the teacher…",
       "summaryLabel": "Source excerpt · up to 25 words",
       "dateLabel": "Source publication",
-      "points": 5
+      "points": 7
     },
     {
       "id": "pub-e9312f63a8158d5bdc",
@@ -5522,7 +5522,7 @@
       "purpose": "Research, product capabilities and official limitations",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:14:58.191268+00:00",
+      "fetchedAt": "2026-11-04T13:34:52.148485+00:00",
       "error": null
     },
     {
@@ -5536,7 +5536,7 @@
       "purpose": "Agent architecture, context, tooling and evaluations",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T13:14:59.391839+00:00",
+      "fetchedAt": "2026-11-04T13:34:53.444751+00:00",
       "error": null
     },
     {
@@ -5550,7 +5550,7 @@
       "purpose": "New methods and demonstrated limits",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T13:14:59.391857+00:00",
+      "fetchedAt": "2026-11-04T13:34:53.653808+00:00",
       "error": null
     },
     {
@@ -5563,7 +5563,7 @@
       "purpose": "Model capabilities, research and applications",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:14:59.391866+00:00",
+      "fetchedAt": "2026-11-04T13:34:53.653825+00:00",
       "error": null
     },
     {
@@ -5576,7 +5576,7 @@
       "purpose": "Research mechanisms and technical reports",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:14:59.391874+00:00",
+      "fetchedAt": "2026-11-04T13:34:53.653835+00:00",
       "error": null
     },
     {
@@ -5589,7 +5589,7 @@
       "purpose": "Open models, model cards and reproducible implementations",
       "priority": 4,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:14:59.391881+00:00",
+      "fetchedAt": "2026-11-04T13:34:53.653842+00:00",
       "error": null
     },
     {
@@ -5603,7 +5603,7 @@
       "purpose": "Real agent workflows, infrastructure and evaluations",
       "priority": 5,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T13:14:59.391890+00:00",
+      "fetchedAt": "2026-11-04T13:34:53.653849+00:00",
       "error": null
     },
     {
@@ -5617,7 +5617,7 @@
       "purpose": "Coding workflows and product engineering",
       "priority": 4,
       "itemCount": 6,
-      "fetchedAt": "2026-11-04T13:14:59.391895+00:00",
+      "fetchedAt": "2026-11-04T13:34:54.108262+00:00",
       "error": null
     },
     {
@@ -5630,7 +5630,7 @@
       "purpose": "Hands-on experiments, reproductions and failure reports",
       "priority": 5,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:14:59.391901+00:00",
+      "fetchedAt": "2026-11-04T13:34:54.108277+00:00",
       "error": null
     },
     {
@@ -5643,7 +5643,7 @@
       "purpose": "Builder interviews, talks and practical context",
       "priority": 4,
       "itemCount": 20,
-      "fetchedAt": "2026-11-04T13:14:59.391907+00:00",
+      "fetchedAt": "2026-11-04T13:34:54.108285+00:00",
       "error": null
     },
     {
@@ -5656,7 +5656,7 @@
       "purpose": "Original papers, beyond community-selected trending lists",
       "priority": 4,
       "itemCount": 30,
-      "fetchedAt": "2026-11-04T13:14:59.507379+00:00",
+      "fetchedAt": "2026-11-04T13:34:54.108291+00:00",
       "error": null
     },
     {
@@ -5669,7 +5669,7 @@
       "purpose": "Research discovery and community interest",
       "priority": 4,
       "itemCount": 60,
-      "fetchedAt": "2026-11-04T13:14:59.507405+00:00",
+      "fetchedAt": "2026-11-04T13:34:54.108298+00:00",
       "error": null
     },
     {
@@ -5682,7 +5682,7 @@
       "purpose": "Shipped code and official release notes",
       "priority": 4,
       "itemCount": 20,
-      "fetchedAt": "2026-11-04T13:15:02.158722+00:00",
+      "fetchedAt": "2026-11-04T13:34:56.879610+00:00",
       "error": null
     },
     {
@@ -5695,17 +5695,17 @@
       "purpose": "Community discussion; contributes no evidence of correctness",
       "priority": 1,
       "itemCount": 60,
-      "fetchedAt": "2026-11-04T13:15:02.158740+00:00",
+      "fetchedAt": "2026-11-04T13:34:56.879625+00:00",
       "error": null
     }
   ],
   "newTermIds": [],
-  "runUrl": "https://github.com/cypher0k/frontier-data/actions/runs/41835860086",
+  "runUrl": "https://github.com/cypher0k/frontier-data/actions/runs/41838570625",
   "editionDay": "2026-11-04",
   "guideStatus": "failed",
   "guideError": "ValueError: Short POCs cannot require model training or frontier-model compute",
   "lastGuideCheckAt": "2026-11-04T13:06:46.576692+00:00",
-  "editor": "Qwen3-4B drafts with a separate source-check pass; POCs are suggestions, not executed tests",
+  "editor": "Qwen3.5-4B drafts, a focused POC pass and a separate source-check pass; POCs are suggestions, not executed research tests",
   "history": [
     "2026-11-04"
   ]
