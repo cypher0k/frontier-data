@@ -21,6 +21,11 @@ class PublisherTests(unittest.TestCase):
   self.assertEqual(len(paper['summary'].split()),25)
   article=publisher.public_item({'url':'https://example.com/article','kind':'engineering','summary':abstract})
   self.assertNotIn('abstract',article)
+ def test_release_notes_keep_bullet_boundaries_in_publications(self):
+  notes='Changes since 1.0\n\n* feat: add pause IDs\n* chore(deps): bump a dependency'
+  item=publisher.public_item({'url':'https://github.com/o/r/releases/tag/v2','kind':'release','summary':notes,'releaseNotes':notes})
+  self.assertEqual(item['releaseNotes'],notes)
+  self.assertIn('\n* feat:',item['releaseNotes'])
  def test_hn_self_posts_remain_distinct(self):
   self.assertNotEqual(publisher.canonical('https://news.ycombinator.com/item?id=1'),publisher.canonical('https://news.ycombinator.com/item?id=2'))
  def test_tracking_and_paper_versions_deduplicate(self):

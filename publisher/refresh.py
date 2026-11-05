@@ -104,7 +104,7 @@ def collect_source(source):
    if os.environ.get('GITHUB_TOKEN'):headers['Authorization']='Bearer '+os.environ['GITHUB_TOKEN']
    try:
     releases=json.loads(request('https://api.github.com/repos/'+repo+'/releases?per_page=3',headers=headers))
-    rows.extend(record(source,repo.split('/')[1]+' · '+(r.get('name') or r['tag_name']),r['html_url'],r.get('published_at'),r.get('body',''),repo=repo) for r in releases if not r.get('draft') and not r.get('prerelease'))
+    rows.extend(record(source,repo.split('/')[1]+' · '+(r.get('name') or r['tag_name']),r['html_url'],r.get('published_at'),r.get('body',''),repo=repo,releaseNotes=str(r.get('body') or '')[:16000]) for r in releases if not r.get('draft') and not r.get('prerelease'))
    except Exception:continue
   if not rows:raise ValueError('Release feeds unavailable')
   return rows
