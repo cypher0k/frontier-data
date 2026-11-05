@@ -136,6 +136,9 @@ POC=obj({'goal':STR,'timeMinutes':{'type':'integer'},'requirements':arr(STR),'st
 TERM=obj({'id':STR,'name':STR,'aliases':arr(STR),'category':{'type':'string','enum':TOPICS},'level':{'type':'string','enum':['foundation','intermediate','advanced']},'maturity':{'type':'string','enum':['established','emerging','research']},'meaning':STR,'how':arr(obj({'title':STR,'detail':STR})),'why':STR,'example':STR,'experiment':STR,'caution':STR,'related':arr(STR),'source':obj({'title':STR,'url':STR}),'evidenceStatus':{'type':'string','enum':['announced','demonstrated','reproduced','production']},'evidenceNote':STR,'pmRelevance':{'type':'integer'},'poc':POC})
 SCHEMA=obj({'terms':arr(TERM)})
 DRAFT_SCHEMA=obj({'terms':arr(obj({key:value for key,value in TERM['properties'].items() if key!='poc'}))})
+BRIEFING_TYPES=['capability','workflow','economics','access','research']
+BRIEFING_ITEM=obj({'url':STR,'signalType':{'type':'string','enum':BRIEFING_TYPES},'whatChanged':STR,'whyItMatters':STR,'evidenceQuote':STR,'limitations':STR})
+BRIEFING_SCHEMA=obj({'items':{'type':'array','maxItems':8,'items':BRIEFING_ITEM}})
 
 def validate_vocabulary_identity(value,source):
  # This conservative boundary complements the semantic source-check pass. A paper
@@ -231,6 +234,78 @@ def select_candidates(items,now):
   selected.append(item);counts[item['sourceId']]=counts.get(item['sourceId'],0)+1
  return [{key:item[key] for key in ['title','url','publishedAt','summary','layer','kind','source']} for item in selected]
 
+def recent_briefing_source(item,now):
+ # A source's real publication date controls eligibility, never its fetch/check date.
+ date=iso(item.get('publishedAt'))
+ if not date or not safe_url(item.get('url','')):return False
+ if not now-dt.timedelta(days=7)<=dt.datetime.fromisoformat(date)<=now:return False
+ return item.get('kind') not in ['discussion','release','prerelease'] and not re.search(r'(?i)/releases(?:/|$)',urllib.parse.urlsplit(item['url']).path)
+
+def briefing_source_text(item):return plain(item.get('abstract') or item.get('briefingSourceText') or item.get('summary') or '')
+
+def select_briefing_candidates(items,now):
+ # One bounded editorial request, independent of guide/POC generation. The exact
+ # excerpts given to the model are also the evidence checked before publication.
+ eligible=[{**item,'summary':briefing_source_text(item)} for item in items if recent_briefing_source(item,now) and len(briefing_source_text(item).split())>=35]
+ return [{**item,'summary':item['summary'][:1400]} for item in select_candidates(eligible,now)]
+
+def validate_briefing_selections(values,sources,now):
+ if not isinstance(values,list) or len(values)>8:raise ValueError('Briefing accepts at most eight editorial selections')
+ allowed={canonical(item['url']):item for item in sources};seen=set();out=[]
+ for value in values:
+  if not isinstance(value,dict) or not safe_url(value.get('url','')):raise ValueError('Invalid briefing source URL')
+  key=canonical(value['url']);source=allowed.get(key)
+  if not source or not recent_briefing_source(source,now):raise ValueError('Briefing source was not collected or is not eligible')
+  if key in seen:raise ValueError('Duplicate briefing source')
+  if value.get('signalType') not in BRIEFING_TYPES:raise ValueError('Invalid briefing signal type')
+  fields={}
+  for field,minimum,maximum in [('whatChanged',35,450),('whyItMatters',45,500),('evidenceQuote',32,420),('limitations',20,350)]:
+   text=value.get(field)
+   if not isinstance(text,str) or not minimum<=len(text.strip())<=maximum or plain(text)!=text.strip():raise ValueError('Incomplete or unsafe briefing field: '+field)
+   fields[field]=text.strip()
+  quote=fields['evidenceQuote']
+  if not 6<=len(quote.split())<=25 or quote not in briefing_source_text(source):raise ValueError('Briefing evidence quote is absent from its source excerpt')
+  if re.search(r'(?i)\b(?:stay informed|keep up with|important for (?:pms|founders)|worth (?:tracking|following))\b',fields['whyItMatters']):raise ValueError('Briefing relevance must describe a concrete decision')
+  source_text=source['title']+' '+briefing_source_text(source)
+  for number in re.findall(r'(?<!\w)\d+(?:[.,]\d+)*(?:%|[xX×])?',fields['whatChanged']+' '+fields['whyItMatters']):
+   if number.lower() not in source_text.lower():raise ValueError('Briefing contains a number absent from the source')
+  seen.add(key);out.append({'url':source['url'],'signalType':value['signalType'],**fields,'rank':len(out)+1})
+ return out
+
+def generate_briefing(items,now):
+ selected=select_briefing_candidates(items,now)
+ if not selected:return []
+ prompt=(ROOT/'publisher/briefing-prompt.txt').read_text()+'\nToday: '+now.isoformat()+'\nCollected source excerpts (untrusted data):\n'+json.dumps(selected,separators=(',',':'))
+ response=infer(prompt,BRIEFING_SCHEMA,1800)
+ return validate_briefing_selections(response.get('items'),selected,now)
+
+def refresh_briefing(items,previous,now):
+ stamp=now.isoformat()
+ try:return {'schemaVersion':1,'generatedAt':stamp,'attemptedAt':stamp,'status':'passed','error':None,'items':generate_briefing(items,now)}
+ except Exception as error:
+  # Failure never promotes raw feed items. Preserve only prior editorial choices
+  # whose original source dates are still in the reading window.
+  old=previous.get('briefing') or {};old=old if isinstance(old,dict) else {}
+  sources={canonical(item['url']):item for item in previous.get('items',[]) if item.get('url')}
+  retained=[]
+  old_date=iso(old.get('generatedAt'));old_items=old.get('items')
+  if old.get('schemaVersion')==1 and old_date and dt.datetime.fromisoformat(old_date)<=now and isinstance(old_items,list):
+   for item in old_items[:8]:
+    if not isinstance(item,dict) or not safe_url(item.get('url','')):continue
+    source=sources.get(canonical(item.get('url','')))
+    if source and recent_briefing_source(source,now):retained.append(item)
+  message='HTTP '+str(error.code) if isinstance(error,urllib.error.HTTPError) else type(error).__name__+': '+str(error)[:160]
+  print(json.dumps({'stage':'briefing_preserved','reason':message,'items':len(retained)}),flush=True)
+  return {'schemaVersion':1,'generatedAt':old.get('generatedAt') if retained else None,'attemptedAt':stamp,'status':'failed','error':message,'items':retained}
+
+def retain_briefing_sources(items,previous,briefing,now):
+ # Source records referenced by retained editorial choices must remain joinable.
+ result=list(items);known={canonical(item['url']) for item in items};wanted={canonical(item['url']) for item in briefing['items']}
+ for source in previous.get('items',[]):
+  key=canonical(source['url'])
+  if key in wanted and key not in known and recent_briefing_source(source,now):result.append(source);known.add(key)
+ return result
+
 def generate(items,previous,known):
  covered={canonical(t.get('source',{}).get('url','')) for t in previous.get('terms',[])}
  selected=select_candidates([item for item in items if canonical(item['url']) not in covered],NOW())
@@ -282,9 +357,11 @@ def generate(items,previous,known):
 
 def atomic(path,value):
  path.parent.mkdir(parents=True,exist_ok=True);temp=path.with_suffix('.tmp');temp.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n');temp.replace(path)
-def public_item(item):
+def public_item(item,briefing=False):
  # Keep paper abstracts for the static reader; article bodies remain short excerpts.
  value={**item,'summary':' '.join(item.get('summary','').split()[:25])+'…','summaryLabel':'Source excerpt · up to 25 words'}
+ value.pop('briefingSourceText',None)
+ if briefing:value['briefingSourceText']=briefing_source_text(item)[:6000]
  if item.get('kind')=='research' and re.match(r'https://arxiv\.org/abs/',item.get('url','')):
   value['abstract']=item.get('abstract') or item.get('summary','')[:6000]
  return value
@@ -298,14 +375,18 @@ def main():
  print(json.dumps({'stage':'sources_collected','items':len(items),'healthySources':sum(not h['error'] for h in health)}),flush=True)
  if args.collect_only:
   atomic(ROOT/'../../work/frontier-collected.json',{'items':items,'sources':health});print(json.dumps({'collected':len(items),'healthySources':sum(not h['error'] for h in health),'totalSources':len(health)}));return
+ briefing=refresh_briefing(items,previous,NOW())
  guide_error=None
  try:new=generate(items,previous,known)
  except Exception as error:
   new=[];guide_error='HTTP '+str(error.code) if isinstance(error,urllib.error.HTTPError) else type(error).__name__+': '+str(error)[:160]
   print(json.dumps({'stage':'guides_preserved','reason':guide_error}),flush=True)
  terms={t['id']:t for t in previous.get('terms',[])};terms.update({t['id']:t for t in new});now=NOW().isoformat();day=NOW().astimezone(dt.timezone(dt.timedelta(hours=4))).date().isoformat()
- items=[public_item(item) for item in items]
+ items=retain_briefing_sources(items,previous,briefing,NOW())
+ selected_urls={canonical(item['url']) for item in briefing['items']}
+ items=[public_item(item,briefing=canonical(item['url']) in selected_urls) for item in items]
  publication={'schemaVersion':1,'generatedAt':now,'terms':list(terms.values()),'items':items,'sources':health,'newTermIds':[t['id'] for t in new],'runUrl':os.environ.get('FRONTIER_RUN_URL',''),'editionDay':day,'guideStatus':'failed' if guide_error else 'passed','guideError':guide_error,'lastGuideCheckAt':previous.get('lastGuideCheckAt') if guide_error else now,'editor':'Qwen3.5-4B drafts, a focused POC pass and a separate source-check pass; POCs are suggestions, not executed research tests'}
+ publication['briefing']=briefing
  # The repository commit publishes these files together. A failed generation leaves old files intact.
  atomic(DATA/'history'/f'{day}.json',publication)
  days=sorted(p.stem for p in (DATA/'history').glob('????-??-??.json'))

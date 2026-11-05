@@ -14,6 +14,62 @@ class PublisherTests(unittest.TestCase):
  def validate(self,guide=None,known=None):
   catalog=json.loads((ROOT/'publisher/catalog-index.json').read_text())
   return publisher.validate_terms([copy.deepcopy(guide or self.guide)],[self.source],catalog+(known or []),'2026-11-04T12:00:00+00:00')
+ def briefing_fixture(self):
+  source={**self.source,'sourceId':'paper','priority':5,'layer':'Research','title':'Local stopping decisions for reasoning models','summary':'The authors compare shorter continuations from the same reasoning prefixes and check whether each continuation retains a correct final answer. Their method learns a local stopping decision rather than imposing one length budget across every problem. Reported results are limited to the evaluated math and code tasks.'}
+  selection={'url':source['url'],'signalType':'research','whatChanged':'The method learns local stopping decisions from shorter continuations checked for a correct final answer.','whyItMatters':'Teams building reasoning workflows can test whether shorter continuations preserve correctness on their own math and code cases.','evidenceQuote':'Their method learns a local stopping decision rather than imposing one length budget across every problem.','limitations':'The reported results cover the evaluated math and code tasks; other workloads need testing.'}
+  return source,selection
+ def test_briefing_rejects_routine_release_notes_even_with_feature_breaking_or_security_words(self):
+  source,selection=self.briefing_fixture();source.update(kind='release',url='https://github.com/langchain-ai/langgraph/releases/tag/1.2.20',title='LangGraph 1.2.20',summary='feat: give each interrupt() in a task its own id. feat: add a strict resume mode that refuses stale interrupt answers. Breaking change CVE major release. '+source['summary']);selection['url']=source['url']
+  now=dt.datetime(2026,11,5,tzinfo=dt.timezone.utc)
+  self.assertEqual(publisher.select_briefing_candidates([source],now),[])
+  with self.assertRaisesRegex(ValueError,'not eligible'):publisher.validate_briefing_selections([selection],[source],now)
+  source['kind']='engineering'
+  with self.assertRaisesRegex(ValueError,'not eligible'):publisher.validate_briefing_selections([selection],[source],now)
+ def test_briefing_requires_collected_recent_source_and_exact_short_evidence(self):
+  source,selection=self.briefing_fixture();now=dt.datetime(2026,11,5,tzinfo=dt.timezone.utc)
+  result=publisher.validate_briefing_selections([selection],[source],now)
+  self.assertEqual(result[0]['evidenceQuote'],selection['evidenceQuote']);self.assertEqual(result[0]['rank'],1)
+  with self.assertRaisesRegex(ValueError,'not collected'):publisher.validate_briefing_selections([{**selection,'url':'https://uncollected.example/claim'}],[source],now)
+  with self.assertRaisesRegex(ValueError,'evidence quote'):publisher.validate_briefing_selections([{**selection,'evidenceQuote':'This exact result was never stated by the collected source.'}],[source],now)
+  with self.assertRaisesRegex(ValueError,'not eligible'):publisher.validate_briefing_selections([selection],[{**source,'publishedAt':'2026-10-01T00:00:00Z'}],now)
+  with self.assertRaisesRegex(ValueError,'not eligible'):publisher.validate_briefing_selections([selection],[{**source,'publishedAt':'2026-11-07T00:00:00Z'}],now)
+  with self.assertRaisesRegex(ValueError,'number absent'):publisher.validate_briefing_selections([{**selection,'whatChanged':'The method is 99% more accurate than every previous reasoning system.'}],[source],now)
+ def test_selected_source_keeps_evidence_beyond_the_public_card_excerpt(self):
+  source,selection=self.briefing_fixture();source.update(kind='engineering',url='https://example.org/workflow')
+  selected=publisher.public_item(source,briefing=True)
+  self.assertNotIn(selection['evidenceQuote'],selected['summary'])
+  self.assertIn(selection['evidenceQuote'],selected['briefingSourceText'])
+  self.assertLessEqual(len(selected['briefingSourceText']),6000)
+  self.assertEqual(publisher.public_item(selected,briefing=True)['briefingSourceText'],selected['briefingSourceText'])
+  self.assertNotIn('briefingSourceText',publisher.public_item(selected))
+ def test_briefing_has_no_quota_and_cannot_select_duplicate_or_unbounded_records(self):
+  source,selection=self.briefing_fixture();now=dt.datetime(2026,11,5,tzinfo=dt.timezone.utc)
+  self.assertEqual(publisher.validate_briefing_selections([],[],now),[])
+  with self.assertRaisesRegex(ValueError,'eight'):publisher.validate_briefing_selections([selection]*9,[source],now)
+  with self.assertRaisesRegex(ValueError,'Duplicate'):publisher.validate_briefing_selections([selection,selection],[source],now)
+  with self.assertRaisesRegex(ValueError,'concrete decision'):publisher.validate_briefing_selections([{**selection,'whyItMatters':'This is important for PMs who want to stay informed and keep up with current developments.'}],[source],now)
+ def test_briefing_uses_one_bounded_selection_call_and_skips_thin_excerpts(self):
+  source,_=self.briefing_fixture();now=dt.datetime(2026,11,5,tzinfo=dt.timezone.utc)
+  items=[{**source,'sourceId':str(index),'url':'https://example.org/source-'+str(index),'summary':source['summary']*20} for index in range(20)]
+  selected=publisher.select_briefing_candidates(items,now)
+  self.assertLessEqual(len(selected),8);self.assertTrue(all(len(item['summary'])<=1400 for item in selected))
+  with patch.object(publisher,'infer',return_value={'items':[]}) as model:
+   self.assertEqual(publisher.generate_briefing(items,now),[]);self.assertEqual(model.call_count,1)
+  with patch.object(publisher,'infer') as model:
+   self.assertEqual(publisher.generate_briefing([{**source,'summary':'Title author date Go back to blog'}],now),[]);model.assert_not_called()
+ def test_failed_briefing_preserves_prior_choices_and_original_missing_source_dates(self):
+  source,selection=self.briefing_fixture();now=dt.datetime(2026,11,5,tzinfo=dt.timezone.utc)
+  old={'schemaVersion':1,'generatedAt':'2026-11-04T08:00:00Z','status':'passed','items':[{**selection,'rank':1}]}
+  previous={'briefing':old,'items':[publisher.public_item(source)]}
+  with patch.object(publisher,'generate_briefing',side_effect=ValueError('Invalid editorial evidence')):
+   result=publisher.refresh_briefing([],previous,now)
+  self.assertEqual(result['status'],'failed');self.assertEqual(result['generatedAt'],old['generatedAt']);self.assertEqual(result['items'],old['items'])
+  retained=publisher.retain_briefing_sources([],previous,result,now)
+  self.assertEqual(retained[0]['publishedAt'],source['publishedAt']);self.assertEqual(retained[0]['url'],source['url'])
+  with patch.object(publisher,'generate_briefing',return_value=[]):
+   self.assertEqual(publisher.refresh_briefing([],previous,now)['items'],[])
+  with patch.object(publisher,'generate_briefing',side_effect=ValueError('Unavailable')):
+   self.assertEqual(publisher.refresh_briefing([],{**previous,'items':[{**source,'publishedAt':'2026-10-01T00:00:00Z'}]},now)['items'],[])
  def test_public_reader_retains_paper_abstracts_without_publishing_article_bodies(self):
   abstract='An author abstract with detailed methods and results. '*40
   paper=publisher.public_item({'url':'https://arxiv.org/abs/2611.05344','kind':'research','summary':abstract})
@@ -107,10 +163,11 @@ class PublisherTests(unittest.TestCase):
    root=Path(tmp);data=root/'public/data';data.mkdir(parents=True)
    (root/'publisher').mkdir();(root/'publisher/catalog-index.json').write_text('[]')
    (data/'publication.json').write_text(json.dumps({'terms':[self.guide],'items':[]}))
-   with patch.object(publisher,'ROOT',root),patch.object(publisher,'DATA',data),patch.object(publisher.sys,'argv',['refresh.py']),patch.object(publisher,'collect',return_value=([self.source],[{'error':None}]*5)),patch.object(publisher,'generate',side_effect=ValueError('Draft did not pass source review')):
+   with patch.object(publisher,'ROOT',root),patch.object(publisher,'DATA',data),patch.object(publisher.sys,'argv',['refresh.py']),patch.object(publisher,'collect',return_value=([self.source],[{'error':None}]*5)),patch.object(publisher,'generate_briefing',side_effect=ValueError('Editorial evidence failed')),patch.object(publisher,'generate',side_effect=ValueError('Draft did not pass source review')):
     publisher.main()
    result=json.loads((data/'publication.json').read_text())
    self.assertEqual(result['guideStatus'],'failed');self.assertEqual(result['terms'],[self.guide]);self.assertEqual(result['items'][0]['url'],self.source['url']);self.assertEqual(result['newTermIds'],[])
+   self.assertEqual(result['briefing']['status'],'failed');self.assertEqual(result['briefing']['items'],[])
  def test_papers_and_practitioners_are_not_crowded_out_by_labs(self):
   now=dt.datetime(2026,11,4,tzinfo=dt.timezone.utc)
   items=[{**self.source,'title':'Agent model training '+str(i),'url':'https://example.com/'+str(i),'sourceId':str(i),'priority':5,'layer':'Labs'} for i in range(10)]
