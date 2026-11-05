@@ -39,6 +39,28 @@ class PublisherTests(unittest.TestCase):
   self.assertEqual(self.validate(known=[old])[0]['addedAt'],old['addedAt'])
   bad=copy.deepcopy(self.guide);bad['id']='replacement-id'
   with self.assertRaisesRegex(ValueError,'original ID'):self.validate(bad,[old])
+ def test_model_versions_and_named_artifacts_cannot_become_vocabulary(self):
+  cases=[('Dory1.0-4B','Dory1.0-4B is a 4-billion-parameter recurrent language model with elastic depth.'),('BEND 2.0','BEND 2.0 evaluates DNA language models on mutation effects.'),('Kronos','Kronos is a financial foundation model for forecasting market data.'),('FrontierPhysics','FrontierPhysics is an end-to-end benchmark of 56 physics research tasks.'),('CorpusX','CorpusX is a large dataset containing examples for training language models.'),('FlowKit','FlowKit is a Python library for building agent workflows.')]
+  for name,meaning in cases:
+   with self.subTest(name=name):
+    guide=copy.deepcopy(self.guide);guide.update(id='candidate-'+publisher.norm(name),name=name,aliases=[],meaning=meaning)
+    self.source.update(title=name,summary=meaning)
+    with self.assertRaisesRegex(ValueError,'Vocabulary cannot'):self.validate(guide)
+ def test_a_release_entry_cannot_be_the_source_for_a_vocabulary_guide(self):
+  self.source['kind']='release'
+  with self.assertRaisesRegex(ValueError,'reusable concept source'):self.validate()
+ def test_concept_gate_retains_existing_concepts_classes_and_named_methods(self):
+  values=[t for p in (ROOT/'public/data').glob('catalog-*.json') for t in json.loads(p.read_text())]+json.loads((ROOT/'public/data/publication.json').read_text())['terms']
+  for guide in values:
+   with self.subTest(name=guide['name']):publisher.validate_vocabulary_identity(guide,{'kind':'research'})
+  for name,meaning in [('Looped language model','Looped language model is a recurrent language model that applies a shared block repeatedly.'),('Evaluation metric','Evaluation metric is a measurement method that compares model behavior with an explicit criterion.'),('ReAct','ReAct is an agent method that alternates reasoning, actions and observations.')]:
+   publisher.validate_vocabulary_identity({'name':name,'meaning':meaning},{'kind':'research'})
+ def test_ineligible_model_draft_is_rejected_before_designing_a_poc(self):
+  guide=copy.deepcopy(self.guide);guide.update(id='candidate-dory',name='Dory1.0-4B',aliases=[],meaning='Dory1.0-4B is a recurrent language model with elastic depth.')
+  source={**self.source,'title':guide['name'],'summary':guide['meaning'],'sourceId':'paper','priority':5,'layer':'Research'}
+  with patch.object(publisher,'NOW',return_value=dt.datetime(2026,11,4,tzinfo=dt.timezone.utc)),patch.object(publisher,'infer',return_value={'terms':[guide]}) as model:
+   with self.assertRaisesRegex(ValueError,'Vocabulary cannot'):publisher.generate([source],{},[])
+   self.assertEqual(model.call_count,1)
  def test_short_poc_cannot_ask_for_frontier_model_training(self):
   bad=copy.deepcopy(self.guide);bad['poc']['steps'][0]='Train a draft model on agent trajectories.'
   with self.assertRaisesRegex(ValueError,'model training'):self.validate(bad)

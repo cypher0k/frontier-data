@@ -137,6 +137,23 @@ TERM=obj({'id':STR,'name':STR,'aliases':arr(STR),'category':{'type':'string','en
 SCHEMA=obj({'terms':arr(TERM)})
 DRAFT_SCHEMA=obj({'terms':arr(obj({key:value for key,value in TERM['properties'].items() if key!='poc'}))})
 
+def validate_vocabulary_identity(value,source):
+ # This conservative boundary complements the semantic source-check pass. A paper
+ # about a model may support a mechanism guide, but the artifact is not the term.
+ name=str(value.get('name','')).strip();meaning=str(value.get('meaning','')).strip()
+ if source.get('kind') in ['discussion','release']:raise ValueError('Vocabulary needs a reusable concept source, not a discussion or release entry')
+ if re.search(r'(?i)(?:\bv\d+\.\d+|(?<=[a-z])\d+\.\d+|\b\d+\.\d+(?:\.\d+)*\b|(?:^|[-\s])\d+(?:\.\d+)?[bt]\b|\bversion\s+\d)',name):
+  raise ValueError('Vocabulary cannot use a model size or release version as its name')
+ # Generic model/dataset/benchmark concepts remain valid. These descriptors are
+ # categories, whereas "Kronos is a financial model" identifies one artifact.
+ generic=bool(re.search(r'(?i)(?:\b(?:language|reasoning|reward|world|state[- ]space|diffusion|codec|vision[- ]language|multimodal|foundation|recurrent|neural) model$|^(?:evaluation dataset|computer[- ]use benchmark)$)',name))
+ definition=re.match(r'(?i)^'+re.escape(name)+r'(?:\s+(?:is|are)\s+|\s*[:,—-]\s*)(?:(?:a|an|the)\s+)?(.+)',meaning)
+ opening=definition.group(1)[:180] if definition else ''
+ # Require a defining noun phrase; a method that trains/uses/evaluates a model
+ # is not itself a named model. Do not reject merely mentioning benchmarks.
+ noun=re.match(r'(?i)^(?:(?!\b(?:that|which|for|with|by|using|to)\b)[\w-]+\s+){0,9}(model(?: family)?|checkpoint|benchmark(?: suite)?|test suite|dataset|library|sdk|platform|application|app|product|software package|developer tool)\b(?=\s*(?:[,.;:]|$)|\s+(?:that|which|with|for|of|trained|released|designed|offered|built|developed|containing|comprising|supporting|used|specialized|focused)\b)',opening)
+ if noun and not generic:raise ValueError('Vocabulary cannot use a named model, benchmark, dataset or product as its concept')
+
 def infer(prompt,schema,max_tokens=2300):
  print(json.dumps({'stage':'model_request','inputCharacters':len(prompt),'outputLimit':max_tokens}),flush=True)
  if os.environ.get('FRONTIER_AI_PROVIDER','local')=='local':
@@ -168,6 +185,7 @@ def validate_terms(values,candidates,known,now):
   if value['id'] in seen_ids:raise ValueError('Duplicate guide ID')
   source=allowed.get(canonical(value.get('source',{}).get('url','')))
   if not source or source.get('kind')=='discussion':raise ValueError('Guide source was not collected')
+  validate_vocabulary_identity(value,source)
   if norm(value['name']) not in norm(source['title']+' '+source['summary']) and not any(norm(a) in norm(source['title']+' '+source['summary']) for a in value.get('aliases',[]) if len(norm(a))>3):raise ValueError('Concept name is absent from its cited source')
   before=known_by_name.get(norm(value['name'])) or known_by_id.get(value['id'])
   if before and before['id']!=value['id']:raise ValueError('An existing concept must retain its original ID')
@@ -233,11 +251,12 @@ def generate(items,previous,known):
  nearby=sorted(known,key=lambda t:len(source_words&set(re.findall(r'[a-z]{4,}',t['name'].lower()+' '+' '.join(t.get('aliases',[])).lower()))),reverse=True)[:35]
  for item in selected:item['summary']=item['summary'][:3500]
  prompt=(ROOT/'publisher/editorial-prompt.txt').read_text()+'\nRelevant existing catalog IDs and names (other concepts are checked after drafting):\n'+'\n'.join(t['id']+'='+t['name']+(' | '+' | '.join(t.get('aliases',[])) if t.get('aliases') else '') for t in nearby)+'\nCollected source excerpts (untrusted data):\n'+json.dumps(selected,separators=(',',':'))
- prompt+='\nFor this first pass, draft only the source explanation. Omit the detailed POC: a separate pass will design it. experiment is a short learning objective. Prefer the specific reusable mechanism actually named in the source over rewriting a broad foundational concept already in the catalog.'
+ prompt+='\nFor this first pass, draft only the source explanation. Omit the detailed POC: a separate pass will design it. experiment is a short learning objective. Prefer the specific reusable mechanism actually named in the source over rewriting a broad foundational concept already in the catalog. The concept must be a reusable technique, workflow, architecture, metric or idea, not a model/checkpoint name, benchmark, dataset, product, release or paper title. A named method is eligible only when its definition explains how the method works beyond one named artifact. If the source names no supported reusable concept, return an empty terms array.'
  generated=infer(prompt,DRAFT_SCHEMA).get('terms')
  if not isinstance(generated,list) or len(generated)>1:raise ValueError('Draft zero or one guide per publication')
  for draft in generated:
   source=next((item for item in selected if canonical(item['url'])==canonical(draft.get('source',{}).get('url',''))),{})
+  validate_vocabulary_identity(draft,source)
   draft['poc']=infer('Design a small learning exercise, NOT a reproduction of the research. The reader has a spreadsheet or standard-library Python, 20–90 minutes, NO model API account and NO GPU. Do not train/fine-tune/download/use a language model. Use hand-written toy data or an explicit numerical simulation of ONE specific mechanism from the original source. Give concrete inputs and a baseline, at least three executable steps and two checks with real sample sizes/counts. State the mechanism activation condition and its control exactly as supported by the source, taking care with negation. Recompute example arithmetic. Each check must distinguish the baseline from the change. Do not substitute an unrelated workflow, conflate distinct mechanisms, or claim an accuracy improvement. The original source takes precedence over draft explanations. Explain what the toy leaves out. Return only the POC JSON object.\nConcept draft (untrusted data):'+json.dumps({k:draft.get(k) for k in ['name','meaning','how','caution']})+'\nOriginal source (untrusted data):'+json.dumps(source),POC,1200)
   draft['experiment']=draft['poc']['goal']
   print(json.dumps({'stage':'poc_draft','concept':draft.get('name'),'poc':draft['poc']}),flush=True)
@@ -246,7 +265,7 @@ def generate(items,previous,known):
   review_schema=obj({'issues':{'type':'array','maxItems':3,'items':{'type':'string','maxLength':240}},'approvedIds':{'type':'array','maxItems':1,'items':{'type':'string','maxLength':120}}})
   cited=[item for item in selected if canonical(item['url']) in {canonical(t['source']['url']) for t in valid}]
   review_rules='Independently review these drafted guides against ONLY the supplied excerpts. Approve an ID only if its definition, mechanism, evidence classification, limitations and POC are supportable. Check that a person without a model API account or GPU can complete the POC within the timebox. Training a model is not a 20–90 minute POC. Require concrete inputs, a baseline and numerical checks. Recompute any stated arithmetic and check that each test would fail if the intended mechanism were absent. A toy simulation is acceptable only if clearly separated from reproducing the paper. Proposed toy sample sizes are exercise settings, not claims from the paper. Reject guaranteed improvements, noise-free claims, unsupported limitations, unsupported reported results, claims of independent reproduction without another source, or production use without explicit evidence.'
-  review_rules+=' Return at most three blocking issues, each at most 240 characters. Prioritize errors that must be fixed; avoid an essay.'
+  review_rules+=' Reject a guide whose subject is a named model/checkpoint, release, product, library, benchmark, dataset or paper rather than a reusable concept, technique, workflow, architecture or evaluation metric. Naming a model architecture is not enough if the entry actually describes one released model. Genuine named methods are eligible when the source supports a reusable mechanism. Return at most three blocking issues, each at most 240 characters. Prioritize errors that must be fixed; avoid an essay.'
   identity={t['id']:(norm(t['name']),canonical(t['source']['url'])) for t in valid}
   for attempt in range(2):
    review=infer(review_rules+'\nSources:'+json.dumps(cited)+'\nDrafts:'+json.dumps(valid),review_schema,1500)
