@@ -8,7 +8,7 @@ sudo apt-get update -qq
 sudo apt-get install -y -qq libopenblas-dev
 git clone --depth 1 --branch v0.9.0 https://github.com/ggml-org/llama.cpp.git "$build_root"
 test "$(git -C "$build_root" rev-parse HEAD)" = cd959bae99ff4bed22bef2604f45241c09bbb8c8
-cmake -S "$build_root" -B "$build_root/build" -DCMAKE_BUILD_TYPE=Release -DGGML_BLAS=ON -DGGML_BLAS_VENDOR=OpenBLAS -DLLAMA_CURL=OFF -DLLAMA_BUILD_TESTS=OFF
+cmake -S "$build_root" -B "$build_root/build" -DCMAKE_BUILD_TYPE=Release -DGGML_BLAS=ON -DGGML_BLAS_VENDOR=OpenBLAS -DLLAMA_CURL=OFF -DLLAMA_BUILD_TESTS=OFF -DLLAMA_BUILD_UI=OFF -DLLAMA_USE_PREBUILT_UI=OFF
 cmake --build "$build_root/build" --config Release --target llama-server -j 4
 curl --fail --location --retry 3 'https://huggingface.co/lmstudio-community/Qwen3.5-4B-GGUF/resolve/f9f88ac3e234be915e23811a6d28ea287bdb927e/Qwen3.5-4B-Q4_K_M.gguf?download=true' --output "$model_path"
 sha256sum --check <<HASH
