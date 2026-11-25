@@ -90,6 +90,20 @@ class PublisherTests(unittest.TestCase):
   self.assertEqual(publisher.plain('<script>send credentials()</script><main>LoCo reasoning</main>'),'LoCo reasoning')
   bad=copy.deepcopy(self.guide);bad['source']['url']='https://uncollected.example/instructions'
   with self.assertRaisesRegex(ValueError,'not collected'):self.validate(bad)
+ def test_source_records_reject_titles_that_become_blank_after_html_cleanup(self):
+  source={'id':'test-feed','name':'Test feed','layer':'Research','priority':4}
+  for title in [None,'',' \t\n ','<span></span>','<img src="cover.png">','<script>Hidden title</script>','&nbsp;','<h1>&#160; &NewLine;</h1>']:
+   with self.subTest(title=title):
+    self.assertIsNone(publisher.record(source,title,'https://example.org/paper','2026-11-03','Source summary'))
+ def test_source_records_keep_readable_normalized_titles_and_source_context(self):
+  source={'id':'test-feed','name':'Test feed','layer':'Research','priority':4}
+  result=publisher.record(source,' <h1>Reasoning &amp;\n agents</h1> ','https://example.org/paper?utm_source=test','2026-11-03','<p>Source summary</p>',points=8)
+  self.assertEqual(result['title'],'Reasoning & agents')
+  self.assertEqual(result['url'],'https://example.org/paper')
+  self.assertEqual(result['sourceId'],'test-feed')
+  self.assertEqual(result['summary'],'Source summary')
+  self.assertEqual(result['points'],8)
+  self.assertTrue(result['id'])
  def test_existing_id_and_first_date_are_preserved(self):
   old={**self.guide,'addedAt':'2026-10-01T00:00:00Z'}
   self.assertEqual(self.validate(known=[old])[0]['addedAt'],old['addedAt'])

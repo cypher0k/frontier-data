@@ -55,7 +55,9 @@ def iso(value):
  return d.replace(tzinfo=d.tzinfo or dt.timezone.utc).astimezone(dt.timezone.utc).isoformat()
 def record(source,title,url,date,summary,**extra):
  if not safe_url(url) or not title:return None
- return {'id':'pub-'+hashlib.sha256(canonical(url).encode()).hexdigest()[:18],'title':plain(title)[:400],'url':canonical(url),'publishedAt':iso(date),'source':source['name'],'sourceId':source['id'],'layer':source['layer'],'priority':source['priority'],'kind':{'Labs':'announcement','Research':'research','Engineering':'engineering','Practitioners':'practitioner','Releases':'release','Discussion':'discussion'}[source['layer']],'summary':plain(summary)[:6000],'summaryLabel':'Source excerpt','dateLabel':'Source publication',**extra}
+ title=plain(title)[:400]
+ if not title:return None
+ return {'id':'pub-'+hashlib.sha256(canonical(url).encode()).hexdigest()[:18],'title':title,'url':canonical(url),'publishedAt':iso(date),'source':source['name'],'sourceId':source['id'],'layer':source['layer'],'priority':source['priority'],'kind':{'Labs':'announcement','Research':'research','Engineering':'engineering','Practitioners':'practitioner','Releases':'release','Discussion':'discussion'}[source['layer']],'summary':plain(summary)[:6000],'summaryLabel':'Source excerpt','dateLabel':'Source publication',**extra}
 def rss(source,body):
  root=ET.fromstring(body);out=[]
  for item in root.iter():
